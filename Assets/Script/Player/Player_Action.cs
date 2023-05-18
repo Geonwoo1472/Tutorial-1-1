@@ -15,6 +15,22 @@ static class Constants
 
 public class Player_Action : MonoBehaviour
 {
+    #region Singleton
+    public static Player_Action instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        rigid = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+    }
+    #endregion
+
     public float speed;
 
 
@@ -35,13 +51,6 @@ public class Player_Action : MonoBehaviour
 
     /*애니메이션 */
     Animator anim;
-
-    void Awake()
-    {
-        rigid = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-
-    }
 
     private void Start()
     {
