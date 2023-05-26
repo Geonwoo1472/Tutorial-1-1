@@ -21,9 +21,11 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    //현재 맵 정보
-    public string currentMapName;
+    //플레이어 재시작 위치
+    public string playerStartingPt;
 
+    //현재 맵 이름
+    public string currentMapName;
 
     //인벤토리
     public GameObject inventoryPanel;
