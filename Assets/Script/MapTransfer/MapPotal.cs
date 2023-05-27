@@ -14,6 +14,8 @@ public class MapPotal : MonoBehaviour
     private GameObject player;
     CameraMove CMove;
 
+    FadeEffect fadeEffect;
+
     private void Start()
     {
         gameManager = GameManager.instance;
@@ -28,6 +30,10 @@ public class MapPotal : MonoBehaviour
             Debug.Log("Player 못찾음 !!");
 
         CMove = GameObject.Find("Main Camera").GetComponent<CameraMove>();
+
+        //fade 효과
+        fadeEffect = GameObject.Find("FadeImage").GetComponent<FadeEffect>();
+
     }
 
 
@@ -45,10 +51,14 @@ public class MapPotal : MonoBehaviour
             }
 
 
+            // 맵이 전환될 때 
             if (MapDictionary.instance.dict.ContainsKey(transferMapName))
             {
                 gameManager.currentMapName = MapDictionary.instance.dict[transferMapName];
                 CMove.CameraPosMove();
+
+                //페이드 효과
+                fadeEffect.OnFade(FadeState.FadeIn);
             }
             else
             {
