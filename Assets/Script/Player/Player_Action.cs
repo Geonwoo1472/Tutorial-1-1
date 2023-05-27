@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+/*
+ BugList
+1) 코루틴에서 멈추었는데 Update에서 풀어서 움직이는 것 같음
+   맵탄 상태에서 키 계속 누르고 있으면 미세하게 반응함.
+ */
+
+
 // 방향 상수 값
 static class Constants
 {
@@ -13,10 +20,18 @@ static class Constants
 
 }
 
+public enum PlayerState
+{
+    MoveOn =0,
+    MoveOff
+}
+
 public class Player_Action : MonoBehaviour
 {
     #region Singleton
     public static Player_Action instance;
+
+
 
     private void Awake()
     {
@@ -31,8 +46,9 @@ public class Player_Action : MonoBehaviour
     }
     #endregion
 
-    public float speed;
+    private PlayerState playerState;
 
+    public float speed;
 
     // 캐릭터 방향
     short direction;
@@ -84,6 +100,7 @@ public class Player_Action : MonoBehaviour
 
     void Player_Move()
     {
+
         if (isCharacterMove)
         {
             rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
@@ -193,6 +210,68 @@ public class Player_Action : MonoBehaviour
             Debug.Log("박스와 충돌함 !! ");
 
         }
+    }
+
+
+    //플레이어 움직임 제어 OnStop(PlayerState.MoveOff) 으로 호출하여야함.
+    //설계가 살짝 잘못되어 있음.
+    //매개변수를 2개 받고 멈추는 시간까지 받는게 좋아보임 수정할 것
+    public void OnStop(PlayerState state)
+    {
+        playerState = state;
+
+        switch (playerState)
+        {
+            case PlayerState.MoveOn:
+                //StartCoroutine(Stop());
+                break;
+            case PlayerState.MoveOff:
+                StartCoroutine(MoveStop());
+                break;
+        
+        }
+
+    }
+
+
+    private IEnumerator MoveStop()
+    {
+        while (true)
+        {
+            yield return StartCoroutine(Stop());
+
+            yield return StartCoroutine(Move());
+
+            if (playerState == PlayerState.MoveOff)
+            {
+                break;
+            }
+        }
+    }
+
+    // 
+    private IEnumerator Stop()
+    {
+        float currentTime = 0.0f;
+
+        while (currentTime < 2)
+        {
+            currentTime += Time.deltaTime;
+            rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+
+            anim.SetInteger("hRaw", 0);
+            anim.SetInteger("vRaw", 0);
+            // 함수 반복 끝
+            yield return null;
+        }
+        
+    }
+
+    private IEnumerator Move()
+    {
+        rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        yield return null;
     }
 
 }

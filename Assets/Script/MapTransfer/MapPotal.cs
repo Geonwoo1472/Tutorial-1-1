@@ -12,6 +12,8 @@ public class MapPotal : MonoBehaviour
 
     private GameManager gameManager;
     private GameObject player;
+    private Player_Action playerAction;
+
     CameraMove CMove;
 
     FadeEffect fadeEffect;
@@ -33,6 +35,11 @@ public class MapPotal : MonoBehaviour
 
         //fade 효과
         fadeEffect = GameObject.Find("FadeImage").GetComponent<FadeEffect>();
+        fadeEffect.OnFade(FadeState.FadeIn);
+
+        playerAction = player.GetComponent<Player_Action>();
+        playerAction.OnStop(PlayerState.MoveOff);
+
 
     }
 
@@ -59,6 +66,7 @@ public class MapPotal : MonoBehaviour
 
                 //페이드 효과
                 fadeEffect.OnFade(FadeState.FadeIn);
+                playerAction.OnStop(PlayerState.MoveOff);
             }
             else
             {
