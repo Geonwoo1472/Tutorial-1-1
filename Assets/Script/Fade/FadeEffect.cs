@@ -2,12 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
-/*
-남은 작업
--타이틀 -> 게임화면 시 페이드효과
--페이드 효과 중 캐릭터 움직임 정지
- */
-
 public enum FadeState
 {
     FadeIn = 0,

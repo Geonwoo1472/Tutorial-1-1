@@ -30,9 +30,6 @@ public class Player_Action : MonoBehaviour
 {
     #region Singleton
     public static Player_Action instance;
-
-
-
     private void Awake()
     {
         if (instance != null)
@@ -41,8 +38,6 @@ public class Player_Action : MonoBehaviour
             return;
         }
         instance = this;
-        rigid = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
     }
     #endregion
 
@@ -63,13 +58,15 @@ public class Player_Action : MonoBehaviour
     bool isHorizonMove;
 
     /* 값 가져오기 */
-    public Rigidbody2D rigid;
+    private Rigidbody2D rigid;
 
     /*애니메이션 */
     Animator anim;
 
     private void Start()
     {
+        rigid = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         direction = Constants.DD;
         dirVec = Vector3.down;
         isCharacterTime = 0f;
