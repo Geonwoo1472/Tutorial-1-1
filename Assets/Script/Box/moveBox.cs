@@ -63,6 +63,7 @@ public class moveBox : MonoBehaviour
                         rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
                     }
                 }
+                // 박스를 제대로 민 경우
                 else
                 {
                     rigid.velocity = Vector2.zero;
@@ -73,6 +74,7 @@ public class moveBox : MonoBehaviour
                     past_pos = transform.position;
                     boxMoveTime = 0;
                     isReady = false;
+                    PlayerStatus.instance.OnDamageFatigue(HF_Constance.BOXMOVE);
                     rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
                 }
                 break;
@@ -92,6 +94,7 @@ public class moveBox : MonoBehaviour
                         rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
                     }
                 }
+                // 박스를 제대로 민 경우
                 else
                 {
                     rigid.velocity = Vector2.zero;
@@ -102,6 +105,7 @@ public class moveBox : MonoBehaviour
                     past_pos = transform.position;
                     boxMoveTime = 0;
                     isReady = false;
+                    PlayerStatus.instance.OnDamageFatigue(HF_Constance.BOXMOVE);
                     rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
                 }
                 break;
@@ -122,6 +126,7 @@ public class moveBox : MonoBehaviour
                         rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
                     }
                 }
+                // 박스를 제대로 민 경우
                 else
                 {
                     rigid.velocity = Vector2.zero;
@@ -132,6 +137,7 @@ public class moveBox : MonoBehaviour
                     past_pos = transform.position;
                     boxMoveTime = 0;
                     isReady = false;
+                    PlayerStatus.instance.OnDamageFatigue(HF_Constance.BOXMOVE);
                     rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
                 }
                 break;
@@ -152,6 +158,7 @@ public class moveBox : MonoBehaviour
                         rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
                     }
                 }
+                // 박스를 제대로 민 경우
                 else
                 {
                     rigid.velocity = Vector2.zero;
@@ -162,6 +169,7 @@ public class moveBox : MonoBehaviour
                     past_pos = transform.position;
                     boxMoveTime = 0;
                     isReady = false;
+                    PlayerStatus.instance.OnDamageFatigue(HF_Constance.BOXMOVE);
                     rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
                 }
                 break;

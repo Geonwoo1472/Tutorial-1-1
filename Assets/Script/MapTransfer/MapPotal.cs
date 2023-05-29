@@ -43,20 +43,16 @@ public class MapPotal : MonoBehaviour
 
     }
 
+    // 다음 작업은 여기부터
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerEnter2D()");
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
+            // 게임매니저의 재시작 위치 초기화
             gameManager.playerStartingPt = transferMapName;
+            // 플레이어의 위치를 다음 포탈로 이동
             player.transform.position = map.transform.position;
-
-            if(MapDictionary.instance.dict == null)
-            {
-                Debug.Log("왜 NULL 인가?");
-            }
-
 
             // 맵이 전환될 때 
             if (MapDictionary.instance.dict.ContainsKey(transferMapName))

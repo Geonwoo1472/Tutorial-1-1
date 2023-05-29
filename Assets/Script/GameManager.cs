@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
 public class GameManager : MonoBehaviour
 {
     #region Singleton
@@ -33,14 +32,14 @@ public class GameManager : MonoBehaviour
 
     //게임재시작
     private bool isGameover;
-    private int SceneNum;
+    
 
 
     void Start()
     {
         DontDestroyOnLoad(gameObject);
         isGameover = false;
-        SceneNum = 0;
+        
         //inventoryPanel.SetActive(activeInventory);
     }
 
@@ -53,7 +52,7 @@ public class GameManager : MonoBehaviour
             // R 키를 눌렀을 경우 맵 재시작
             if (Input.GetKeyDown(KeyCode.R))
             {
-                SceneManager.LoadScene(SceneNum);
+                //SceneManager.LoadScene(0);
             }
             // I 키를 눌렀을 때 인벤토리
             if (Input.GetKeyDown(KeyCode.I))

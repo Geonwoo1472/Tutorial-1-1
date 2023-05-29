@@ -2806,10 +2806,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b9fd387d8c178428fb27385e7b2037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderHunger: {fileID: 0}
-  textHunger: {fileID: 0}
-  sliderFatigue: {fileID: 0}
-  textMPFatigue: {fileID: 0}
+  sliderHunger: {fileID: 1650647150}
+  textHunger: {fileID: 1658036703}
+  sliderFatigue: {fileID: 1375471060}
+  textFatigue: {fileID: 1700328609}
 --- !u!1 &305197821
 GameObject:
   m_ObjectHideFlags: 0
@@ -11435,6 +11435,14 @@ PrefabInstance:
     - target: {fileID: 2848520586195425386, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848520586195425390, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2848520586195425390, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
+      propertyPath: m_FlipY
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
