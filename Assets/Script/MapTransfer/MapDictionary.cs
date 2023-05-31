@@ -26,6 +26,8 @@ public class MapDictionary : MonoBehaviour
         dict.Add("PS1-2", "CameraPos2");
         dict.Add("PS1-3", "CameraPos3");
         dict.Add("PS1-4", "CameraPos4");
+
+        dict.Add("PE1-1", "CameraPos1");
         dict.Add("PE1-2", "CameraPos2");
         dict.Add("PE1-3", "CameraPos3");
         dict.Add("PE1-4", "CameraPos4");

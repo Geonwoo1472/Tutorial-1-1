@@ -76,6 +76,10 @@ public class Player_Action : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //임시방편으로 게임오버 활성화 중 움직임 불가함.
+        if (GameManager.instance.isGameover)
+            return;
+
         //키보드 입력 받는 메소드
         Player_Move();
         //실제 게임 velocity 주는 메소드

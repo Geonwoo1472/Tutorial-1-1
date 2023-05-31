@@ -32,14 +32,8 @@ public class MapPotal : MonoBehaviour
             Debug.Log("Player 못찾음 !!");
 
         CMove = GameObject.Find("Main Camera").GetComponent<CameraMove>();
-
-        //fade 효과
         fadeEffect = GameObject.Find("FadeImage").GetComponent<FadeEffect>();
-        fadeEffect.OnFade(FadeState.FadeIn);
-
         playerAction = player.GetComponent<Player_Action>();
-        playerAction.OnStop(PlayerState.MoveOff);
-
 
     }
 
@@ -49,7 +43,7 @@ public class MapPotal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            // 게임매니저의 재시작 위치 초기화
+            // 게임매니저의 재시작 위치 값 대입
             gameManager.playerStartingPt = transferMapName;
             // 플레이어의 위치를 다음 포탈로 이동
             player.transform.position = map.transform.position;

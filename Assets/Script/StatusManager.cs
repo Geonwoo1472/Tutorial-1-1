@@ -59,9 +59,10 @@ public class StatusManager : MonoBehaviour
         if(HungerDict.ContainsKey(GameManager.instance.currentMapName))
             HungerIndex = HungerDict[GameManager.instance.currentMapName];
 
-        // 현재 맵 정보에 따라서 배고픔 피로도 첫 초기화
+        // 현재 맵 정보에 따라서 배고픔 피로도 첫 초기화 
+        // MAX값과 현재 값을 그대로 가져가고 있다.
         if(!PlayerStatus.instance.InitStatus(HungerMaxData[HungerIndex],
-            FatigueMaxData[FatigueIndex], HungerData[HungerIndex], FatigueData[FatigueIndex]))
+            FatigueMaxData[FatigueIndex], HungerMaxData[HungerIndex], FatigueMaxData[FatigueIndex]))
                 Debug.Log("초기화 실패");
 
     }
@@ -80,6 +81,21 @@ public class StatusManager : MonoBehaviour
         PlayerStatus.instance.InitFatigue(FatigueData[FatigueIndex]);
     }
     
+    public void Substitution()
+    {
+        //FatigueData = FatigueMaxData; // 이러면 주소값 참조된다.
+        //HungerData = HungerMaxData; 
+        for(int i=0; i<HungerMaxData.Length; ++i)
+        {
+            HungerData[i] = HungerMaxData[i];
+        }
+
+        for(int i=0; i<FatigueMaxData.Length; ++i)
+        {
+            FatigueData[i] = FatigueMaxData[i];
+        }
+    }
+
     public void FDChange(float value)
     {
         FatigueData[FatigueIndex] -= value;

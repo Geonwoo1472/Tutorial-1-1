@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public string playerStartingPt;
 
     //현재 맵 이름
+    //playerStatus와 종속되어 있음.. 초기화 안하면 피로도 부여 오류가 생김 ㅜㅜ 고쳐야함
     public string currentMapName;
 
     //인벤토리
@@ -31,19 +32,20 @@ public class GameManager : MonoBehaviour
     bool activeInventory = false;
 
     //게임재시작
-    private bool isGameover;
-    
+    [HideInInspector]
+    public bool isGameover;
 
+    //게임오버 UI
+    public GameObject OverUI;
 
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        
         isGameover = false;
         
         //inventoryPanel.SetActive(activeInventory);
     }
 
-    
     void Update()
     {
         // 게임오버가 아닌 동안
@@ -64,17 +66,24 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-
+            
         }
 
 
 
     }
 
-    // 게임오버인 경우 Manager EndGame 호출
+    // 게임오버인 경우 UI 활성화
+    public void StartGame()
+    {
+        isGameover = false;
+        OverUI.SetActive(false);
+    }
+
     public void EndGame()
     {
         isGameover = true;
+        OverUI.SetActive(true);
 
     }
 }

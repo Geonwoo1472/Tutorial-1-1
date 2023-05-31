@@ -32,9 +32,6 @@ public class PlayerStatus : MonoBehaviour
     // player states
     private MyStates states;
 
-    
-
-
     public float Hunger
     {
         set => states.Hunger = Mathf.Clamp(value, 0, states.HungerMax);
@@ -116,8 +113,7 @@ public class PlayerStatus : MonoBehaviour
         // 플레이어 배고픔 0에 도달한다면 GameOver 화면으로 가야함
         if(Hunger <= 0)
         {
-            // 임시방편으로 타이틀 화면으로 가게 해두었음.
-            SceneManager.LoadScene(0);
+            GameManager.instance.EndGame();
         }
 
         return true;
@@ -131,7 +127,7 @@ public class PlayerStatus : MonoBehaviour
         // 플레이어 피로도 0에 도달한다면 현재 화면에서 재시작 하여야 함.
         if(Fatigue <= 0)
         {
-            SceneManager.LoadScene(0);
+            GameManager.instance.EndGame();
             /* 이곳에서 해야하는 일 */
             // 1. 박스 배치 원래대로 돌려놓기 , 이전 맵은 건들여서는 안됨
             // 2. 캐릭터 위치 초기화 하기
