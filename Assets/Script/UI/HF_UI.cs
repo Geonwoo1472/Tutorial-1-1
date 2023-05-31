@@ -16,11 +16,11 @@ public class HF_UI : MonoBehaviour
     [SerializeField]
     private Slider sliderHunger;
     [SerializeField]
-    private TextMeshProUGUI textHunger;
+    private Text textHunger;
     [SerializeField]
     private Slider sliderFatigue;
     [SerializeField]
-    private TextMeshProUGUI textFatigue;
+    private Text textFatigue;
 
     void Update()
     {

@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         //inventoryPanel.SetActive(activeInventory);
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         // 게임오버가 아닌 동안

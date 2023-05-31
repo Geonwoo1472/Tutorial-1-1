@@ -32,6 +32,9 @@ public class PlayerStatus : MonoBehaviour
     // player states
     private MyStates states;
 
+    
+
+
     public float Hunger
     {
         set => states.Hunger = Mathf.Clamp(value, 0, states.HungerMax);
@@ -55,10 +58,10 @@ public class PlayerStatus : MonoBehaviour
 
     void Start()
     {
-        FatigueMax = 15f;
+        /*FatigueMax = 15f;
         HungerMax = 2f;
         Hunger = 10f;
-        Fatigue = 15f;
+        Fatigue = 15f;*/
     }
 
     public bool InitStatus(float _HungerMax, float _FatigueMax, float _Hunger, float _Fatigue)
@@ -123,6 +126,7 @@ public class PlayerStatus : MonoBehaviour
     public bool OnDamageFatigue(float damage)
     {
         Fatigue -= damage;
+        StatusManager.instance.FDChange(HF_Constance.BOXMOVE);
 
         // 플레이어 피로도 0에 도달한다면 현재 화면에서 재시작 하여야 함.
         if(Fatigue <= 0)
