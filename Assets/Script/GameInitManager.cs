@@ -32,7 +32,7 @@ public class GameInitManager : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        GameManager.instance.StartGame();
+        /*GameManager.instance.StartGame();
 
         //fade 효과
         fadeEffect = GameObject.Find("FadeImage").GetComponent<FadeEffect>();
@@ -47,7 +47,7 @@ public class GameInitManager : MonoBehaviour
         player.transform.position = SpwanObject.transform.position;
 
         //배고픔 피로도 초기화
-        StatusManager.instance.Substitution();
+        StatusManager.instance.Substitution();*/
     }
 
 }

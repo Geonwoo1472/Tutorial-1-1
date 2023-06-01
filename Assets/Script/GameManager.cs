@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     //현재 맵 이름
     //playerStatus와 종속되어 있음.. 초기화 안하면 피로도 부여 오류가 생김 ㅜㅜ 고쳐야함
     public string currentMapName;
+    public int SceneIndex;
 
     //인벤토리
     public GameObject inventoryPanel;
@@ -40,9 +41,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
         isGameover = false;
-        
+        SceneIndex = 1;
         //inventoryPanel.SetActive(activeInventory);
     }
 
@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
             // R 키를 눌렀을 경우 맵 재시작
             if (Input.GetKeyDown(KeyCode.R))
             {
-                //SceneManager.LoadScene(0);
+                SceneManager.LoadScene(SceneIndex);
             }
             // I 키를 눌렀을 때 인벤토리
             if (Input.GetKeyDown(KeyCode.I))

@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 4198876}
   - component: {fileID: 4198875}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: GameOverText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12885,6 +12885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStartingPt: 
   currentMapName: CameraPos1
+  SceneIndex: 0
   inventoryPanel: {fileID: 0}
   isGameover: 0
   OverUI: {fileID: 710233277}
@@ -13491,9 +13492,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NewGame, Assembly-CSharp
-        m_MethodName: InGame
+      - m_Target: {fileID: 1745031247}
+        m_TargetAssemblyTypeName: OverUIReStart, Assembly-CSharp
+        m_MethodName: ReStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
