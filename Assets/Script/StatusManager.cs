@@ -20,6 +20,9 @@ public class StatusManager : MonoBehaviour
     }
     #endregion
 
+    //테스트 모드 ON/OFF , ON인경우에는 피로도 배고픔 감소 없음.
+    bool testMode = false;
+
     public Dictionary<string, int> FatigueDict;
     public Dictionary<string, int> HungerDict;
 
@@ -53,23 +56,31 @@ public class StatusManager : MonoBehaviour
         HungerDict.Add("CameraPos4", 0); // 1
 
 
+        // 현재 맵에 따른 피로도 인덱스 가져오기
         if(FatigueDict.ContainsKey(GameManager.instance.currentMapName))
             FatigueIndex = FatigueDict[GameManager.instance.currentMapName];
 
+        // 현재 맵에 따른 배고픔 인덱스 가져오기
         if(HungerDict.ContainsKey(GameManager.instance.currentMapName))
             HungerIndex = HungerDict[GameManager.instance.currentMapName];
 
+
         // 현재 맵 정보에 따라서 배고픔 피로도 첫 초기화 
-        // MAX값과 현재 값을 그대로 가져가고 있다.
-        if(!PlayerStatus.instance.InitStatus(HungerMaxData[HungerIndex],
-            FatigueMaxData[FatigueIndex], HungerMaxData[HungerIndex], FatigueMaxData[FatigueIndex]))
-                Debug.Log("초기화 실패");
+        if (!PlayerStatus.instance.InitStatus(HungerMaxData[HungerIndex],
+            FatigueMaxData[FatigueIndex], HungerData[HungerIndex], FatigueData[FatigueIndex]))
+        {
+            Debug.Log("초기화 실패");
+        }
 
     }
 
     //맵 바뀔 때 마다 피로도 셋팅
     public void FatigueSetting()
     {
+        // 테스트 모드라면 감소 없음
+        if (testMode)
+            return;
+
         if (!FatigueDict.ContainsKey(GameManager.instance.currentMapName))
         {
             Debug.Log("Fatigue Key 없음.");
@@ -85,7 +96,12 @@ public class StatusManager : MonoBehaviour
     {
         //FatigueData = FatigueMaxData; // 이러면 주소값 참조된다.
         //HungerData = HungerMaxData; 
-        for(int i=0; i<HungerMaxData.Length; ++i)
+
+        // 테스트 모드라면 감소 없음
+        if (testMode)
+            return;
+
+        for (int i=0; i<HungerMaxData.Length; ++i)
         {
             HungerData[i] = HungerMaxData[i];
         }
@@ -98,6 +114,10 @@ public class StatusManager : MonoBehaviour
 
     public void FDChange(float value)
     {
+        // 테스트 모드라면 감소 없음
+        if (testMode)
+            return;
+
         FatigueData[FatigueIndex] -= value;
     }
 
