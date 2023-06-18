@@ -21,7 +21,8 @@ public class StatusManager : MonoBehaviour
     #endregion
 
     //테스트 모드 ON/OFF , ON인경우에는 피로도 배고픔 감소 없음.
-    bool testMode = false;
+    [Header("테스트 모드 [감소효과 없음]")]
+    public bool testMode = false;
 
     public Dictionary<string, int> FatigueDict;
     public Dictionary<string, int> HungerDict;

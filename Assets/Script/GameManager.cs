@@ -39,10 +39,16 @@ public class GameManager : MonoBehaviour
     //게임오버 UI
     public GameObject OverUI;
 
+    //페이드
+    //FadeEffect fadeEffect;
+
+
     void Start()
     {
         isGameover = false;
         SceneIndex = 1;
+        //fadeEffect = GameObject.Find("FadeImage").GetComponent<FadeEffect>();
+        //fadeEffect.OnFade(FadeState.FadeIn);
         //inventoryPanel.SetActive(activeInventory);
     }
 

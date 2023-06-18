@@ -4,21 +4,36 @@ using UnityEngine;
 
 public class DebugManager : MonoBehaviour
 {
-    // 퍼블릭 기능사용 bool 변수
-    // 퍼블릭 카메라 변수
-    // 퍼블릭 스테미너 감소수치를 막기 위한 bool 변수
+    [Header("기능 사용")]
+    [SerializeField]
+    private bool debugUse;
 
-    
+    [Header("스테미너 무한")]
+    [SerializeField]
+    private bool statusBlock;
+
+    public Transform camera;
+
     void Start()
     {
-        //기능사용 bool 변수가 체크되어있다면 현재 오브젝트 destory 하거나 스크립트 미작동 코드
+        if (!debugUse)
+            return;
+
         //스테미너 감소수치 체크되어있다면 StatusManager의 testMode 변수를 true로 할 것
+        if (statusBlock)
+            PlayerStatus.instance.testMode = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // 만약 부딪힌게 Tag 카메라라면
-            //그 위치 받아와서 현재 카메라의 위치를 강제로 이동
+        if (!debugUse)
+            return;
+
+        // 만약 부딪힌게 Tag 카메라라면 위치 받아와서 현재 카메라의 위치를 강제로 이동
+        if (other.CompareTag("MapBoxCollider"))
+        {
+            camera.position = other.transform.position;
+        }
     }
     
 }

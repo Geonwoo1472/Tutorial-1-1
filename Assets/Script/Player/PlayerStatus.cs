@@ -28,9 +28,12 @@ public class PlayerStatus : MonoBehaviour
         instance = this;
     }
     #endregion
-
     // player states
     private MyStates states;
+
+    //테스트 모드 ON/OFF , ON인경우에는 피로도 배고픔 감소 없음.
+    [Header("테스트 모드 [감소효과 없음]")]
+    public bool testMode = false;
 
     public float Hunger
     {
@@ -51,14 +54,6 @@ public class PlayerStatus : MonoBehaviour
     {
         set => states.FatigueMax = value;
         get => states.FatigueMax;
-    }
-
-    void Start()
-    {
-        /*FatigueMax = 15f;
-        HungerMax = 2f;
-        Hunger = 10f;
-        Fatigue = 15f;*/
     }
 
     public bool InitStatus(float _HungerMax, float _FatigueMax, float _Hunger, float _Fatigue)
@@ -99,6 +94,7 @@ public class PlayerStatus : MonoBehaviour
 
         return true;
     }
+    
     public bool InitFatigueMax(float _FatigueMax)
     {
         FatigueMax = _FatigueMax;
@@ -108,6 +104,13 @@ public class PlayerStatus : MonoBehaviour
 
     public bool OnDamageHunger(float damage)
     {
+        // 테스트 모드라면 감소 없음
+        if (testMode)
+        {
+            Debug.Log("TestMode not decreasing");
+            return true;
+        }
+
         Hunger -= damage;
 
         // 플레이어 배고픔 0에 도달한다면 GameOver 화면으로 가야함
@@ -121,17 +124,21 @@ public class PlayerStatus : MonoBehaviour
 
     public bool OnDamageFatigue(float damage)
     {
+        // 테스트 모드라면 감소 없음
+        if (testMode)
+        {
+            Debug.Log("TestMode not decreasing");
+            return true;
+        }
+
+
         Fatigue -= damage;
         StatusManager.instance.FDChange(HF_Constance.BOXMOVE);
 
-        // 플레이어 피로도 0에 도달한다면 현재 화면에서 재시작 하여야 함.
+        // 플레이어 피로도 0에 도달한다면..
         if(Fatigue <= 0)
         {
             GameManager.instance.EndGame();
-            /* 이곳에서 해야하는 일 */
-            // 1. 박스 배치 원래대로 돌려놓기 , 이전 맵은 건들여서는 안됨
-            // 2. 캐릭터 위치 초기화 하기
-            // 3. 피로도 다시 부여 받기
         }
 
         return true;
