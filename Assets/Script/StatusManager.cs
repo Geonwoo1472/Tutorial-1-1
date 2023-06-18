@@ -67,11 +67,18 @@ public class StatusManager : MonoBehaviour
 
 
         // 현재 맵 정보에 따라서 배고픔 피로도 첫 초기화 
+<<<<<<< Updated upstream
         if (!PlayerStatus.instance.InitStatus(HungerMaxData[HungerIndex],
             FatigueMaxData[FatigueIndex], HungerData[HungerIndex], FatigueData[FatigueIndex]))
         {
             Debug.Log("초기화 실패");
         }
+=======
+        // MAX값과 현재 값을 그대로 가져가고 있다. -> 수정
+        if(!PlayerStatus.instance.InitStatus(HungerMaxData[HungerIndex],
+            FatigueMaxData[FatigueIndex], HungerData[HungerIndex], FatigueData[FatigueIndex]))
+                Debug.Log("초기화 실패");
+>>>>>>> Stashed changes
 
     }
 
