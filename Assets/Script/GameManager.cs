@@ -57,16 +57,47 @@ public class GameManager : MonoBehaviour
         // 게임오버가 아닌 동안
         if (!isGameover)
         {
-            // R 키를 눌렀을 경우 맵 재시작
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKey(KeySetting.keys[KeyAction.INVENTORY]))
             {
-                SceneManager.LoadScene(SceneIndex);
-            }
-            // I 키를 눌렀을 때 인벤토리
-            if (Input.GetKeyDown(KeyCode.I))
-            {
+                Debug.Log("Inventory 기능 !!");
+
                 activeInventory = !activeInventory;
                 inventoryPanel.SetActive(activeInventory);
+            }
+            // M 키를 눌렀을 때 맵
+            if (Input.GetKey(KeySetting.keys[KeyAction.MAP]))
+            {
+                Debug.Log("Map 기능 !!");
+            }
+            // SPACEBAR 눌렀을 때 상호작용
+            if (Input.GetKey(KeySetting.keys[KeyAction.INTERACTION]))
+            {
+                Debug.Log("Interaction 기능 !!");
+            }
+            // 아이템 1번
+            if (Input.GetKey(KeySetting.keys[KeyAction.QUICKONE]))
+            {
+                Debug.Log("Quick1 기능 !!");
+            }
+            // 아이템 2번
+            if (Input.GetKey(KeySetting.keys[KeyAction.QUICKTWO]))
+            {
+                Debug.Log("Quick2 기능 !!");
+            }
+            // 아이템 3번
+            if (Input.GetKey(KeySetting.keys[KeyAction.QUICKTHREE]))
+            {
+                Debug.Log("Quick3 기능 !!");
+            }
+            // 아이템 4번
+            if (Input.GetKey(KeySetting.keys[KeyAction.QUICKFOUR]))
+            {
+                Debug.Log("Quick4 기능 !!");
+            }
+            // 아이템 5번
+            if (Input.GetKey(KeySetting.keys[KeyAction.QUICKFIVE]))
+            {
+                Debug.Log("Quick5 기능 !!");
             }
 
         }
