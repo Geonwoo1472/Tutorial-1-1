@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Box
   - MapBoxCollider
+  - FieldItem
   layers:
   - Default
   - TransparentFX

@@ -57,13 +57,14 @@ public class GameManager : MonoBehaviour
         // 게임오버가 아닌 동안
         if (!isGameover)
         {
-            if (Input.GetKey(KeySetting.keys[KeyAction.INVENTORY]))
+            // I 키를 눌렀을 때 인벤토리
+            /*if (Input.GetKey(KeySetting.keys[KeyAction.INVENTORY]))
             {
                 Debug.Log("Inventory 기능 !!");
 
                 activeInventory = !activeInventory;
                 inventoryPanel.SetActive(activeInventory);
-            }
+            }*/
             // M 키를 눌렀을 때 맵
             if (Input.GetKey(KeySetting.keys[KeyAction.MAP]))
             {
