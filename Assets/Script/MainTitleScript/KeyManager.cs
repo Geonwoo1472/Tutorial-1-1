@@ -15,6 +15,7 @@ public enum KeyAction
     QUICKTHREE = 9,
     QUICKFOUR = 10,
     QUICKFIVE = 11,
+    ESC = 12,
     KEYCOUNT
 }
 
@@ -46,7 +47,8 @@ public class KeyManager : MonoBehaviour
     KeyCode[] defaultKeys = new KeyCode[] {
         KeyCode.W, KeyCode.S, KeyCode.A, KeyCode.D,
         KeyCode.I, KeyCode.M, KeyCode.Space,
-        KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3,KeyCode.Alpha4, KeyCode.Alpha5
+        KeyCode.Alpha1, KeyCode.Alpha2, KeyCode.Alpha3,KeyCode.Alpha4, KeyCode.Alpha5,
+        KeyCode.Escape
     };
 
     private void Start()

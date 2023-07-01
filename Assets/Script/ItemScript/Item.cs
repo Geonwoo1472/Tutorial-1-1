@@ -27,6 +27,7 @@ public class Item : ScriptableObject
         {
             case ItemType.HungerHeal:
                 {
+                    PlayerStatus.instance.OnHealHunger(itemHeal);
                     Debug.Log("HungerHeal !!" + itemHeal);
 
                     isUsed = true;
@@ -34,6 +35,7 @@ public class Item : ScriptableObject
                 break;
             case ItemType.FatigueHeal:
                 {
+                    PlayerStatus.instance.OnHealFatigue(itemHeal);
                     Debug.Log("FatigueHeal !!" + itemHeal);
 
                     isUsed = true;
