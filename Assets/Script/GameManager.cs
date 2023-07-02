@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("ESC 기능 !");
 
                 // 잠깐 테스트용
-                activeInventory = !activeInventory;
+                activeEscPanel = !activeEscPanel;
                 escPanel.SetActive(activeInventory);
 
 
