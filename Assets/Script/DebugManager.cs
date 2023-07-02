@@ -14,6 +14,11 @@ public class DebugManager : MonoBehaviour
 
     public Transform myCamera;
 
+    private void Awake()
+    {
+        //myCamera = GameObject.Find("Main Camera");
+    }
+
     void Start()
     {
         if (!debugUse)
@@ -32,6 +37,7 @@ public class DebugManager : MonoBehaviour
         // 만약 부딪힌게 Tag 카메라라면 위치 받아와서 현재 카메라의 위치를 강제로 이동
         if (other.CompareTag("MapBoxCollider"))
         {
+            //myCamera.transform.position = other.transform.position;
             myCamera.position = other.transform.position;
         }
     }

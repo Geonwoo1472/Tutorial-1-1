@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     //페이드
     //FadeEffect fadeEffect;
 
-    //ESC UI [임시로 바로 Option창으로 활용 중 , 변경 시 주석 삭제]
+    //ESC UI
     public GameObject escPanel;
     bool activeEscPanel;
 
@@ -110,14 +110,10 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("ESC 기능 !");
 
-                // 잠깐 테스트용
                 activeEscPanel = !activeEscPanel;
-                escPanel.SetActive(activeInventory);
-
+                escPanel.SetActive(activeEscPanel);
 
             }
-
-
         }
         else
         {

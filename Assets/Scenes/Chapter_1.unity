@@ -3931,7 +3931,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 852799424}
         m_TargetAssemblyTypeName: KeyManager, Assembly-CSharp
         m_MethodName: ChangeKey
         m_Mode: 3
@@ -5861,7 +5861,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 852799424}
         m_TargetAssemblyTypeName: KeyManager, Assembly-CSharp
         m_MethodName: ChangeKey
         m_Mode: 3
@@ -9060,7 +9060,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 852799424}
         m_TargetAssemblyTypeName: KeyManager, Assembly-CSharp
         m_MethodName: ChangeKey
         m_Mode: 3
@@ -9243,9 +9243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1803bf206cba5c74b83de3d408060ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugUse: 1
-  statusBlock: 1
-  myCamera: {fileID: 0}
+  debugUse: 0
+  statusBlock: 0
+  myCamera: {fileID: 1521639442}
 --- !u!1 &444515548
 GameObject:
   m_ObjectHideFlags: 0
@@ -9330,7 +9330,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 852799424}
         m_TargetAssemblyTypeName: KeyManager, Assembly-CSharp
         m_MethodName: ChangeKey
         m_Mode: 3
@@ -9628,7 +9628,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 852799424}
         m_TargetAssemblyTypeName: KeyManager, Assembly-CSharp
         m_MethodName: ChangeKey
         m_Mode: 3
@@ -14035,7 +14035,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 852799424}
         m_TargetAssemblyTypeName: KeyManager, Assembly-CSharp
         m_MethodName: ChangeKey
         m_Mode: 3
@@ -14099,51 +14099,51 @@ PrefabInstance:
     - target: {fileID: 8966672702100370727, guid: 20415b1d8346cf14e94c5c094d489614, type: 3}
       propertyPath: txt.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1883594449}
     - target: {fileID: 8966672702100370727, guid: 20415b1d8346cf14e94c5c094d489614, type: 3}
       propertyPath: txt.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 750781204}
     - target: {fileID: 8966672702100370727, guid: 20415b1d8346cf14e94c5c094d489614, type: 3}
       propertyPath: txt.Array.data[2]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1153156817}
     - target: {fileID: 8966672702100370727, guid: 20415b1d8346cf14e94c5c094d489614, type: 3}
       propertyPath: txt.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1244313341}
     - target: {fileID: 8966672702100370727, guid: 20415b1d8346cf14e94c5c094d489614, type: 3}
       propertyPath: txt.Array.data[4]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 514327950}
     - target: {fileID: 8966672702100370727, guid: 20415b1d8346cf14e94c5c094d489614, type: 3}
       propertyPath: txt.Array.data[5]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 699996357}
     - target: {fileID: 8966672702100370727, guid: 20415b1d8346cf14e94c5c094d489614, type: 3}
       propertyPath: txt.Array.data[6]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1178703031}
     - target: {fileID: 8966672702100370727, guid: 20415b1d8346cf14e94c5c094d489614, type: 3}
       propertyPath: txt.Array.data[7]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1897588287}
     - target: {fileID: 8966672702100370727, guid: 20415b1d8346cf14e94c5c094d489614, type: 3}
       propertyPath: txt.Array.data[8]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 150125464}
     - target: {fileID: 8966672702100370727, guid: 20415b1d8346cf14e94c5c094d489614, type: 3}
       propertyPath: txt.Array.data[9]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 318722240}
     - target: {fileID: 8966672702100370727, guid: 20415b1d8346cf14e94c5c094d489614, type: 3}
       propertyPath: txt.Array.data[10]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 612336677}
     - target: {fileID: 8966672702100370727, guid: 20415b1d8346cf14e94c5c094d489614, type: 3}
       propertyPath: txt.Array.data[11]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 948902801}
     - target: {fileID: 8966672702100370729, guid: 20415b1d8346cf14e94c5c094d489614, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -14831,7 +14831,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 852799424}
         m_TargetAssemblyTypeName: KeyManager, Assembly-CSharp
         m_MethodName: ChangeKey
         m_Mode: 3
@@ -16127,6 +16127,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2444235920224506373, guid: da1802d182528764a8ec2d07a589c483, type: 3}
   m_PrefabInstance: {fileID: 849930590}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &852799424 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8966672702100370728, guid: 20415b1d8346cf14e94c5c094d489614, type: 3}
+  m_PrefabInstance: {fileID: 635646379}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df3dc7a834fb634e9dc75e0aa0e1465, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &869911868
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21504,7 +21515,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 852799424}
         m_TargetAssemblyTypeName: KeyManager, Assembly-CSharp
         m_MethodName: ChangeKey
         m_Mode: 3
@@ -22557,7 +22568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1126627956
 RectTransform:
   m_ObjectHideFlags: 0
@@ -22770,7 +22781,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 852799424}
         m_TargetAssemblyTypeName: KeyManager, Assembly-CSharp
         m_MethodName: ChangeKey
         m_Mode: 3
@@ -22904,7 +22915,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 852799424}
         m_TargetAssemblyTypeName: KeyManager, Assembly-CSharp
         m_MethodName: ChangeKey
         m_Mode: 3
@@ -23756,6 +23767,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 8300000, guid: df2d63124c2ac418eb83dd32903cd4b6, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: OverUIExit, Assembly-CSharp
+        m_MethodName: ExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -33153,7 +33176,7 @@ MonoBehaviour:
   inventoryPanel: {fileID: 1002914155}
   isGameover: 0
   OverUI: {fileID: 710233277}
-  escPanel: {fileID: 0}
+  escPanel: {fileID: 1126627955}
 --- !u!4 &1695238778
 Transform:
   m_ObjectHideFlags: 0
@@ -36383,7 +36406,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 852799424}
         m_TargetAssemblyTypeName: KeyManager, Assembly-CSharp
         m_MethodName: ChangeKey
         m_Mode: 3
@@ -43019,7 +43042,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 852799424}
         m_TargetAssemblyTypeName: KeyManager, Assembly-CSharp
         m_MethodName: ChangeKey
         m_Mode: 3
