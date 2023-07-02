@@ -46,12 +46,43 @@ public class GameManager : MonoBehaviour
     public GameObject escPanel;
     bool activeEscPanel;
 
+
+    //인벤  & 퀵슬롯 1,2,3,4,5
+    Inventory inven;
+    private GameObject quick1;
+    private GameObject quick2;
+    private GameObject quick3;
+    private GameObject quick4;
+    private GameObject quick5;
+
     void Start()
     {
         activeInventory = false;
         isGameover = false;
         activeEscPanel = false;
         SceneIndex = 1;
+        quick1 = GameObject.Find("QuickSlot");
+        if (quick1 == null)
+            Debug.Log("quick crash .. ");
+
+        quick2 = GameObject.Find("QuickSlot (1)");
+        if (quick2 == null)
+            Debug.Log("quick(1) crash .. ");
+
+        quick3 = GameObject.Find("QuickSlot (2)");
+        if (quick3 == null)
+            Debug.Log("quick(2) crash .. ");
+
+        quick4 = GameObject.Find("QuickSlot (3)");
+        if (quick4 == null)
+            Debug.Log("quick(3) crash .. ");
+
+        quick5 = GameObject.Find("QuickSlot (4)");
+        if (quick5 == null)
+            Debug.Log("quick(4) crash .. ");
+
+        inven = Inventory.instance;
+
         //fadeEffect = GameObject.Find("FadeImage").GetComponent<FadeEffect>();
         //fadeEffect.OnFade(FadeState.FadeIn);
         //inventoryPanel.SetActive(activeInventory);
@@ -84,26 +115,126 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKONE]))
             {
                 Debug.Log("Quick1 기능 !!");
+
+                /* 해당 퀵 슬롯에 자식이 있다면 그 자식오브젝트를 가져와 Item.Use를 실행 시키는 것이 목적*/
+                if (!(quick1.transform.childCount > 0))
+                    return;
+
+                GameObject gameobject = quick1.transform.GetChild(0).gameObject;
+                if (gameobject != null)
+                {
+                    DraggableUI ui = gameobject.GetComponent<DraggableUI>();
+                    Item item = ui.item;
+                    if (item != null)
+                    {
+                        inven.RemoveItem();
+                        item.Use();
+
+                        Destroy(gameobject);
+                    }
+                    else
+                        Debug.Log("DraggableUI에 Item클래스가 없음!");
+                }
             }
             // 아이템 2번
             if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKTWO]))
             {
                 Debug.Log("Quick2 기능 !!");
+
+                /* 해당 퀵 슬롯에 자식이 있다면 그 자식오브젝트를 가져와 Item.Use를 실행 시키는 것이 목적*/
+                if (!(quick2.transform.childCount > 0))
+                    return;
+
+                GameObject gameobject = quick2.transform.GetChild(0).gameObject;
+                if (gameobject != null)
+                {
+                    DraggableUI ui = gameobject.GetComponent<DraggableUI>();
+                    Item item = ui.item;
+                    if (item != null)
+                    {
+                        inven.RemoveItem();
+                        item.Use();
+
+                        Destroy(gameobject);
+                    }
+                    else
+                        Debug.Log("DraggableUI에 Item클래스가 없음!");
+                }
             }
             // 아이템 3번
             if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKTHREE]))
             {
                 Debug.Log("Quick3 기능 !!");
+
+                /* 해당 퀵 슬롯에 자식이 있다면 그 자식오브젝트를 가져와 Item.Use를 실행 시키는 것이 목적*/
+                if (!(quick3.transform.childCount > 0))
+                    return;
+
+                GameObject gameobject = quick3.transform.GetChild(0).gameObject;
+                if (gameobject != null)
+                {
+                    DraggableUI ui = gameobject.GetComponent<DraggableUI>();
+                    Item item = ui.item;
+                    if (item != null)
+                    {
+                        inven.RemoveItem();
+                        item.Use();
+
+                        Destroy(gameobject);
+                    }
+                    else
+                        Debug.Log("DraggableUI에 Item클래스가 없음!");
+                }
             }
             // 아이템 4번
             if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKFOUR]))
             {
                 Debug.Log("Quick4 기능 !!");
+
+                /* 해당 퀵 슬롯에 자식이 있다면 그 자식오브젝트를 가져와 Item.Use를 실행 시키는 것이 목적*/
+                if (!(quick4.transform.childCount > 0))
+                    return;
+
+                GameObject gameobject = quick4.transform.GetChild(0).gameObject;
+                if (gameobject != null)
+                {
+                    DraggableUI ui = gameobject.GetComponent<DraggableUI>();
+                    Item item = ui.item;
+                    if (item != null)
+                    {
+                        inven.RemoveItem();
+                        item.Use();
+
+                        Destroy(gameobject);
+                    }
+                    else
+                        Debug.Log("DraggableUI에 Item클래스가 없음!");
+                }
             }
             // 아이템 5번
             if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKFIVE]))
             {
                 Debug.Log("Quick5 기능 !!");
+
+                /* 해당 퀵 슬롯에 자식이 있다면 그 자식오브젝트를 가져와 Item.Use를 실행 시키는 것이 목적*/
+                if (!(quick5.transform.childCount > 0))
+                    return;
+
+                GameObject gameobject = quick5.transform.GetChild(0).gameObject;
+                if (gameobject != null)
+                {
+                    DraggableUI ui = gameobject.GetComponent<DraggableUI>();
+                    Item item = ui.item;
+                    if (item != null)
+                    {
+                        inven.RemoveItem();
+                        item.Use();
+
+                        Destroy(gameobject);
+                    }
+                    else
+                        Debug.Log("DraggableUI에 Item클래스가 없음!");
+                }
             }
             // esc
             if(Input.GetKeyDown(KeySetting.keys[KeyAction.ESC]))

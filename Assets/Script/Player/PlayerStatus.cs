@@ -55,6 +55,11 @@ public class PlayerStatus : MonoBehaviour
         set => states.FatigueMax = value;
         get => states.FatigueMax;
     }
+    public short KeyValue
+    {
+        set => states.keyValue = value;
+        get => states.keyValue;
+    }
 
     public bool InitStatus(float _HungerMax, float _FatigueMax, float _Hunger, float _Fatigue)
     {
@@ -170,6 +175,13 @@ public class PlayerStatus : MonoBehaviour
         return true;
     }
 
+    public bool OnKeyValue(short value)
+    {
+        KeyValue = value;
+
+        return true;
+    }
+
 }
 
 [System.Serializable]
@@ -183,4 +195,6 @@ public struct MyStates
     public float Fatigue;
     [HideInInspector]
     public float FatigueMax;
+    [HideInInspector]
+    public short keyValue;
 }

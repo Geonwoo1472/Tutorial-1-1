@@ -37,7 +37,7 @@ public class MapPotal : MonoBehaviour
 
     }
 
-    // 다음 작업은 여기부터
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

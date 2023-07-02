@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd0d9ca4197296f4a9c6ca0af53d8215, type: 3}
-  m_Name: HungerItem
+  m_Name: KeyItem
   m_EditorClassIdentifier: 
-  itemType: 1
-  itemName: sssssss
-  itemImage: {fileID: 21300000, guid: 4b5c647763b58864bad9c4a896dcda9b, type: 3}
-  itemHeal: 2
+  itemType: 3
+  itemName: keyItem
+  itemImage: {fileID: 21300000, guid: 5b20cbe9bfc2a4e89acade0bc84473f1, type: 3}
+  itemHeal: 0
+  keyNum: 1
