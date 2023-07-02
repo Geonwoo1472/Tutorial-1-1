@@ -12,7 +12,7 @@ public class DebugManager : MonoBehaviour
     [SerializeField]
     private bool statusBlock;
 
-    public Transform myCamera;
+    public Transform camera;
 
     void Start()
     {
@@ -32,7 +32,7 @@ public class DebugManager : MonoBehaviour
         // 만약 부딪힌게 Tag 카메라라면 위치 받아와서 현재 카메라의 위치를 강제로 이동
         if (other.CompareTag("MapBoxCollider"))
         {
-            myCamera.position = other.transform.position;
+            camera.position = other.transform.position;
         }
     }
     
