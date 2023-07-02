@@ -39,6 +39,7 @@ public class DroppableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler,
     //마우스 클릭할 때
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log("DroppableUI.cs 의 OnPointerClick() 메소드 실행 중 .. ");
         /*  이곳에서는 클릭 된 순간 슬롯에 있는 자식 오브젝트를 가져오고 
             해당 오브젝트의 FildItem스크립트에서 Item정보도 가져와야합니다.
             가져왔다면  Iventory의 RemoveItem 를 호출하여 개수를 차감시키고
@@ -46,11 +47,6 @@ public class DroppableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler,
             이후 자식을 삭제하는 과정을 거칩니다.    
 
          */
-
-        Debug.Log("클릭 됐다!!");
-
-        //GameObject gameObject = transform.GetChild(0).gameObject;
-        //Destroy(gameObject);
 
         GameObject gameObject = transform.GetChild(0).gameObject;
         DraggableUI draggableUI = gameObject.GetComponent<DraggableUI>();

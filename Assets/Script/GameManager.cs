@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     //인벤토리
     public GameObject inventoryPanel;
-    bool activeInventory = false;
+    bool activeInventory;
 
     //게임재시작
     [HideInInspector]
@@ -42,10 +42,15 @@ public class GameManager : MonoBehaviour
     //페이드
     //FadeEffect fadeEffect;
 
+    //ESC UI [임시로 바로 Option창으로 활용 중 , 변경 시 주석 삭제]
+    public GameObject escPanel;
+    bool activeEscPanel;
 
     void Start()
     {
+        activeInventory = false;
         isGameover = false;
+        activeEscPanel = false;
         SceneIndex = 1;
         //fadeEffect = GameObject.Find("FadeImage").GetComponent<FadeEffect>();
         //fadeEffect.OnFade(FadeState.FadeIn);
@@ -58,48 +63,60 @@ public class GameManager : MonoBehaviour
         if (!isGameover)
         {
             // I 키를 눌렀을 때 인벤토리
-            /*if (Input.GetKey(KeySetting.keys[KeyAction.INVENTORY]))
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.INVENTORY]))
             {
                 Debug.Log("Inventory 기능 !!");
 
                 activeInventory = !activeInventory;
                 inventoryPanel.SetActive(activeInventory);
-            }*/
+            }
             // M 키를 눌렀을 때 맵
-            if (Input.GetKey(KeySetting.keys[KeyAction.MAP]))
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.MAP]))
             {
                 Debug.Log("Map 기능 !!");
             }
             // SPACEBAR 눌렀을 때 상호작용
-            if (Input.GetKey(KeySetting.keys[KeyAction.INTERACTION]))
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.INTERACTION]))
             {
                 Debug.Log("Interaction 기능 !!");
             }
             // 아이템 1번
-            if (Input.GetKey(KeySetting.keys[KeyAction.QUICKONE]))
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKONE]))
             {
                 Debug.Log("Quick1 기능 !!");
             }
             // 아이템 2번
-            if (Input.GetKey(KeySetting.keys[KeyAction.QUICKTWO]))
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKTWO]))
             {
                 Debug.Log("Quick2 기능 !!");
             }
             // 아이템 3번
-            if (Input.GetKey(KeySetting.keys[KeyAction.QUICKTHREE]))
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKTHREE]))
             {
                 Debug.Log("Quick3 기능 !!");
             }
             // 아이템 4번
-            if (Input.GetKey(KeySetting.keys[KeyAction.QUICKFOUR]))
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKFOUR]))
             {
                 Debug.Log("Quick4 기능 !!");
             }
             // 아이템 5번
-            if (Input.GetKey(KeySetting.keys[KeyAction.QUICKFIVE]))
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKFIVE]))
             {
                 Debug.Log("Quick5 기능 !!");
             }
+            // esc
+            if(Input.GetKeyDown(KeySetting.keys[KeyAction.ESC]))
+            {
+                Debug.Log("ESC 기능 !");
+
+                // 잠깐 테스트용
+                activeInventory = !activeInventory;
+                escPanel.SetActive(activeInventory);
+
+
+            }
+
 
         }
         else

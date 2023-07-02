@@ -6,10 +6,6 @@ using TMPro;
 
 public class InventoryUI : MonoBehaviour
 {
-    // inventory ON/OFF
-    public GameObject InventoryPanel;
-    bool activeInven;
-
     // 자식의 slots 스크립트를 배열로 관리
     public Slot[] slots; // [삭제대상]
     // 자식들을 가져오기 위함. 인스펙터에서 할당
@@ -93,12 +89,6 @@ public class InventoryUI : MonoBehaviour
 
     void Update()
     {
-        // i 키 눌렸을 경우
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            activeInven = !activeInven;
-            InventoryPanel.SetActive(activeInven);
-        }
         // e키 눌렀을 경우 테스트용
         if (Input.GetKeyDown(KeyCode.E))
         {

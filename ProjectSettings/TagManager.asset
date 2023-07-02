@@ -53,6 +53,18 @@ TagManager:
   - name: MoveObject
     uniqueID: 2057638823
     locked: 0
-  - name: Player
+  - name: Item
     uniqueID: 3189614257
+    locked: 0
+  - name: Spare
+    uniqueID: 1159996901
+    locked: 0
+  - name: Spare1
+    uniqueID: 1432896409
+    locked: 0
+  - name: Spare2
+    uniqueID: 1706595977
+    locked: 0
+  - name: Player
+    uniqueID: 1500888193
     locked: 0
