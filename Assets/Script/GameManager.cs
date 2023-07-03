@@ -34,7 +34,8 @@ public class GameManager : MonoBehaviour
 
     //게임재시작
     [HideInInspector]
-    public bool isGameover;
+    public bool isGameover; // 게임 모든 Key를 정지
+    public bool allowsMove; // 캐릭터 움직임만 정지
 
     //게임오버 UI
     public GameObject OverUI;
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
         activeInventory = false;
         isGameover = false;
         activeEscPanel = false;
+        allowsMove = false;
         SceneIndex = 1;
         quick1 = GameObject.Find("QuickSlot");
         if (quick1 == null)
@@ -242,6 +244,7 @@ public class GameManager : MonoBehaviour
                 Debug.Log("ESC 기능 !");
 
                 activeEscPanel = !activeEscPanel;
+                modifyMove(); // 캐릭터 움직임 상태변경
                 escPanel.SetActive(activeEscPanel);
 
             }
@@ -266,6 +269,16 @@ public class GameManager : MonoBehaviour
     {
         isGameover = true;
         OverUI.SetActive(true);
+    }
+
+    // 캐릭터 움직임 입력 제한
+    public void modifyMove()
+    {
+        allowsMove = !allowsMove;
+        // 캐릭터 움직임 제한도 해주어야 그 자리에서 멈춤
+        // 하지 않는다면 캐릭터가 앞으로 쭉 나감!!
+        Player_Action.instance.modifyRigidybody(allowsMove);
 
     }
+
 }

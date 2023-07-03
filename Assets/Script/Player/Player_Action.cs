@@ -80,9 +80,13 @@ public class Player_Action : MonoBehaviour
         if (GameManager.instance.isGameover)
             return;
 
+        //캐릭터 움직임 bool로 제한 중
+        if (GameManager.instance.allowsMove)
+            return;
+
         //키보드 입력 받는 메소드
         Player_Move();
-        //실제 게임 velocity 주는 메소드
+        //실제 게임 velocity 주는 메소드 
         Player_velocity();
     }
 
@@ -213,6 +217,22 @@ public class Player_Action : MonoBehaviour
         }
     }
 
+    // 캐릭터 움직임 제한
+    public void modifyRigidybody(bool change)
+    {
+        if(change)
+        {
+            rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+
+            anim.SetInteger("hRaw", 0);
+            anim.SetInteger("vRaw", 0);
+        }
+        else
+        {
+            rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+    }
+
 
     //플레이어 움직임 제어 OnStop(PlayerState.MoveOff) 으로 호출하여야함.
     //설계가 살짝 잘못되어 있음.
@@ -250,7 +270,7 @@ public class Player_Action : MonoBehaviour
         }
     }
 
-    // 
+    // 2초 정지
     private IEnumerator Stop()
     {
         float currentTime = 0.0f;

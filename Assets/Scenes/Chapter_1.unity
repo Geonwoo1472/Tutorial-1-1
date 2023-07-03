@@ -33219,6 +33219,7 @@ MonoBehaviour:
   SceneIndex: 0
   inventoryPanel: {fileID: 1002914155}
   isGameover: 0
+  allowsMove: 0
   OverUI: {fileID: 710233277}
   escPanel: {fileID: 1126627955}
 --- !u!4 &1695238778
