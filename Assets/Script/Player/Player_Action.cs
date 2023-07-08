@@ -57,6 +57,7 @@ public class Player_Action : MonoBehaviour
 
     bool isHorizonMove;
 
+
     /* 값 가져오기 */
     private Rigidbody2D rigid;
 
@@ -71,15 +72,24 @@ public class Player_Action : MonoBehaviour
         dirVec = Vector3.down;
         isCharacterTime = 0f;
         isCharacterMove = false;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        //임시방편으로 게임오버 활성화 중 움직임 불가함.
-        if (GameManager.instance.isGameover)
-            return;
 
+        if (GameManager.instance != null)
+        {
+            //임시방편으로 게임오버 활성화 중 움직임 불가함.
+            if (GameManager.instance.isGameover)
+                return;
+
+            //
+            if (GameManager.instance.allowsMove)
+                return;
+        }
         //키보드 입력 받는 메소드
         Player_Move();
         //실제 게임 velocity 주는 메소드
@@ -213,6 +223,21 @@ public class Player_Action : MonoBehaviour
         }
     }
 
+    //정지시 캐릭터 애니메이션 
+    public void modifyRigidbody(bool change)
+    {
+        if (change)
+        {
+            rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+
+            anim.SetInteger("hRaw", 0);
+            anim.SetInteger("vRaw", 0);
+        }
+        else
+        {
+            rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+    }
 
     //플레이어 움직임 제어 OnStop(PlayerState.MoveOff) 으로 호출하여야함.
     //설계가 살짝 잘못되어 있음.

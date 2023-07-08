@@ -32,9 +32,10 @@ public class GameManager : MonoBehaviour
     public GameObject inventoryPanel;
     bool activeInventory;
 
-    //게임재시작
+    // 움직임 제한
     [HideInInspector]
-    public bool isGameover;
+    public bool isGameover; // Key All stop
+    public bool allowsMove; // Just stop moving
 
     //게임오버 UI
     public GameObject OverUI;
@@ -60,6 +61,7 @@ public class GameManager : MonoBehaviour
         activeInventory = false;
         isGameover = false;
         activeEscPanel = false;
+        allowsMove = false;
         SceneIndex = 1;
         quick1 = GameObject.Find("QuickSlot");
         if (quick1 == null)
@@ -97,9 +99,7 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeySetting.keys[KeyAction.INVENTORY]))
             {
                 Debug.Log("Inventory 기능 !!");
-
-                activeInventory = !activeInventory;
-                inventoryPanel.SetActive(activeInventory);
+                OnInvenActive();
             }
             // M 키를 눌렀을 때 맵
             if (Input.GetKeyDown(KeySetting.keys[KeyAction.MAP]))
@@ -236,13 +236,11 @@ public class GameManager : MonoBehaviour
                         Debug.Log("DraggableUI에 Item클래스가 없음!");
                 }
             }
-            // esc
+            // ESC키 
             if(Input.GetKeyDown(KeySetting.keys[KeyAction.ESC]))
             {
                 Debug.Log("ESC 기능 !");
-
-                activeEscPanel = !activeEscPanel;
-                escPanel.SetActive(activeEscPanel);
+                OnEscActive();
 
             }
         }
@@ -253,6 +251,23 @@ public class GameManager : MonoBehaviour
 
 
 
+    }
+
+
+    //인벤토리
+    public void OnInvenActive()
+    {
+        activeInventory = !activeInventory;
+        inventoryPanel.SetActive(activeInventory);
+    }
+
+    //ESC
+    public void OnEscActive()
+    {
+        activeEscPanel = !activeEscPanel;
+        // 캐릭터 정지
+        modifyMove();
+        escPanel.SetActive(activeEscPanel);
     }
 
     // 게임오버인 경우 UI 활성화
@@ -267,5 +282,12 @@ public class GameManager : MonoBehaviour
         isGameover = true;
         OverUI.SetActive(true);
 
+    }
+
+    public void modifyMove()
+    {
+        allowsMove = !allowsMove;
+        // 캐릭터 정지시 애니메이션 발동해주어야 함 / Rigidy 잠구어야 함
+        Player_Action.instance.modifyRigidbody(allowsMove);
     }
 }

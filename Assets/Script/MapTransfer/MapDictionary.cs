@@ -22,6 +22,7 @@ public class MapDictionary : MonoBehaviour
     private void Start()
     {
         dict = new Dictionary<string, string>();
+        // 1스테이지
         dict.Add("PS1-1", "CameraPos1");
         dict.Add("PS1-2", "CameraPos2");
         dict.Add("PS1-3", "CameraPos3");
@@ -31,5 +32,9 @@ public class MapDictionary : MonoBehaviour
         dict.Add("PE1-2", "CameraPos2");
         dict.Add("PE1-3", "CameraPos3");
         dict.Add("PE1-4", "CameraPos4");
+
+        // 2스테이지
+        //dict.Add("PS2-1", "")
+        
     }
 }
