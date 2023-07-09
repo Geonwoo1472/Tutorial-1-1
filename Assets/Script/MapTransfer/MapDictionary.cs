@@ -34,7 +34,14 @@ public class MapDictionary : MonoBehaviour
         dict.Add("PE1-4", "CameraPos4");
 
         // 2스테이지
-        //dict.Add("PS2-1", "")
-        
+        // 2-1
+        dict.Add("SpawnTop2-1", "CameraPos2-1");
+        dict.Add("SpawnRight2-1", "CameraPos2-1");
+
+        // 2-4
+        dict.Add("SpawnDown2-4", "CameraPos2-4");
+        dict.Add("SpawnRight2-4", "CameraPos2-4");
+        dict.Add("SpawnTop2-4", "CameraPos2-4");
+
     }
 }

@@ -20,20 +20,23 @@ public class StatusManager : MonoBehaviour
     }
     #endregion
 
+    // 스테이지가 가지고 있는 인덱스 정리
     public Dictionary<string, int> FatigueDict;
     public Dictionary<string, int> HungerDict;
 
     [Header("피로도 최대 수치 조절")]
-    public float[] FatigueMaxData = new float[] { 15, 15, 15, 15 };
+    public float[] FatigueMaxData = new float[] {15,15,15,15,0,0,0,0,0,0,
+                                                15,15,15,15,15,15,15,15,15,0};
     [Header("피로도 현재 수치 조절")]
-    public float[] FatigueData = new float[] { 15, 15, 15, 15 };
+    public float[] FatigueData = new float[] { 15,15,15,15,0,0,0,0,0,
+                                                15,15,15,15,15,15,15,15,15,0 };
 
     private int FatigueIndex = 0;
 
     [Header("배고픔 최대 수치 조절")]
-    public float[] HungerMaxData = new float[] { 2 };
+    public float[] HungerMaxData = new float[] { 2 , 2};
     [Header("배고픔 현재 수치 조절")]
-    public float[] HungerData = new float[] { 2 };
+    public float[] HungerData = new float[] { 2 , 2};
 
 
     private int HungerIndex = 0;
@@ -46,15 +49,35 @@ public class StatusManager : MonoBehaviour
         FatigueDict.Add("CameraPos3", 2); // 1-3
         FatigueDict.Add("CameraPos4", 3); // 1-4
 
+        FatigueDict.Add("CameraPos2-1", 10); // 2-1
+        FatigueDict.Add("CameraPos2-2", 11); // 2-2
+        FatigueDict.Add("CameraPos2-3", 12); // 2-3
+        FatigueDict.Add("CameraPos2-4", 13); // 2-4
+        FatigueDict.Add("CameraPos2-5", 14); // 2-5
+        FatigueDict.Add("CameraPos2-6", 15); // 2-6
+        FatigueDict.Add("CameraPos2-7", 16); // 2-7
+        FatigueDict.Add("CameraPos2-8", 17); // 2-8
+        FatigueDict.Add("CameraPos2-9", 18); // 2-9
+
+
         HungerDict = new Dictionary<string, int>();
-        HungerDict.Add("CameraPos1", 0); // 1
+        HungerDict.Add("CameraPos1", 0); // 1 stage
         HungerDict.Add("CameraPos2", 0); // 1
         HungerDict.Add("CameraPos3", 0); // 1
         HungerDict.Add("CameraPos4", 0); // 1
 
+        HungerDict.Add("CameraPos2-1", 1); // 2 stage
+        HungerDict.Add("CameraPos2-2", 1); // 2
+        HungerDict.Add("CameraPos2-3", 1); // 2
+        HungerDict.Add("CameraPos2-4", 1); // 2
+        HungerDict.Add("CameraPos2-5", 1); // 2
+        HungerDict.Add("CameraPos2-6", 1); // 2
+        HungerDict.Add("CameraPos2-7", 1); // 2
+        HungerDict.Add("CameraPos2-8", 1); // 2
+        HungerDict.Add("CameraPos2-9", 1); // 2
 
         // 현재 맵에 따른 피로도 인덱스 가져오기
-        if(FatigueDict.ContainsKey(GameManager.instance.currentMapName))
+        if (FatigueDict.ContainsKey(GameManager.instance.currentMapName))
             FatigueIndex = FatigueDict[GameManager.instance.currentMapName];
 
         // 현재 맵에 따른 배고픔 인덱스 가져오기
