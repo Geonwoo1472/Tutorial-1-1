@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /* 구조체 , 리스트 설계방법이 더 좋을 것 같기는 하다 */
-
 public class StatusManager : MonoBehaviour
 {
     #region Singleton
@@ -25,24 +24,28 @@ public class StatusManager : MonoBehaviour
     public Dictionary<string, int> HungerDict;
 
     [Header("피로도 최대 수치 조절")]
-    public float[] FatigueMaxData = new float[] {15,15,15,15,0,0,0,0,0,0,
-                                                15,15,15,15,15,15,15,15,15,0};
+    public float[] FatigueMaxData;
     [Header("피로도 현재 수치 조절")]
-    public float[] FatigueData = new float[] { 15,15,15,15,0,0,0,0,0,
-                                                15,15,15,15,15,15,15,15,15,0 };
+    public float[] FatigueData;
 
     private int FatigueIndex = 0;
 
     [Header("배고픔 최대 수치 조절")]
-    public float[] HungerMaxData = new float[] { 2 , 2};
+    public float[] HungerMaxData;
     [Header("배고픔 현재 수치 조절")]
-    public float[] HungerData = new float[] { 2 , 2};
+    public float[] HungerData;
 
 
     private int HungerIndex = 0;
 
     void Start()
     {
+        /* 컴포넌트에서 값 삽입 하지 않을 시 */
+        //FatigueMaxData = new float[] {15,15,15,15,0,0,0,0,0,0,15,15,15,15,15,15,15,15,15,0};
+        //FatigueData = new float[] { 15,15,15,15,0,0,0,0,0,0,15,15,15,15,15,15,15,15,15,0 };
+        //HungerData = new float[] { 2, 2 };
+        //HungerMaxData = new float[] { 2, 2 };
+
         FatigueDict = new Dictionary<string, int>();
         FatigueDict.Add("CameraPos1", 0); // 1-1
         FatigueDict.Add("CameraPos2", 1); // 1-2
@@ -79,11 +82,14 @@ public class StatusManager : MonoBehaviour
         // 현재 맵에 따른 피로도 인덱스 가져오기
         if (FatigueDict.ContainsKey(GameManager.instance.currentMapName))
             FatigueIndex = FatigueDict[GameManager.instance.currentMapName];
+        else
+            FatigueIndex = 0;
 
         // 현재 맵에 따른 배고픔 인덱스 가져오기
-        if(HungerDict.ContainsKey(GameManager.instance.currentMapName))
+        if (HungerDict.ContainsKey(GameManager.instance.currentMapName))
             HungerIndex = HungerDict[GameManager.instance.currentMapName];
-
+        else
+            FatigueIndex = 0;
 
         // 현재 맵 정보에 따라서 배고픔 피로도 첫 초기화 
         if (!PlayerStatus.instance.InitStatus(HungerMaxData[HungerIndex],

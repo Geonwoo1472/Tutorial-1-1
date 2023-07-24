@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     //현재 맵 이름
     //playerStatus와 종속되어 있음.. 초기화 안하면 피로도 부여 오류가 생김 ㅜㅜ 고쳐야함
+    [Header("시작 맵 작성해야 피로도 배고픔 반영이 됨")]
     public string currentMapName;
     public int SceneIndex;
 

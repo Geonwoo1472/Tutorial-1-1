@@ -65884,11 +65884,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2848520586195425377, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.18
+      value: -0.44
       objectReference: {fileID: 0}
     - target: {fileID: 2848520586195425377, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.13
+      value: 7.51
       objectReference: {fileID: 0}
     - target: {fileID: 2848520586195425377, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -99632,14 +99632,48 @@ MonoBehaviour:
   - 15
   - 15
   - 15
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 0
   FatigueData:
   - 15
   - 15
   - 15
   - 15
+  - 15
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 0
   HungerMaxData:
   - 2
+  - 2
   HungerData:
+  - 2
   - 2
 --- !u!114 &1892333702
 MonoBehaviour:
@@ -99666,7 +99700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerStartingPt: 
-  currentMapName: 
+  currentMapName: CameraPos2-1
   SceneIndex: 0
   inventoryPanel: {fileID: 626467248}
   isGameover: 0
