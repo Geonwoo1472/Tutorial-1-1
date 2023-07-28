@@ -56,7 +56,7 @@ public class MapPotal : MonoBehaviour
 
                 //페이드 효과
                 fadeEffect.OnFade(FadeState.FadeIn);
-                playerAction.OnStop(PlayerState.MoveOff);
+                playerAction.PlayerCorouine(PlayerState.MoveOff);
 
                 //PlayerStatus 셋팅
                 StatusManager.instance.FatigueSetting();

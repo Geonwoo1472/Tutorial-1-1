@@ -23,7 +23,8 @@ static class Constants
 public enum PlayerState
 {
     MoveOn =0,
-    MoveOff
+    MoveOff,
+    MoveSlow
 }
 
 public class Player_Action : MonoBehaviour
@@ -43,7 +44,10 @@ public class Player_Action : MonoBehaviour
 
     private PlayerState playerState;
 
+    // 캐릭터 속력
     public float speed;
+    private float baseSpeed;
+    private float decreaseSpeed;
 
     // 캐릭터 방향
     short direction;
@@ -72,7 +76,8 @@ public class Player_Action : MonoBehaviour
         dirVec = Vector3.down;
         isCharacterTime = 0f;
         isCharacterMove = false;
-
+        baseSpeed = speed;
+        decreaseSpeed = speed / 2;
 
     }
 
@@ -242,7 +247,7 @@ public class Player_Action : MonoBehaviour
     //플레이어 움직임 제어 OnStop(PlayerState.MoveOff) 으로 호출하여야함.
     //설계가 살짝 잘못되어 있음.
     //매개변수를 2개 받고 멈추는 시간까지 받는게 좋아보임 수정할 것
-    public void OnStop(PlayerState state)
+    public void PlayerCorouine(PlayerState state, float applyTime = 0)
     {
         playerState = state;
 
@@ -254,7 +259,12 @@ public class Player_Action : MonoBehaviour
             case PlayerState.MoveOff:
                 StartCoroutine(MoveStop());
                 break;
-        
+            case PlayerState.MoveSlow:
+                StartCoroutine(MoveSlow(applyTime));
+                break;
+            default:
+                break;
+
         }
 
     }
@@ -297,6 +307,41 @@ public class Player_Action : MonoBehaviour
     {
         rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
 
+        yield return null;
+    }
+
+    // 슬로우발판 코루틴
+
+    private IEnumerator MoveSlow(float applyTime)
+    {
+        while (true)
+        {
+            yield return StartCoroutine(OnSlow(applyTime));
+
+            yield return StartCoroutine(OffSlow());
+
+            if (playerState == PlayerState.MoveSlow)
+            {
+                break;
+            }
+        }
+    }
+
+    private IEnumerator OnSlow(float applyTime)
+    {
+        float currentTime = 0.0f;
+
+        while (currentTime < applyTime)
+        {
+            currentTime += Time.deltaTime;
+            speed = decreaseSpeed;
+            yield return null;
+        }
+    }
+
+    private IEnumerator OffSlow()
+    {
+        speed = baseSpeed;
         yield return null;
     }
 
