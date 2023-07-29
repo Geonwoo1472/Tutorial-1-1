@@ -17,6 +17,7 @@ public class SwampTile : MonoBehaviour
         {
             Debug.Log("SwapTile , OnTriggerEnter2D " + collision.name);
             playerAction.PlayerCorouine(PlayerState.MoveSlow, 1);
+            PlayerStatus.instance.OnDamageFatigue(HF_Constance.SWAMPTILE);
         }
     }
 

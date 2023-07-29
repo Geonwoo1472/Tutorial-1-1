@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement; // 재시작 때문에 넣긴 했는데 여기서 처리하는�
 static class HF_Constance
 {
     public const float BOXMOVE = 1;
-
+    public const float SWAMPTILE = 1;
 }
 
 
