@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TreeTile : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
+public class TreeTile : IDestroyable
+{   
+    public override void interactionDestroy()
     {
+        if (!destroyTree)
+            return;
+
+        PlayerStatus.instance.OnDamageFatigue(HF_Constance.TREETILE);
+        Destroy(gameObject);
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

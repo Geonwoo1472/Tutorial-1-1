@@ -7834,7 +7834,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -110716,6 +110716,8 @@ MonoBehaviour:
   allowsMove: 0
   OverUI: {fileID: 1473719304}
   escPanel: {fileID: 2011793036}
+  interactionKeyDown: 0
+  playerRay: {fileID: 0}
 --- !u!4 &1892333704
 Transform:
   m_ObjectHideFlags: 0

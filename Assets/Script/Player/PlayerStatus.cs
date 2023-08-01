@@ -11,6 +11,7 @@ static class HF_Constance
 {
     public const float BOXMOVE = 1;
     public const float SWAMPTILE = 1;
+    public const float TREETILE = 1;
 }
 
 

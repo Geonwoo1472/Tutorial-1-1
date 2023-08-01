@@ -57,6 +57,12 @@ public class GameManager : MonoBehaviour
     private GameObject quick4;
     private GameObject quick5;
 
+    //상호작용키
+    public bool interactionKeyDown;
+
+    //playerRaycast
+    public player_Raycast playerRay;
+
     void Start()
     {
         activeInventory = false;
@@ -86,9 +92,9 @@ public class GameManager : MonoBehaviour
 
         inven = Inventory.instance;
 
-        //fadeEffect = GameObject.Find("FadeImage").GetComponent<FadeEffect>();
-        //fadeEffect.OnFade(FadeState.FadeIn);
-        //inventoryPanel.SetActive(activeInventory);
+        interactionKeyDown = false;
+
+        playerRay = GameObject.Find("Player").GetComponent<player_Raycast>();
     }
 
     void Update()
@@ -107,10 +113,23 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("Map 기능 !!");
             }
-            // SPACEBAR 눌렀을 때 상호작용
-            if (Input.GetKeyDown(KeySetting.keys[KeyAction.INTERACTION]))
+            // SPACEBAR 눌렀을 때 상호작용 , getkeyDown 아닌 getkey로
+            if (Input.GetKey(KeySetting.keys[KeyAction.INTERACTION]))
             {
                 Debug.Log("Interaction 기능 !!");
+
+                interactionKeyDown = true;
+
+                if (playerRay.scanObject != null)
+                {
+                    IDestroyable iDestroyable = playerRay.scanObject.GetComponent<IDestroyable>();
+                    if (iDestroyable != null)
+                        iDestroyable.interactionDestroy();
+                }
+            }
+            else
+            {
+                interactionKeyDown = false;
             }
             // 아이템 1번
             if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKONE]))
@@ -291,4 +310,16 @@ public class GameManager : MonoBehaviour
         // 캐릭터 정지시 애니메이션 발동해주어야 함 / Rigidy 잠구어야 함
         Player_Action.instance.modifyRigidbody(allowsMove);
     }
+
+    /*public bool interactionKeyDown()
+    {
+        // SPACEBAR 눌렀을 때 상호작용 , getkeyDown 아닌 getkey로
+        if (Input.GetKey(KeySetting.keys[KeyAction.INTERACTION]))
+        {
+            Debug.Log("GameManager에서 Interaction 눌림!!");
+            return true;
+        }
+
+        return false;
+    }*/
 }
