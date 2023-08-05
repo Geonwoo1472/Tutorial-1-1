@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     // 움직임 제한
     [HideInInspector]
     public bool isGameover; // Key All stop
+    [HideInInspector]
     public bool allowsMove; // Just stop moving
 
     //게임오버 UI
@@ -58,9 +59,11 @@ public class GameManager : MonoBehaviour
     private GameObject quick5;
 
     //상호작용키
+    [HideInInspector]
     public bool interactionKeyDown;
 
     //playerRaycast
+    [HideInInspector]
     public player_Raycast playerRay;
 
     void Start()
