@@ -86,5 +86,60 @@ public class MapDictionary : MonoBehaviour
         //dict.Add("SpawnTop2-9", "CameraPos2-9");
         dict.Add("SpawnLeft2-9", "CameraPos2-9");
 
+        // 3스테이지
+        // 3-1 ok
+        dict.Add("SpawnTop3-1", "CameraPos3-1");
+        dict.Add("SpawnRight3-1", "CameraPos3-1");
+
+        // 3-2 ok
+        //dict.Add("SpawnDown3-2", "CameraPos3-2");
+        dict.Add("SpawnRight3-2", "CameraPos3-2");
+        dict.Add("SpawnTop3-2", "CameraPos3-2");
+        dict.Add("SpawnLeft3-2", "CameraPos3-2");
+
+        // 3-3 ok
+        //dict.Add("SpawnDown3-3", "CameraPos3-3");
+        dict.Add("SpawnRight3-3", "CameraPos3-3");
+        dict.Add("SpawnTop3-3", "CameraPos3-3");
+        dict.Add("SpawnLeft3-3", "CameraPos3-3");
+
+        // 3-4 ok
+        //dict.Add("SpawnDown3-4", "CameraPos3-4");
+        dict.Add("SpawnRight3-4", "CameraPos3-4");
+        dict.Add("SpawnTop3-4", "CameraPos3-4");
+        dict.Add("SpawnLeft3-4", "CameraPos3-4");
+
+        // 3-5 ok
+        dict.Add("SpawnDown3-5", "CameraPos3-5");
+        dict.Add("SpawnRight3-5", "CameraPos3-5");
+        //dict.Add("SpawnTop3-5", "CameraPos3-5");
+        //dict.Add("SpawnLeft3-5", "CameraPos3-5");
+
+        // 3-6 ok
+        dict.Add("SpawnDown3-6", "CameraPos3-6");
+        dict.Add("SpawnRight3-6", "CameraPos3-6");
+        //dict.Add("SpawnTop3-6", "CameraPos3-6");
+        dict.Add("SpawnLeft3-6", "CameraPos3-6");
+
+        // 3-7 ok
+        dict.Add("SpawnDown3-7", "CameraPos3-7");
+        dict.Add("SpawnRight3-7", "CameraPos3-7");
+        dict.Add("EXIT", "CameraPos3-7");
+        dict.Add("SpawnLeft3-7", "CameraPos3-7");
+
+        // 3-8 ok
+        dict.Add("SpawnDown3-8", "CameraPos3-8");
+        dict.Add("SpawnRight3-8", "CameraPos3-8");
+        //dict.Add("SpawnTop3-8", "CameraPos3-8");
+        dict.Add("SpawnLeft3-8", "CameraPos3-8");
+
+        // 3-9 ok
+        dict.Add("SpawnDown3-9", "CameraPos3-9");
+        //dict.Add("SpawnRight3-9", "CameraPos3-9");
+        //dict.Add("SpawnTop3-9", "CameraPos3-9");
+        dict.Add("SpawnLeft3-9", "CameraPos3-9");
+
+
+
     }
 }
