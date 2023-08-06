@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd0d9ca4197296f4a9c6ca0af53d8215, type: 3}
-  m_Name: KeyItem
+  m_Script: {fileID: 11500000, guid: 7e441dd993cc48c40a2cce8c7b6329d6, type: 3}
+  m_Name: Item_Key
   m_EditorClassIdentifier: 
   itemType: 3
-  itemName: keyItem
+  itemName: key1
   itemImage: {fileID: 21300000, guid: 5b20cbe9bfc2a4e89acade0bc84473f1, type: 3}
-  itemHeal: 0
-  keyNum: 1
+  keyValue: 1
