@@ -94,6 +94,7 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
+    private float timeCheck;
 
     // 플레이어가 아이템과 충돌한 경우
     private void OnTriggerEnter2D(Collider2D collision)
@@ -105,8 +106,13 @@ public class Inventory : MonoBehaviour
         // 그리고 잘 저장되었다면 onChangeItem 함수를 호출하고 [델리게이트]
         // 해당 오브젝트는 파괴한다.
 
+        // 가끔 2번 들어오는 경우가 있음.
+        // 
+        timeCheck += Time.deltaTime;
+
         if (collision.CompareTag("FieldItem"))
         {
+            Debug.Log("Inventory.cs 인데 나는 얘랑 충돌했어 !!" + timeCheck); 
             FildItem filditems = collision.GetComponent<FildItem>();
             if (AddItem(filditems.GetItem()))
             {

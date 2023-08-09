@@ -19,6 +19,8 @@ public class InventoryUI : MonoBehaviour
 
     // 인벤토리 하단 TextUI
     public TextMeshProUGUI tmpCountText;
+    public Slider invenSlider;
+    
 
     void Start()
     {
@@ -35,6 +37,7 @@ public class InventoryUI : MonoBehaviour
 
         // 대리자 등록 , 인벤토리 TextUI
         inven.onChangeItemTextUI += TmpTextChange;
+        inven.onChangeItemTextUI += SliderWeightChange;
     }
 
     private void SlotChange(int val)
@@ -86,6 +89,11 @@ public class InventoryUI : MonoBehaviour
     {
         tmpCountText.text = count + "/" + capacity;
     }
+    void SliderWeightChange(int count, int capacity)
+    {
+        invenSlider.value = (float)count / (float)capacity;
+    }
+
 
     void Update()
     {
