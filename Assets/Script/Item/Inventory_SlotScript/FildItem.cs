@@ -6,16 +6,21 @@ public class FildItem : MonoBehaviour
 {
 
     public Item item;
-    SpriteRenderer image;
+    public bool isAvailable;
+
+    private SpriteRenderer image;
+    
 
     private void Awake()
     {
         image = GetComponent<SpriteRenderer>();
+        
     }
 
     private void Start()
     {
         SetItem(item);
+        isAvailable = false;
     }
 
     public void SetItem(Item _item)
@@ -31,9 +36,6 @@ public class FildItem : MonoBehaviour
     }
     public void DestoryItem()
     {
-        // Destroy 호출 문제가 있다.
-        // 아마 한싸이클 돌리고 맨 마지막에 하는 것 같은데
-        // 없어지기 전에 
         Destroy(gameObject);
     }
 }

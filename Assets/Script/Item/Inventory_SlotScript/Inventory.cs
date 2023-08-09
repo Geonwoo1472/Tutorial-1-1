@@ -94,7 +94,7 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    private float timeCheck;
+    
 
     // 플레이어가 아이템과 충돌한 경우
     private void OnTriggerEnter2D(Collider2D collision)
@@ -107,16 +107,24 @@ public class Inventory : MonoBehaviour
         // 해당 오브젝트는 파괴한다.
 
         // 가끔 2번 들어오는 경우가 있음.
-        // 
-        timeCheck += Time.deltaTime;
+        // //2회 충돌 시 bool 값으로 처리..
+
 
         if (collision.CompareTag("FieldItem"))
         {
-            Debug.Log("Inventory.cs 인데 나는 얘랑 충돌했어 !!" + timeCheck); 
+            //Debug.Log("Inventory.cs 인데 나는 얘랑 충돌했어 !!" + collision.name);
+            //Debug.Log("내 이름은 : " + gameObject.name + " 이야 !");
             FildItem filditems = collision.GetComponent<FildItem>();
+
+            if (filditems.isAvailable)
+                return;
+            else
+                filditems.isAvailable = true;
+
             if (AddItem(filditems.GetItem()))
             {
-                filditems.DestoryItem();
+                //filditems.DestoryItem();
+                collision.gameObject.SetActive(false);
             }
         }
     }

@@ -218,16 +218,6 @@ public class Player_Action : MonoBehaviour
         isCharacterMove = isCharacter;
     }
 
-    // 충돌
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.tag == "Box")
-        {
-            Debug.Log("박스와 충돌함 !! ");
-
-        }
-    }
-
     //정지시 캐릭터 애니메이션 
     public void modifyRigidbody(bool change)
     {
@@ -345,5 +335,14 @@ public class Player_Action : MonoBehaviour
         yield return null;
     }
 
+    // 충돌
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Box")
+        {
+            Debug.Log("박스와 충돌함 !! ");
+
+        }
+    }
 }
 
