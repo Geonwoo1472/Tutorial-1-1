@@ -8,6 +8,7 @@ TagManager:
   - MapBoxCollider
   - FieldItem
   - Tree
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -57,7 +58,7 @@ TagManager:
   - name: Item
     uniqueID: 3189614257
     locked: 0
-  - name: Spare
+  - name: Trap
     uniqueID: 1159996901
     locked: 0
   - name: Spare1
