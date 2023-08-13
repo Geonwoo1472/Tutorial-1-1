@@ -61,7 +61,7 @@ TagManager:
   - name: Trap
     uniqueID: 1159996901
     locked: 0
-  - name: Spare1
+  - name: BrokenObject
     uniqueID: 1432896409
     locked: 0
   - name: Spare2
