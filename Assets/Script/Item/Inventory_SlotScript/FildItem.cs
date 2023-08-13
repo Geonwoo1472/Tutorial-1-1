@@ -6,10 +6,10 @@ public class FildItem : MonoBehaviour
 {
 
     public Item item;
-    public bool isAvailable;
 
     private SpriteRenderer image;
-    
+    [HideInInspector]
+    public bool isAvailable;
 
     private void Awake()
     {

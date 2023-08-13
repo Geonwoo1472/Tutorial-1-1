@@ -20,11 +20,13 @@ public class PlayerLight2DController : MonoBehaviour
 
     private Light2D playerLight2D;
     private float currentLightValue;
+    private int expansionSpeed;
 
     private void Start()
     {
         playerLight2D = GetComponent<Light2D>();
         currentLightValue = playerLight2D.pointLightOuterRadius;
+        expansionSpeed = 5;
     }
 
     public void playerLight2DCoroutine(float eyeSightValue)
@@ -47,13 +49,24 @@ public class PlayerLight2DController : MonoBehaviour
 
     private IEnumerator OnEyesight(float eyeSightValue)
     {
-        while(currentLightValue <= eyeSightValue)
+        while (currentLightValue >= eyeSightValue)
         {
             currentLightValue += Time.deltaTime;
+            currentLightValue -= Time.deltaTime * expansionSpeed;
             playerLight2D.pointLightOuterRadius = currentLightValue;
 
             yield return null;
         }
+
+        while (currentLightValue <= eyeSightValue)
+        {
+            currentLightValue += Time.deltaTime * expansionSpeed;
+            playerLight2D.pointLightOuterRadius = currentLightValue;
+
+            yield return null;
+        }
+
+        yield return null;
     }
     private IEnumerator OffEyesight()
     {

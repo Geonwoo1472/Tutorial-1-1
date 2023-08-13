@@ -61,6 +61,12 @@ public class PlayerStatus : MonoBehaviour
         set => states.keyValue = value;
         get => states.keyValue;
     }
+    public bool HasBrightened
+    {
+        set => states.hasBrightened = value;
+        get => states.hasBrightened;
+    }
+
 
     public bool InitStatus(float _HungerMax, float _FatigueMax, float _Hunger, float _Fatigue)
     {
@@ -68,6 +74,7 @@ public class PlayerStatus : MonoBehaviour
         FatigueMax = _FatigueMax;
         Hunger = _Hunger;
         Fatigue = _Fatigue;
+        HasBrightened = false;
 
         return true;
     }
@@ -198,4 +205,6 @@ public struct MyStates
     public float FatigueMax;
     [HideInInspector]
     public short keyValue;
+    [HideInInspector]
+    public bool hasBrightened;
 }

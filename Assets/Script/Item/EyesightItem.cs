@@ -16,6 +16,8 @@ public class EyesightItem : Item
     {
         playerLightController = PlayerLight2DController.instance;
         playerLightController.playerLight2DCoroutine(sightValue);
+        PlayerStatus.instance.HasBrightened = true;
+
         retValue = true;
         
         return base.Use();
