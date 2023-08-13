@@ -4,42 +4,34 @@ using UnityEngine;
 
 public class DebugManager : MonoBehaviour
 {
-    [Header("기능 사용")]
-    [SerializeField]
-    private bool debugUse;
-
     [Header("스테미너 무한")]
     [SerializeField]
-    private bool statusBlock;
+    private bool statusBlock;           // 스테미너 감소 유무 변수입니다.
 
-    public Transform myCamera;
-
-    private void Awake()
-    {
-        //myCamera = GameObject.Find("Main Camera");
-    }
+    private Transform myCamera;         // 카메라 좌표값을 설정합니다.
+    private bool debugUse;              // 제작 모드 판단 유무입니다.
 
     void Start()
     {
-        if (!debugUse)
-            return;
-
-        //스테미너 감소수치 체크되어있다면 StatusManager의 testMode 변수를 true로 할 것
-        if (statusBlock)
-            PlayerStatus.instance.testMode = true;
+        myCamera = GameObject.Find("Main Camera").transform;
+        debugUse = true;
+        InvincibilityMode();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!debugUse)
             return;
-
-        // 만약 부딪힌게 Tag 카메라라면 위치 받아와서 현재 카메라의 위치를 강제로 이동
         if (other.CompareTag("MapBoxCollider"))
         {
-            //myCamera.transform.position = other.transform.position;
             myCamera.position = other.transform.position;
         }
     }
     
+    private void InvincibilityMode()
+    {
+        if (statusBlock)
+            PlayerStatus.instance.testMode = true;
+    }
+
 }

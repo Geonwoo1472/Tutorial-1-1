@@ -20,51 +20,35 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    //플레이어 재시작 위치
-    public string playerStartingPt;
+    public string playerStartingPt;                     // 플레이어 재시작 위치입니다. MapPotal.cs에서 사용하고 있습니다.
+    [Header("시작 맵 작성해야 피로도 배고픔 반영")]
+    public string currentMapName;                       // 현재 맵의 이름
+    public int SceneIndex;                              // 현재 Scene의 Index번호 
+    public GameObject inventoryPanel;                   // InventoryPanel 오브젝트
+    public GameObject OverUI;                           // GameOverUI 오브젝트입니다.
+    public GameObject escPanel;                         // ESC UI 오브젝트입니다.
 
-    //현재 맵 이름
-    //playerStatus와 종속되어 있음.. 초기화 안하면 피로도 부여 오류가 생김 ㅜㅜ 고쳐야함
-    [Header("시작 맵 작성해야 피로도 배고픔 반영이 됨")]
-    public string currentMapName;
-    public int SceneIndex;
-
-    //인벤토리
-    public GameObject inventoryPanel;
-    bool activeInventory;
-
-    // 움직임 제한
     [HideInInspector]
-    public bool isGameover; // Key All stop
+    public bool allowsMove;                             // Just stop moving
     [HideInInspector]
-    public bool allowsMove; // Just stop moving
+    public bool isGameover;                             // Key All stop
 
-    //게임오버 UI
-    public GameObject OverUI;
+    private bool activeEscPanel;                        // ESC Panel SetActive유무 변수
+    private bool activeInventory;                       // InventoryPanel SetActive유무 변수
 
-    //페이드
-    //FadeEffect fadeEffect;
+    
+    private Inventory inven;                            // 인벤토리 스크립트 저장 변수
+    private GameObject quick1;                          // 퀵1 오브젝트
+    private GameObject quick2;                          // 퀵2 오브젝트
+    private GameObject quick3;                          // 퀵3 오브젝트
+    private GameObject quick4;                          // 퀵4 오브젝트
+    private GameObject quick5;                          // 퀵5 오브젝트
 
-    //ESC UI
-    public GameObject escPanel;
-    bool activeEscPanel;
-
-
-    //인벤  & 퀵슬롯 1,2,3,4,5
-    Inventory inven;
-    private GameObject quick1;
-    private GameObject quick2;
-    private GameObject quick3;
-    private GameObject quick4;
-    private GameObject quick5;
-
-    //상호작용키
+    
     [HideInInspector]
-    public bool interactionKeyDown;
-
-    //playerRaycast
+    public bool interactionKeyDown;                     // 상호작용키 사용 유무 판단 
     [HideInInspector]
-    public player_Raycast playerRay;
+    public player_Raycast playerRay;                    //playerRaycast  
 
     void Start()
     {
@@ -74,30 +58,15 @@ public class GameManager : MonoBehaviour
         allowsMove = false;
         SceneIndex = 1;
         quick1 = GameObject.Find("QuickSlot");
-        if (quick1 == null)
-            Debug.Log("quick crash .. ");
-
         quick2 = GameObject.Find("QuickSlot (1)");
-        if (quick2 == null)
-            Debug.Log("quick(1) crash .. ");
-
         quick3 = GameObject.Find("QuickSlot (2)");
-        if (quick3 == null)
-            Debug.Log("quick(2) crash .. ");
-
         quick4 = GameObject.Find("QuickSlot (3)");
-        if (quick4 == null)
-            Debug.Log("quick(3) crash .. ");
-
         quick5 = GameObject.Find("QuickSlot (4)");
-        if (quick5 == null)
-            Debug.Log("quick(4) crash .. ");
-
         inven = Inventory.instance;
-
         interactionKeyDown = false;
-
         playerRay = GameObject.Find("Player").GetComponent<player_Raycast>();
+
+        NullChecking();
     }
 
     void Update()
@@ -275,6 +244,7 @@ public class GameManager : MonoBehaviour
 
 
     }
+    
 
 
     //인벤토리
@@ -325,4 +295,20 @@ public class GameManager : MonoBehaviour
 
         return false;
     }*/
+
+    private void NullChecking()
+    {
+        if (quick1 == null)
+            Debug.Log("quick crash .. ");
+        if (quick2 == null)
+            Debug.Log("quick(1) crash , GameManager.cs  ");
+        if (quick3 == null)
+            Debug.Log("quick(2) crash , GameManager.cs  ");
+        if (quick4 == null)
+            Debug.Log("quick(3) crash , GameManager.cs  ");
+        if (quick5 == null)
+            Debug.Log("quick(4) crash , GameManager.cs  ");
+        if (playerRay == null)
+            Debug.Log("playerRay crash , GameManager.cs ");
+    }
 }

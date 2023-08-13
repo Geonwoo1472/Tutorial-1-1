@@ -1,19 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement; // 재시작 때문에 넣긴 했는데 여기서 처리하는게 맞는가 모르겠음.
-/*
- 1. 맵 들어올 때 스텟 셋팅
- 2. 박스 밀 때 스텟 감소, UI 메소드 실행
- */
-
-static class HF_Constance
-{
-    public const float BOXMOVE = 1;
-    public const float SWAMPTILE = 1;
-    public const float TREETILE = 1;
-}
-
 
 public class PlayerStatus : MonoBehaviour
 {
@@ -29,13 +16,12 @@ public class PlayerStatus : MonoBehaviour
         instance = this;
     }
     #endregion
-    // player states
-    private MyStates states;
 
-    //테스트 모드 ON/OFF , ON인경우에는 피로도 배고픔 감소 없음.
-    [Header("테스트 모드 [감소효과 없음]")]
-    public bool testMode = false;
+    private MyStates states;            // 플레이어의 상태 정보 구조체.
+    [HideInInspector]
+    public bool testMode;
 
+    /*Player의 구조체 프로퍼티 */
     public float Hunger
     {
         set => states.Hunger = Mathf.Clamp(value, 0, states.HungerMax);
@@ -66,8 +52,9 @@ public class PlayerStatus : MonoBehaviour
         set => states.hasBrightened = value;
         get => states.hasBrightened;
     }
+    /*Player의 구조체 프로퍼티 */
 
-
+    /*Player의 구조체 초기화/접근 함수 */
     public bool InitStatus(float _HungerMax, float _FatigueMax, float _Hunger, float _Fatigue)
     {
         HungerMax = _HungerMax;
@@ -78,7 +65,6 @@ public class PlayerStatus : MonoBehaviour
 
         return true;
     }
-
     public bool InitCurrentStatus(float _Hunger, float _Fatigue)
     {
         Hunger = _Hunger;
@@ -86,34 +72,33 @@ public class PlayerStatus : MonoBehaviour
 
         return true;
     }
-
     public bool InitHunger(float _Hunger)
     {
         Hunger = _Hunger;
 
         return true;
     }
-
     public bool InitHungerMax(float _HungerMax)
     {
         HungerMax = _HungerMax;
 
         return true;
     }
-
     public bool InitFatigue(float _Fatigue)
     {
         Fatigue = _Fatigue;
 
         return true;
     }
-    
     public bool InitFatigueMax(float _FatigueMax)
     {
         FatigueMax = _FatigueMax;
 
         return true;
     }
+    /*Player의 구조체 초기화/접근 함수 */
+
+
 
     public bool OnDamageHunger(float damage)
     {

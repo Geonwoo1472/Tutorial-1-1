@@ -115622,10 +115622,10 @@ MonoBehaviour:
   currentMapName: CameraPos2-1
   SceneIndex: 0
   inventoryPanel: {fileID: 626467248}
-  isGameover: 0
-  allowsMove: 0
   OverUI: {fileID: 1473719304}
   escPanel: {fileID: 2011793036}
+  allowsMove: 0
+  isGameover: 0
   interactionKeyDown: 0
   playerRay: {fileID: 0}
 --- !u!4 &1892333704

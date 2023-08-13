@@ -17,11 +17,19 @@ public class MapDictionary : MonoBehaviour
     }
     #endregion
 
-    public Dictionary<string, string> dict;
+    public Dictionary<string, string> dict;         // 스폰된 위치에 따라 현재 맵을 구분하는 사전입니다.
 
     private void Start()
     {
         dict = new Dictionary<string, string>();
+
+        Stage1();
+        Stage2();
+        Stage3();
+    }
+
+    private void Stage1()
+    {
         // 1스테이지
         dict.Add("PS1-1", "CameraPos1");
         dict.Add("PS1-2", "CameraPos2");
@@ -32,7 +40,9 @@ public class MapDictionary : MonoBehaviour
         dict.Add("PE1-2", "CameraPos2");
         dict.Add("PE1-3", "CameraPos3");
         dict.Add("PE1-4", "CameraPos4");
-
+    }
+    private void Stage2()
+    {
         // 2스테이지
         // 2-1
         dict.Add("SpawnTop2-1", "CameraPos2-1");
@@ -85,7 +95,9 @@ public class MapDictionary : MonoBehaviour
         //dict.Add("SpawnRight2-9", "CameraPos2-9");
         //dict.Add("SpawnTop2-9", "CameraPos2-9");
         dict.Add("SpawnLeft2-9", "CameraPos2-9");
-
+    }
+    private void Stage3()
+    {
         // 3스테이지
         // 3-1 ok
         dict.Add("SpawnTop3-1", "CameraPos3-1");
@@ -138,8 +150,5 @@ public class MapDictionary : MonoBehaviour
         //dict.Add("SpawnRight3-9", "CameraPos3-9");
         //dict.Add("SpawnTop3-9", "CameraPos3-9");
         dict.Add("SpawnLeft3-9", "CameraPos3-9");
-
-
-
     }
 }
