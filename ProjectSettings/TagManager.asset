@@ -17,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Object
-  - 
+  - TalkObject
   - 
   - 
   - 
@@ -64,7 +64,7 @@ TagManager:
   - name: BrokenObject
     uniqueID: 1432896409
     locked: 0
-  - name: Spare2
+  - name: TalkObject
     uniqueID: 1706595977
     locked: 0
   - name: Player
