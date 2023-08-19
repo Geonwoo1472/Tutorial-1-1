@@ -27,3 +27,9 @@ public static class Constants
     public const short DU = 3;
     public const short DD = 4;
 }
+
+public static class RayConstants
+{
+    public const float objectRayLength = 0.3f;
+    public const float talkRayLength = 0.5f;
+}

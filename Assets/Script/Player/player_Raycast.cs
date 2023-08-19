@@ -22,12 +22,10 @@ public class player_Raycast : MonoBehaviour
         pastTag = null;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Layer, Object만 RayCast로 감지 중..
-        Debug.DrawRay(rigid.position, _pA.get_v_dir() * 0.5f, new Color(0, 1, 0));
-        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, _pA.get_v_dir(), 0.5f, LayerMask.GetMask("Object"));
+        Debug.DrawRay(rigid.position, _pA.get_v_dir() * RayConstants.objectRayLength , new Color(1, 1, 1));
+        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, _pA.get_v_dir(), RayConstants.objectRayLength, LayerMask.GetMask("Object"));
 
 
         if (rayHit.collider != null)

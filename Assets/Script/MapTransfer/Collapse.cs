@@ -5,7 +5,7 @@ public class Collapse : MonoBehaviour
 {
     public GameObject connectedCave;        // 반대편 동굴 정보
     public Sprite activeImage;			    // 변경될 이미지
-    public Transform TeleportPos;			// 이동할 위치
+    public Transform teleportPos;			// 이동할 위치
 
     [HideInInspector]
     public bool isActive;                   // 동굴을 사용했는지
@@ -38,21 +38,21 @@ public class Collapse : MonoBehaviour
 
         if (collision.CompareTag("Player"))
         {
-            collapse();
+            Collapsing();
         }
     }
 
-    public void setActive(bool _isActive)
+    public void SetActive(bool _isActive)
     {
         isActive = _isActive;
         spriteRender.sprite = activeImage;
         boxCollider.isTrigger = false;
     }
 
-    private void collapse()
+    protected virtual void Collapsing()
     {
-        playerPos.position = TeleportPos.position;
-        setActive(true);
-        oppositeCollapse.setActive(true);
+        playerPos.position = teleportPos.position;
+        SetActive(true);
+        oppositeCollapse.SetActive(true);
     }
 }
