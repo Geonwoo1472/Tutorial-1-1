@@ -80,7 +80,7 @@ public class Player_Action : MonoBehaviour
                 return;
 
             //
-            if (GameManager.instance.allowsMove)
+            if (GameManager.instance.moveStatus)
                 return;
         }
         //키보드 입력 받는 메소드

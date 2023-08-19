@@ -29,6 +29,7 @@ public class DalogManager : MonoBehaviour
         Talk(objData.ID, objData.isNpc);
 
         talkPanel.SetActive(isAction);
+        GameManager.instance.setMove(isAction);
     }
 
     /* 
@@ -64,7 +65,6 @@ public class DalogManager : MonoBehaviour
         {
             talk.SetMsg(talkData.Split(':')[0]);
             
-
             portraitImg.sprite = talkManager.GetPortraite(ID, int.Parse(talkData.Split(':')[1]));
             portraitImg.color = new Color(1, 1, 1, 1);
         }

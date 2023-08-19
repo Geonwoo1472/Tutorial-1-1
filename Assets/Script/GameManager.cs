@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     public GameObject escPanel;                         // ESC UI 오브젝트입니다.
 
     [HideInInspector]
-    public bool allowsMove;                             // Just stop moving
+    public bool moveStatus;                             // Just stop moving
     [HideInInspector]
     public bool isGameover;                             // Key All stop
 
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         activeInventory = false;
         isGameover = false;
         activeEscPanel = false;
-        allowsMove = false;
+        moveStatus = false;
         SceneIndex = 1;
         quick1 = GameObject.Find("QuickSlot");
         quick2 = GameObject.Find("QuickSlot (1)");
@@ -279,10 +279,17 @@ public class GameManager : MonoBehaviour
 
     public void ModifyMove()
     {
-        allowsMove = !allowsMove;
-        // 캐릭터 정지시 애니메이션 발동해주어야 함 / Rigidy 잠구어야 함
-        Player_Action.instance.modifyRigidbody(allowsMove);
+        moveStatus = !moveStatus;
+        Player_Action.instance.modifyRigidbody(moveStatus);
     }
+
+    public void setMove(bool _setMove)
+    {
+        moveStatus = _setMove;
+        Player_Action.instance.modifyRigidbody(moveStatus);
+    }
+
+
     private void NullChecking()
     {
         if (quick1 == null)

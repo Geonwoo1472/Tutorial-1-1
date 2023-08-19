@@ -26,5 +26,4 @@ public static class Constants
     public const short DL = 2;
     public const short DU = 3;
     public const short DD = 4;
-
 }
