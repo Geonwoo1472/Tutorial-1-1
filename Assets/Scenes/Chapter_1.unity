@@ -24300,7 +24300,7 @@ MonoBehaviour:
   escPanel: {fileID: 1126627955}
   allowsMove: 0
   isGameover: 0
-  interactionKeyDown: 0
+  interationGetKey: 0
   playerRay: {fileID: 0}
 --- !u!4 &1096029547
 Transform:

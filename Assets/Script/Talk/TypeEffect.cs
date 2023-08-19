@@ -23,7 +23,8 @@ public class TypeEffect : MonoBehaviour
     }
 
     /*
-     
+    메시지를 받아 처리하기위한 메소드입니다.
+    SetMsg(string) 을 호출하면 말풍선에 메시지를 띄워줍니다.
      */
     public void SetMsg(string msg)              
     {
@@ -40,6 +41,9 @@ public class TypeEffect : MonoBehaviour
         }
     }
 
+    /*
+    말풍선에 문자열 입력을 시작하는 메소드입니다.
+     */
     private void EffectStart()
     {
         msgText.text = "";
@@ -49,6 +53,11 @@ public class TypeEffect : MonoBehaviour
         isAnim = true;
         Invoke("Effecting", interval);
     }
+    /*
+    말풍선의 문자열을 한번에 출력하는 것이 아닌
+    한 글자 한 글자 출력하기 위한 메소드입니다.
+    Invoke를 통해서 정해진 시간마다 호출됩니다.
+     */
     private void Effecting()
     {
         if(msgText.text == targetMsg)
@@ -66,6 +75,9 @@ public class TypeEffect : MonoBehaviour
 
         Invoke("Effecting", interval);
     }
+    /*
+    말풍선의 문자가 입력되는 것을 끝마치는 메소드입니다.
+     */
     private void EffectEnd()
     {
         isAnim = false;

@@ -19,3 +19,12 @@ public static class SceneConstIndex
     public static readonly int CHAPTER2 = 3;
     public static readonly int CHAPTER3 = 4;
 }
+
+public static class Constants
+{
+    public const short DR = 1;
+    public const short DL = 2;
+    public const short DU = 3;
+    public const short DD = 4;
+
+}

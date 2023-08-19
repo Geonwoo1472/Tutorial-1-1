@@ -8,18 +8,6 @@ using UnityEngine;
 1) 코루틴에서 멈추었는데 Update에서 풀어서 움직이는 것 같음
    맵탄 상태에서 키 계속 누르고 있으면 미세하게 반응함.
  */
-
-
-// 방향 상수 값
-static class Constants
-{
-    public const short DR = 1;
-    public const short DL = 2;
-    public const short DU = 3;
-    public const short DD = 4;
-
-}
-
 public enum PlayerState
 {
     MoveOn =0,

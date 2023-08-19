@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class ObjectTalkData : MonoBehaviour
 {
-    public int ID;
-    public bool isNpc;
+    public int ID;              //말풍선을 불러올 지정 ID
+    public bool isNpc;          //Npc 여부
 
     [HideInInspector]
-    public bool isCollider;
+    public bool isCollider;     //Auto 말풍선의 여부
 }
