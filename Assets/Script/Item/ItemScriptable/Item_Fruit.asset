@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 369d7c72bbd08c44f9d96010b95d3f12, type: 3}
   m_Name: Item_Fruit
   m_EditorClassIdentifier: 
-  itemType: 1
+  itemType: 0
   itemName: Fruit
   itemImage: {fileID: 21300000, guid: 955111fe3505b9c49a9f783f5c3b573f, type: 3}

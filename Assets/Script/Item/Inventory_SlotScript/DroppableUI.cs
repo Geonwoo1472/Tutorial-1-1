@@ -39,27 +39,7 @@ public class DroppableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler,
     //마우스 클릭할 때
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("DroppableUI.cs 의 OnPointerClick() 메소드 실행 중 .. ");
-        /*  이곳에서는 클릭 된 순간 슬롯에 있는 자식 오브젝트를 가져오고 
-            해당 오브젝트의 FildItem스크립트에서 Item정보도 가져와야합니다.
-            가져왔다면  Iventory의 RemoveItem 를 호출하여 개수를 차감시키고
-            Item의 Use를 사용합니다.
-            이후 자식을 삭제하는 과정을 거칩니다.    
-
-         */
-
-        GameObject gameObject = transform.GetChild(0).gameObject;
-        DraggableUI draggableUI = gameObject.GetComponent<DraggableUI>();
-        Item item = draggableUI.item;
-        if (item == null)
-        {
-            Debug.Log("item 할당 안됨 !");
-            return;
-        }
-        inven.RemoveItem();
-        item.Use();
-
-        Destroy(gameObject);
+        ItemUsing();
     }
 
     // 마우스 포인터 들어올 때
@@ -84,6 +64,47 @@ public class DroppableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler,
             eventData.pointerDrag.GetComponent<RectTransform>().position = rect.position;
             isFull = true;
         }
+    }
+
+
+    /*  
+            이곳에서는 클릭 된 순간 슬롯에 있는 자식 오브젝트를 가져오고 
+            해당 오브젝트의 FildItem스크립트에서 Item정보도 가져와야합니다.
+            가져왔다면  Iventory의 RemoveItem 를 호출하여 개수를 차감시키고
+            Item의 Use를 사용합니다.
+            이후 자식을 삭제하는 과정을 거칩니다.    
+         */
+    private void ItemUsing()
+    {
+        GameObject gameObject = transform.GetChild(0).gameObject;
+        DraggableUI draggableUI = gameObject.GetComponent<DraggableUI>();
+        Item item = draggableUI.item;
+        if (item == null)
+        {
+            Debug.Log("item 할당 안됨 !");
+            return;
+        }
+        
+        switch(item.itemType)
+        {
+            case ItemType.consumable:
+                {
+                    inven.RemoveItem();
+                    item.Use();
+                    Destroy(gameObject);
+                }
+                break;
+            case ItemType.material:
+                {
+                    /*작동할 기능 없으므로 공백 */
+                }
+                break;
+            default:
+                Debug.Log(" DroppableUI.cs , switch 문 default");
+                break;
+        }
+
+        
     }
 
 }

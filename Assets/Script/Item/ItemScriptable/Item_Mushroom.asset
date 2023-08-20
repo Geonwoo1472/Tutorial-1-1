@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 369d7c72bbd08c44f9d96010b95d3f12, type: 3}
   m_Name: Item_Mushroom
   m_EditorClassIdentifier: 
-  itemType: 1
+  itemType: 0
   itemName: Mushromm
   itemImage: {fileID: 1042982822, guid: b8814c83d33f044eaa43a507df945000, type: 3}

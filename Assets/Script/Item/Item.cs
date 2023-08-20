@@ -8,11 +8,10 @@ using UnityEngine;
  */
 public enum ItemType
 {
-    HungerHeal,
-    FatigueHeal,
-    Eyesight,
-    Key,
-    Count
+    consumable,
+    material,
+    key,
+    count
 }
 
 public class Item : ScriptableObject

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d29e7f0e903122247bc17396a56f8682, type: 3}
   m_Name: Item_Bread
   m_EditorClassIdentifier: 
-  itemType: 1
+  itemType: 0
   itemName: Bread
   itemImage: {fileID: -764557499, guid: 96e8295f31e7e944689327c5a410706b, type: 3}
   healValue: 5

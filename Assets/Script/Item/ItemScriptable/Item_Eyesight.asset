@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d48e83c83600443b29feb28462e756, type: 3}
   m_Name: Item_Eyesight
   m_EditorClassIdentifier: 
-  itemType: 2
+  itemType: 0
   itemName: FireItem
   itemImage: {fileID: 21300000, guid: 3d271243fedaca44580218df68a0f1b7, type: 3}
   sightValue: 10
