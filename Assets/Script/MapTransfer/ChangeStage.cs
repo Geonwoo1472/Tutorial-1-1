@@ -5,16 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class ChangeStage : MonoBehaviour
 {
-    [Header("출입구 KeyValue 설정")]
-    public short mapChangeKeyValue;                                         // 열쇠와 맵핑되어야하는 고유 값
+    public short exitKey;                                                   // 열쇠와 맵핑되어야하는 고유 값
+    public string transferMapname;                                          // 이동할 맵의 이름
 
     private Inventory inven;                                                // 슬롯 최대 개수 가져오기 위함
     private Transform itemIvenpanel;                                        // 아이템 슬롯을 관리하는 판넬
+    private GameManager gameManager;                                        // currentMapName 변경을 위함.
 
     private void Start()
     {
         inven = Inventory.instance;
-        itemIvenpanel = GameObject.Find("ItemInvenPanel").GetComponent<RectTransform>();
+        //itemIvenpanel = GameObject.Find("ItemInvenPanel").GetComponent<RectTransform>();
+        itemIvenpanel = GameObject.Find("Canvas").transform.Find("InventoryPanel").Find("ItemInvenPanel").GetComponent<RectTransform>();
+        gameManager = GameManager.instance;
     }
 
     /*
@@ -39,9 +42,10 @@ public class ChangeStage : MonoBehaviour
                     if (item.itemType == ItemType.key)
                     {
                         KeyItem keyItem = (KeyItem)item;
-                        if (keyItem.keyValue == mapChangeKeyValue)
+                        if (keyItem.keyValue == exitKey)
                         {
                             keyItem.Use();
+                            gameManager.currentMapName = transferMapname;
                             SceneManager.LoadScene(SceneConstIndex.CHAPTERSAVE);
                         }
                     }
