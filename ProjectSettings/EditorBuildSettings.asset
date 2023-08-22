@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainTitle.unity
     guid: d9e9e63c4f226e341910ad219fc77ee8
   - enabled: 1
-    path: Assets/Scenes/Chapter_Save.unity
-    guid: 8e5ab75c27f61214ebe4268e81324b18
-  - enabled: 1
     path: Assets/Scenes/Chapter_1.unity
     guid: 38fd8cf8bae903a4ebc563d0a3ffe480
   - enabled: 1
@@ -20,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapter_3.unity
     guid: c37a79b2dcb8c714c979997635d2f4e8
+  - enabled: 1
+    path: Assets/Scenes/Chapter_Save.unity
+    guid: 8e5ab75c27f61214ebe4268e81324b18
   m_configObjects: {}

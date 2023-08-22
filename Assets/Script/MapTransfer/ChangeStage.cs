@@ -15,7 +15,6 @@ public class ChangeStage : MonoBehaviour
     private void Start()
     {
         inven = Inventory.instance;
-        //itemIvenpanel = GameObject.Find("ItemInvenPanel").GetComponent<RectTransform>();
         itemIvenpanel = GameObject.Find("Canvas").transform.Find("InventoryPanel").Find("ItemInvenPanel").GetComponent<RectTransform>();
         gameManager = GameManager.instance;
     }
@@ -23,9 +22,8 @@ public class ChangeStage : MonoBehaviour
     /*
      부딪힌 객체가 플레이어의 경우
     플레이어 인벤토리 내에 열쇠아이템이 있는경우에
-    열쇠를 자동으로 소모하고, 다음 씬으로 넘어갑니다.
+    열쇠를 자동으로 소모하고, 세이브 씬으로 넘어갑니다.
      */
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
