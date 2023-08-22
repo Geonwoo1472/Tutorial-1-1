@@ -6,12 +6,21 @@ public class OptionPopupManager : MonoBehaviour
 {
     public Text[] txt;
 
-    // Update is called once per frame
-    void Update()
+    private KeyManager keyManager;
+
+    private void Start()
+    {
+        keyManager = GetComponent<KeyManager>();
+        keyManager.onKeyChange += keyRendering;
+        keyRendering();
+    }
+
+    public void keyRendering()
     {
         for (int i = 0; i < txt.Length; i++)
         {
             txt[i].text = KeySetting.keys[(KeyAction)i].ToString();
         }
     }
+
 }

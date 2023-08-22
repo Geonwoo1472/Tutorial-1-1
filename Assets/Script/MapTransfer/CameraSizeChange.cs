@@ -6,11 +6,11 @@ public class CameraSizeChange : MonoBehaviour
 {
     public float cameraSize;
 
-    private Camera camera;
+    private Camera mainCamera;
     // Start is called before the first frame update
     void Start()
     {
-        camera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        mainCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         
     }
 
@@ -25,6 +25,6 @@ public class CameraSizeChange : MonoBehaviour
 
     public void sizeChanging()
     {
-        camera.orthographicSize = cameraSize;
+        mainCamera.orthographicSize = cameraSize;
     }
 }

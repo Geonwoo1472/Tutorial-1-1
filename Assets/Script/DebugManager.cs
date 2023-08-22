@@ -18,6 +18,10 @@ public class DebugManager : MonoBehaviour
         InvincibilityMode();
     }
 
+    /*
+     플레이어가 맵 전체적으로 깔린 콜라이더와 접촉한 경우
+     카메라의 위치를 콜라이더의 위치로 바꿉니다.
+     */
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!debugUse)
