@@ -26,6 +26,16 @@ public class MapDictionary : MonoBehaviour
         Stage1();
         Stage2();
         Stage3();
+        SaveStage();
+    }
+
+    private void SaveStage()
+    {
+        dict.Add("StartPoint2", "CameraPos2-1");
+        dict.Add("StartPoint3", "CameraPos3-1");
+        dict.Add("StartPointCenter4", "CameraPos4-1");
+        dict.Add("StartPointLeft4", "CameraPos4-3");
+        dict.Add("StartPointRight4", "CameraPos4-4");
     }
 
     private void Stage1()
@@ -45,7 +55,6 @@ public class MapDictionary : MonoBehaviour
     {
         // 2스테이지
         // 2-1
-        dict.Add("StartPoint2", "CameraPos2-1");
         dict.Add("SpawnTop2-1", "CameraPos2-1");
         dict.Add("SpawnRight2-1", "CameraPos2-1");
 

@@ -66055,11 +66055,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2848520586195425377, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.38
+      value: 93.9
       objectReference: {fileID: 0}
     - target: {fileID: 2848520586195425377, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.07
+      value: 49.7
       objectReference: {fileID: 0}
     - target: {fileID: 2848520586195425377, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -78202,9 +78202,9 @@ GameObject:
   - component: {fileID: 1386884740}
   - component: {fileID: 1386884743}
   - component: {fileID: 1386884742}
-  - component: {fileID: 1386884741}
+  - component: {fileID: 1386884744}
   m_Layer: 0
-  m_Name: EXIT
+  m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78225,20 +78225,6 @@ Transform:
   m_Father: {fileID: 1696245326}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1386884741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1386884739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a51a09dcd806ce84c94af5d001c3cbf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transferMapName: 
-  map: {fileID: 0}
 --- !u!61 &1386884742
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -78249,7 +78235,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -78317,6 +78303,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1386884744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386884739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6890d1471172741870658f682b74f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exitKey: 2
+  transferMapname: StartPoint2-5
 --- !u!4 &1391587875 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2444235920224506373, guid: 2d0ad743615a3974eb63493d11fde43f, type: 3}
@@ -101273,6 +101273,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 794024016}
     m_Modifications:
+    - target: {fileID: 869911871, guid: e0b368008979bc546803e8a9f551abdb, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: bc7f10e03d4950e4da33437747d68896, type: 2}
     - target: {fileID: 5722735343551273984, guid: e0b368008979bc546803e8a9f551abdb, type: 3}
       propertyPath: m_Name
       value: Key

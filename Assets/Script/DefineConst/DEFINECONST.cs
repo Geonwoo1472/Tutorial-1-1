@@ -17,8 +17,9 @@ public static class SceneConstIndex
     public static readonly int CHAPTER1 = 1;
     public static readonly int CHAPTER2 = 2;
     public static readonly int CHAPTER3 = 3;
-
-    public static readonly int CHAPTERSAVE = 4;
+    public static readonly int CHAPTER4 = 4;
+    public static readonly int CHAPTER5 = 5;
+    public static readonly int CHAPTERSAVE = 6;
 }
 
 public static class Constants

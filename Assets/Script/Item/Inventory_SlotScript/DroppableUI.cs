@@ -76,8 +76,8 @@ public class DroppableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler,
          */
     private void ItemUsing()
     {
-        GameObject gameObject = transform.GetChild(0).gameObject;
-        DraggableUI draggableUI = gameObject.GetComponent<DraggableUI>();
+        GameObject slotObject = transform.GetChild(0).gameObject;
+        DraggableUI draggableUI = slotObject.GetComponent<DraggableUI>();
         Item item = draggableUI.item;
         if (item == null)
         {
@@ -91,7 +91,7 @@ public class DroppableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler,
                 {
                     inven.RemoveItem();
                     item.Use();
-                    Destroy(gameObject);
+                    Destroy(slotObject);
                 }
                 break;
             case ItemType.material:

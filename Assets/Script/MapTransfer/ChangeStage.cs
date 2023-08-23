@@ -42,7 +42,10 @@ public class ChangeStage : MonoBehaviour
                         KeyItem keyItem = (KeyItem)item;
                         if (keyItem.keyValue == exitKey)
                         {
-                            keyItem.Use();
+                            inven.RemoveItem();
+                            item.Use();
+                            Destroy(invenSlot);
+
                             gameManager.currentMapName = transferMapname;
                             SceneManager.LoadScene(SceneConstIndex.CHAPTERSAVE);
                         }
