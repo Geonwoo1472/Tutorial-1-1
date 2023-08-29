@@ -35,6 +35,12 @@ public class PlayerLight2DController : MonoBehaviour
     }
 
 
+    public void SetActive(bool mValue)
+    {
+        gameObject.SetActive(mValue);
+    }
+
+
     // 시야 증가
     private IEnumerator AddEyesight(float eyeSightValue)
     {
@@ -72,5 +78,4 @@ public class PlayerLight2DController : MonoBehaviour
     {
         yield return null;
     }
-
 }

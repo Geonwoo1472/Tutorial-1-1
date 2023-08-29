@@ -48,14 +48,12 @@ public class Player_Action : MonoBehaviour
     float v;
 
     bool isHorizonMove;
+    /*애니메이션 */
+    Animator anim;
 
 
     /* 값 가져오기 */
     private Rigidbody2D rigid;
-
-    /*애니메이션 */
-    Animator anim;
-
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
