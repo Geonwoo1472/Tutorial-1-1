@@ -71,9 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1803bf206cba5c74b83de3d408060ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugUse: 1
   statusBlock: 0
-  myCamera: {fileID: 0}
 --- !u!1 &2848520586195425386
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,6 +89,8 @@ GameObject:
   - component: {fileID: 2848520586195425376}
   - component: {fileID: 721375113}
   - component: {fileID: 721375127}
+  - component: {fileID: 1615749553}
+  - component: {fileID: 1615749563}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -277,3 +277,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capacity: 0
   count: 0
+--- !u!114 &1615749553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848520586195425386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c02632dd0efa0eb43ac3d9206eb27340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1615749563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2848520586195425386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0712e20e00a11e449bb23107b204bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

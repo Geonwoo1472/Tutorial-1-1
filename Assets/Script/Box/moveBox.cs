@@ -18,7 +18,6 @@ public class moveBox : MonoBehaviour
     private void Awake()
     {
         obj = GameObject.Find("Player");
-
     }
     // Start is called before the first frame update
     void Start()
