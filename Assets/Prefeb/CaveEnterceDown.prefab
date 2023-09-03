@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedCave: {fileID: 0}
   activeImage: {fileID: 1481203755, guid: b8814c83d33f044eaa43a507df945000, type: 3}
-  TeleportPos: {fileID: 0}
+  teleportPos: {fileID: 0}
   isActive: 0
 --- !u!61 &6963967204611686555
 BoxCollider2D:
@@ -144,7 +144,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
