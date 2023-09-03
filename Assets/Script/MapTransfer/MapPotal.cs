@@ -49,7 +49,7 @@ public class MapPotal : MonoBehaviour
                 CMove.CameraPosMove();
 
                 fadeEffect.OnFade(FadeState.FadeIn);
-                playerAction.PlayerCorouine(PlayerState.MoveOff);
+                playerAction.PlayerCorouine(PlayerState.MoveOff,2.0f);
                 
                 StatusManager.instance.FatigueSetting();
             }

@@ -84,7 +84,7 @@ public class Player_Action : MonoBehaviour
         //키보드 입력 받는 메소드
         Player_Move();
         //실제 게임 velocity 주는 메소드
-        Player_velocity();
+        PlayerVelocity();
     }
 
     void FixedUpdate()
@@ -161,7 +161,7 @@ public class Player_Action : MonoBehaviour
         }
     }
 
-    void Player_velocity()
+    void PlayerVelocity()
     {
         Vector2 moveVec = isHorizonMove ? new Vector2(h, 0) : new Vector2(0, v);
         if (moveVec == Vector2.right)
@@ -189,12 +189,12 @@ public class Player_Action : MonoBehaviour
     }
 
     //캐릭터 방향 getter
-    public short get_s_dir()
+    public short GetShortDirection()
     {
         return direction;
     }
 
-    public Vector3 get_v_dir()
+    public Vector3 GetVector3DirVec()
     {
         return dirVec;
     }
@@ -205,7 +205,7 @@ public class Player_Action : MonoBehaviour
     }
 
     //정지시 캐릭터 애니메이션 
-    public void modifyRigidbody(bool change)
+    public void ModifyRigidbody(bool change)
     {
         if (change)
         {
@@ -220,10 +220,11 @@ public class Player_Action : MonoBehaviour
         }
     }
 
-    //플레이어 움직임 제어 OnStop(PlayerState.MoveOff) 으로 호출하여야함.
-    //설계가 살짝 잘못되어 있음.
-    //매개변수를 2개 받고 멈추는 시간까지 받는게 좋아보임 수정할 것
-    public void PlayerCorouine(PlayerState state, float applyTime = 0)
+    /*
+    플레이어 움직임 제어를 위한 코루틴시작 함수입니다.
+    코루틴을 호출할 때 플레이어의 원하는 코루틴과, 활성시간을 매개변수로 받습니다.     
+     */
+    public void PlayerCorouine(PlayerState state, float applyTime)
     {
         playerState = state;
 
@@ -233,7 +234,7 @@ public class Player_Action : MonoBehaviour
                 //StartCoroutine(Stop());
                 break;
             case PlayerState.MoveOff:
-                StartCoroutine(MoveStop());
+                StartCoroutine(MoveStop(applyTime));
                 break;
             case PlayerState.MoveSlow:
                 StartCoroutine(MoveSlow(applyTime));
@@ -245,12 +246,11 @@ public class Player_Action : MonoBehaviour
 
     }
 
-
-    private IEnumerator MoveStop()
+    private IEnumerator MoveStop(float applyTime)
     {
         while (true)
         {
-            yield return StartCoroutine(Stop());
+            yield return StartCoroutine(Stop(applyTime));
 
             yield return StartCoroutine(Move());
 
@@ -261,12 +261,11 @@ public class Player_Action : MonoBehaviour
         }
     }
 
-    // 
-    private IEnumerator Stop()
+    private IEnumerator Stop(float applyTime)
     {
         float currentTime = 0.0f;
 
-        while (currentTime < 2)
+        while (currentTime < applyTime)
         {
             currentTime += Time.deltaTime;
             rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
@@ -319,16 +318,6 @@ public class Player_Action : MonoBehaviour
     {
         speed = baseSpeed;
         yield return null;
-    }
-
-    // 충돌
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.tag == "Box")
-        {
-            Debug.Log("박스와 충돌함 !! ");
-
-        }
     }
 }
 

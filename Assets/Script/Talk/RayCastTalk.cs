@@ -39,7 +39,7 @@ public class RayCastTalk : MonoBehaviour
     private void FixedUpdate()
     {
         //Debug.DrawRay(rigid.position, action.get_v_dir() * RayConstants.highRayLength , new Color(0, 1, 0));
-        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, action.get_v_dir(), RayConstants.talkRayLength , LayerMask.GetMask("TalkObject"));
+        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, action.GetVector3DirVec(), RayConstants.talkRayLength , LayerMask.GetMask("TalkObject"));
 
         if (rayHit.collider != null)
         {

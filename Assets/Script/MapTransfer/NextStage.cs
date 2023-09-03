@@ -29,7 +29,7 @@ public class NextStage : MonoBehaviour
                 gameManager.currentMapName = MapDictionary.instance.dict[transferMapName];
                 StatusManager.instance.FatigueSetting();
                 fadeEffect.OnFade(FadeState.FadeIn);
-                playerAction.PlayerCorouine(PlayerState.MoveOff);
+                playerAction.PlayerCorouine(PlayerState.MoveOff,2.0f);
             }
 
             gameManager.currentMapName = transferMapName;

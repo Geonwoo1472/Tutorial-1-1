@@ -43,7 +43,7 @@ public class moveBox : MonoBehaviour
         Debug.Log("moveObject() .. ");
 
         boxMoveTime += Time.deltaTime;
-        switch (player.get_s_dir())
+        switch (player.GetShortDirection())
         {
             // 캐릭터가 왼쪽에서 박스를 밀었을 때 
             case Constants.DL:

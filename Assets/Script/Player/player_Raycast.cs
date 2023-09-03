@@ -24,8 +24,8 @@ public class player_Raycast : MonoBehaviour
 
     void Update()
     {
-        Debug.DrawRay(rigid.position, _pA.get_v_dir() * RayConstants.objectRayLength , new Color(1, 1, 1));
-        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, _pA.get_v_dir(), RayConstants.objectRayLength, LayerMask.GetMask("Object"));
+        Debug.DrawRay(rigid.position, _pA.GetVector3DirVec() * RayConstants.objectRayLength , new Color(1, 1, 1));
+        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, _pA.GetVector3DirVec(), RayConstants.objectRayLength, LayerMask.GetMask("Object"));
 
 
         if (rayHit.collider != null)

@@ -26,6 +26,8 @@ public class MapDictionary : MonoBehaviour
         Stage1();
         Stage2();
         Stage3();
+        Stage4();
+        //Stage5();
         SaveStage();
     }
 
@@ -160,5 +162,74 @@ public class MapDictionary : MonoBehaviour
         //dict.Add("SpawnRight3-9", "CameraPos3-9");
         //dict.Add("SpawnTop3-9", "CameraPos3-9");
         dict.Add("SpawnLeft3-9", "CameraPos3-9");
+    }
+
+    private void Stage4()
+    {
+        //4-1
+        //dict.Add("SpawnDown4-1", "CameraPos4-1");
+        dict.Add("SpawnRight4-1", "CameraPos4-1");
+        //dict.Add("SpawnTop4-1", "CameraPos4-1");
+        dict.Add("SpawnLeft4-1", "CameraPos4-1");
+        
+        //4-2
+        dict.Add("SpawnDown4-2", "CameraPos4-2");
+        dict.Add("SpawnRight4-2", "CameraPos4-2");
+        dict.Add("SpawnTop4-2", "CameraPos4-2");
+        dict.Add("SpawnLeft4-2", "CameraPos4-2");
+        
+        //4-3
+        dict.Add("SpawnDown4-3", "CameraPos4-3");
+        //dict.Add("SpawnRight4-1", "CameraPos4-1");
+        //dict.Add("SpawnTop4-1", "CameraPos4-1");
+        //dict.Add("SpawnLeft4-1", "CameraPos4-1");
+        
+        //4-4
+        //dict.Add("SpawnDown4-1", "CameraPos4-1");
+        //dict.Add("SpawnRight4-1", "CameraPos4-1");
+        dict.Add("SpawnTop4-4", "CameraPos4-4");
+        //dict.Add("SpawnLeft4-1", "CameraPos4-1");
+        
+        //4-5
+        //dict.Add("SpawnDown4-1", "CameraPos4-1");
+        //dict.Add("SpawnRight4-1", "CameraPos4-1");
+        //dict.Add("SpawnTop4-1", "CameraPos4-1");
+        dict.Add("SpawnLeft4-5", "CameraPos4-5");
+        
+        //4-6
+        dict.Add("SpawnDown4-6", "CameraPos4-6");
+        dict.Add("SpawnRight4-6", "CameraPos4-6");
+        //dict.Add("SpawnTop4-1", "CameraPos4-1");
+        dict.Add("SpawnLeft4-6", "CameraPos4-6");
+        
+        //4-7
+        //dict.Add("SpawnDown4-1", "CameraPos4-1");
+        dict.Add("SpawnRight4-7", "CameraPos4-7");
+        dict.Add("SpawnTop4-7", "CameraPos4-7");
+        //dict.Add("SpawnLeft4-1", "CameraPos4-1");
+        
+        //4-8
+        dict.Add("SpawnDown4-8", "CameraPos4-8");
+        //dict.Add("SpawnRight4-1", "CameraPos4-1");
+        //dict.Add("SpawnTop4-1", "CameraPos4-1");
+        //dict.Add("SpawnLeft4-1", "CameraPos4-1");
+        
+        //4-9
+        //dict.Add("SpawnDown4-1", "CameraPos4-1");
+        //dict.Add("SpawnRight4-1", "CameraPos4-1");
+        dict.Add("SpawnTop4-9", "CameraPos4-9");
+        //dict.Add("SpawnLeft4-1", "CameraPos4-1");
+
+        /*Hideen Map*/
+        //h1
+        dict.Add("SpawnTop4-h1", "CameraPos4-h1");
+        //h2
+        dict.Add("SpawnTop4-h2", "CameraPos4-h2");
+        //h3
+        dict.Add("SpawnTop4-h3", "CameraPos4-h3");
+        //h4
+        dict.Add("SpawnTop4-h4", "CameraPos4-h4");
+        //h5
+        dict.Add("SpawnTop4-h5", "CameraPos4-h5");
     }
 }
