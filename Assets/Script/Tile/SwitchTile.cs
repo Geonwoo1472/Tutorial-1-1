@@ -6,7 +6,8 @@ public class SwitchTile : MonoBehaviour
 {
     public Sprite beforeSprite;
     public Sprite afterSprite;
-    
+
+    private char semaphore;
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
@@ -14,11 +15,17 @@ public class SwitchTile : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Start()
+    private void Update()
     {
-        
+        if(semaphore>0)
+        {
+            spriteRenderer.sprite = afterSprite;
+        }
+        else
+        {
+            spriteRenderer.sprite = beforeSprite;
+        }
     }
-
     /*
      박스나 플레이어가 해당 발판에 올라온 경우
     작동 상태로 변경하고
@@ -28,7 +35,7 @@ public class SwitchTile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Box"))
         {
-            spriteRenderer.sprite = afterSprite;
+            ++semaphore;
         }
     }
     /*
@@ -40,7 +47,7 @@ public class SwitchTile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Box"))
         {
-            spriteRenderer.sprite = beforeSprite;
+            --semaphore;
         }
     }
 }

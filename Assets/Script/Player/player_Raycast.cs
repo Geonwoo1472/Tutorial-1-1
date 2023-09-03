@@ -42,7 +42,6 @@ public class player_Raycast : MonoBehaviour
                     {
                         canTransTo = true;
                         scanObject = rayHit.collider.gameObject;
-                        Debug.Log("스캔된 오브젝트 이름 : " + scanObject.name + "입니다.");
                         //박스 움직이는 메소드
                         scanObject.GetComponent<moveBox>().setisReady(true);
 
