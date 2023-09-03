@@ -66003,11 +66003,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2848520586195425377, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 93.9
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 2848520586195425377, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 49.7
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2848520586195425377, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -96782,6 +96782,78 @@ PrefabInstance:
     - target: {fileID: 2970041688810947747, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueData.Array.data[10]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueData.Array.data[11]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueData.Array.data[12]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueData.Array.data[13]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueData.Array.data[14]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueData.Array.data[15]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueData.Array.data[16]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueData.Array.data[17]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueData.Array.data[18]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueMaxData.Array.data[10]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueMaxData.Array.data[11]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueMaxData.Array.data[12]
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueMaxData.Array.data[13]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueMaxData.Array.data[14]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueMaxData.Array.data[15]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueMaxData.Array.data[16]
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueMaxData.Array.data[17]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970041688810947756, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
+      propertyPath: FatigueMaxData.Array.data[18]
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2970041688810947758, guid: d254cd51fac83564db3bdd52e1ac409b, type: 3}
       propertyPath: OverUI
