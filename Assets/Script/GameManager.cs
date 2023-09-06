@@ -50,6 +50,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public player_Raycast playerRay;                    //playerRaycast  
 
+
+    
     void Start()
     {
         activeInventory = false;
@@ -89,20 +91,46 @@ public class GameManager : MonoBehaviour
             if (Input.GetKey(KeySetting.keys[KeyAction.INTERACTION]))
             {
                 Debug.Log("Interaction 기능 !!");
-
                 interationGetKey = true;
-
                 if (playerRay.scanObject != null)
                 {
-                    IDestroyable iDestroyable = playerRay.scanObject.GetComponent<IDestroyable>();
-                    if (iDestroyable != null)
-                        iDestroyable.interactionDestroy();
+                    switch (playerRay.pastTag)
+                    {
+                        case "Tree":
+                            {
+                                IDestroyable iDestroyable = playerRay.scanObject.GetComponent<IDestroyable>();
+                                if (iDestroyable != null)
+                                    iDestroyable.interactionDestroy();
+                                break;
+                            }
+                        default:
+                            break;
+                    }
                 }
             }
             else
             {
                 interationGetKey = false;
             }
+            //SPACEBAR 1회
+            if(Input.GetKeyDown(KeySetting.keys[KeyAction.INTERACTION]))
+            {
+                if(playerRay.scanObject != null)
+                {
+                    switch (playerRay.pastTag)
+                    {
+                        case "Switch":
+                            {
+                                playerRay.scanObject.GetComponent<OperationSwitch>().IsAction();
+                                break;
+                            }
+                        default:
+                            break;
+                    }
+                }
+            }
+
+
             // 아이템 1번
             if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKONE]))
             {

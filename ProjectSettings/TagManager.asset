@@ -9,6 +9,7 @@ TagManager:
   - FieldItem
   - Tree
   - Trap
+  - Switch
   layers:
   - Default
   - TransparentFX

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SwitchPotal : MonoBehaviour
 {
-    public SwitchTile[] switchArray;
+    public PushSwitchTile[] switchArray;
 
     private int activeSwitchCount;
     private int switchCount;

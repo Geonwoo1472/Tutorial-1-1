@@ -11,7 +11,7 @@ public class player_Raycast : MonoBehaviour
     bool canTransTo;
     float canTransTime;
 
-    string pastTag;
+    public string pastTag;
 
     void Start()
     {
@@ -53,11 +53,18 @@ public class player_Raycast : MonoBehaviour
                     {
                         canTransTo = true;
                         scanObject = rayHit.collider.gameObject;
-                        Debug.Log("스캔된 오브젝트 이름 : " + scanObject.name + "입니다.");
 
                         //Tree 상호작용 메소드 , Tree가 제거 가능한 상태로 만든다.
                         pastTag = rayTag;
                         scanObject.GetComponent<IDestroyable>().MyOnDestroy();
+
+                        break;
+                    }
+                case "Switch":
+                    {
+                        canTransTo = true;
+                        scanObject = rayHit.collider.gameObject;
+                        pastTag = rayTag;
 
                         break;
                     }
@@ -77,6 +84,12 @@ public class player_Raycast : MonoBehaviour
                 // 삭제된 경우 컴포넌트를 찾을 수 없어 오류남., 수정할 것 !!
                 scanObject.GetComponent<IDestroyable>().OffDestroy();
 
+                scanObject = null;
+                pastTag = null;
+            }
+
+            if(pastTag == "Switch")
+            {
                 scanObject = null;
                 pastTag = null;
             }
