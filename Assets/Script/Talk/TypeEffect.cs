@@ -8,20 +8,13 @@ public class TypeEffect : MonoBehaviour
     public int CharPerSeconds;                  // 대사 속도
     public GameObject EndCursor;                // CurSor 오브젝트
     public bool isAnim;                        // 대화중인지 판별
+    public Text msgText;                       // UI Text 오브젝트
+    public AudioSource audioSource;            // Audio
 
     private string targetMsg;                   // Typing Message
-    private Text msgText;                       // UI Text 오브젝트
     private int index;                          // Message Index
     private float interval;                     // 속도 계산 float
-    private AudioSource audioSource;            // Audio
     
-
-    private void Awake()
-    {
-        audioSource = GetComponent<AudioSource>();
-        msgText = GetComponent<Text>();
-    }
-
     /*
     메시지를 받아 처리하기위한 메소드입니다.
     SetMsg(string) 을 호출하면 말풍선에 메시지를 띄워줍니다.
@@ -30,7 +23,7 @@ public class TypeEffect : MonoBehaviour
     {
         if (isAnim)
         {
-            msgText.text = targetMsg;
+            msgText.text = targetMsg;           // 비활성시 Awake()미호출로 null error
             CancelInvoke();
             EffectEnd();
         }

@@ -23,12 +23,12 @@ public class RayCastTalk : MonoBehaviour
     다음 대사를 호출합니다.
      */
     private void Update()
-    {
+    { 
         if (Input.GetKeyDown(KeySetting.keys[KeyAction.INTERACTION]))
         {
             if (scanObject != null)
             {
-                dalogManager.Action(scanObject);
+                 dalogManager.Action(scanObject);
             }
         }
     }
@@ -38,7 +38,7 @@ public class RayCastTalk : MonoBehaviour
      */
     private void FixedUpdate()
     {
-        //Debug.DrawRay(rigid.position, action.get_v_dir() * RayConstants.highRayLength , new Color(0, 1, 0));
+        Debug.DrawRay(rigid.position, action.GetVector3DirVec() * RayConstants.talkRayLength, Color.red);
         RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, action.GetVector3DirVec(), RayConstants.talkRayLength , LayerMask.GetMask("TalkObject"));
 
         if (rayHit.collider != null)
