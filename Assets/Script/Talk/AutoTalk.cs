@@ -6,10 +6,15 @@ public class AutoTalk : MonoBehaviour
 {
     private DalogManager manager;                   // DalogManger.cs
     private ObjectTalkData objectTalkData;          // ObjectTalkData.cs
+    private RayCastTalk rayCastTalk;
+    private bool disposable;
+
     private void Start()
     {
         manager = GameObject.Find("DalogManager").GetComponent<DalogManager>();
         objectTalkData = GetComponent<ObjectTalkData>();
+        rayCastTalk = GameObject.Find("Player").GetComponent<RayCastTalk>();
+        disposable = false;
     }
 
 
@@ -18,15 +23,13 @@ public class AutoTalk : MonoBehaviour
     다시 활성화 되지 않도록 내부 bool 변수를 변경하고
     Action (대화 시작 메소드) 를 시작합니다.
      */
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && rayCastTalk.getScanObject() != null && !disposable)
         {
+            disposable = true;
             objectTalkData.isCollider = true;
             manager.Action(gameObject);
         }
     }
-
-
-
 }
