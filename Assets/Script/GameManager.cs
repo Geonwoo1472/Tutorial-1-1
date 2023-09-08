@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
             return;
         }
         instance = this;
+        activeInventory = false;
+        isGameover = false;
+        activeEscPanel = false;
+        moveStatus = false;
+        SceneIndex = 1;
     }
     #endregion
 
@@ -50,15 +55,10 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public player_Raycast playerRay;                    //playerRaycast  
 
-
+    
     
     void Start()
     {
-        activeInventory = false;
-        isGameover = false;
-        activeEscPanel = false;
-        moveStatus = false;
-        SceneIndex = 1;
         quick1 = GameObject.Find("QuickSlot");
         quick2 = GameObject.Find("QuickSlot (1)");
         quick3 = GameObject.Find("QuickSlot (2)");
