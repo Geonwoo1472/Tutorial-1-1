@@ -78,7 +78,7 @@ public class Player_Action : MonoBehaviour
                 return;
 
             //
-            if (GameManager.instance.moveStatus)
+            if (GameManager.instance.MoveStatus)
                 return;
         }
         //키보드 입력 받는 메소드

@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     public GameObject escPanel;                         // ESC UI 오브젝트입니다.
 
     [HideInInspector]
-    public bool moveStatus;                             // Just stop moving
+    private bool moveStatus;                             // Just stop moving
     [HideInInspector]
     public bool isGameover;                             // Key All stop
 
@@ -55,7 +55,11 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public player_Raycast playerRay;                    //playerRaycast  
 
-    
+    public bool MoveStatus
+    {
+        get => moveStatus;
+        set => moveStatus = value;            
+    }
     
     void Start()
     {

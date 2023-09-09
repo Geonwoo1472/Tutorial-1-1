@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class CompulsionCall : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private PlayerCompulsionMove playerCompulsion;
+    private void Start()
     {
-        
+        playerCompulsion = GetComponent<PlayerCompulsionMove>();
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(collision.gameObject.CompareTag("Player"))
+        {
+            playerCompulsion.CoroutineCompulsionMove();
+        }
     }
 }

@@ -35,3 +35,11 @@ public static class RayConstants
     public const float objectRayLength = 0.3f;
     public const float talkRayLength = 0.5f;
 }
+
+public enum Direction
+{
+    Right,
+    Left,
+    Up,
+    Down
+}
