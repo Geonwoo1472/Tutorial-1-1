@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class PlayerCompulsionMove : MonoBehaviour
 {
-    public Direction compulsionDirection;
-    public float targetTime;
+    public Direction compulsionDirection;               // 플레이어가 강제로 이동할 방향
+    public float targetTime;                            // 강제로 이동할 목표 시간
 
-    private float progressTime;
-    private Vector2 direction;
-    private Rigidbody2D playerRigid;
-    private Animator anim;
+    private float progressTime;                         // 현재 진행 시간
+    private Vector2 direction;                          // 플레이어가 강제로 이동할 방향
+    private Rigidbody2D playerRigid;                    // 플레이어 Rigid
+    private Animator anim;                              // 플레이어 Animator
+    private AutoTalk autoTalkScript;                    // AutoTalkScript의 세마포어 값 변경
 
     private void Awake()
     {
         progressTime = 0;
         InitDirection();
+        autoTalkScript = GetComponent<AutoTalk>();
     }
     private void Start()
     {
@@ -45,12 +47,24 @@ public class PlayerCompulsionMove : MonoBehaviour
         }
     }
 
+    /*
+     코루틴 시작 메소드입니다.
+    호출하면 현재 지속시간을 초기화하고 코루틴을 시작합니다.
+     */
     public void CoroutineCompulsionMove()
     {
         progressTime = 0;
         StartCoroutine(CompulsionMove());
     }
 
+    /*
+     게임 매니저에 있는 MoveStatus값을 변경하여
+    플레이어의 움직임 입력키를 받지 못하게 막습니다.
+    이후 설정한 방향으로 targetTime의 시간만큼 플레이어는 이동하게됩니다.
+    플레이어 움직임이 끝난 후 
+    Stay트리거에서 사용하고 있는 semapo값과
+    움직임 제한하고있는 MoveStatus값을 변경하여 움직일 수 있도록 변경합니다.
+     */
     IEnumerator CompulsionMove()
     {
         GameManager.instance.MoveStatus = true;
@@ -64,8 +78,12 @@ public class PlayerCompulsionMove : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         GameManager.instance.MoveStatus = false;
+        autoTalkScript.Semaphore = false;
     }
 
+    /*
+     코루틴 내부에서 사용하는 애니메이션 움직임 메소드입니다.
+     */
     private void Anim()
     {
         switch (compulsionDirection)

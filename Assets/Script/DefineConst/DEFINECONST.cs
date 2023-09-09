@@ -43,3 +43,9 @@ public enum Direction
     Up,
     Down
 }
+
+public enum TalkProperty
+{
+    Disposable,
+    Reusable
+}

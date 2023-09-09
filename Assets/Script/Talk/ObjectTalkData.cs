@@ -8,5 +8,6 @@ public class ObjectTalkData : MonoBehaviour
     public bool isNpc;          //Npc 여부
 
     [HideInInspector]
-    public bool isCollider;     //Auto 말풍선의 여부
+    public bool autoTalkUse;     // AutoTalk 사용여부
+
 }
