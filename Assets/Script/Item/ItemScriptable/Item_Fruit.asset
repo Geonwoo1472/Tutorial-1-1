@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemName: Fruit
-  itemImage: {fileID: 21300000, guid: 955111fe3505b9c49a9f783f5c3b573f, type: 3}
+  itemImage: {fileID: -528648358, guid: c2d8af77363200841b895cbb4d1f2863, type: 3}

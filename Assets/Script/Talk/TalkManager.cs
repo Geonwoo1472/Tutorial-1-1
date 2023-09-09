@@ -105,8 +105,8 @@ public class TalkManager : MonoBehaviour
 
         talkData.Add(103, new string[] { "음식을 획득하였습니다." ,
             "음식을 먹으면 배고픔을 회복할 수 있습니다." ,
-            "I키를 눌러 인벤토리를 열고 아이템을 사용해보세요.",
-            "자주 사용하는 아이템은 퀵 슬롯에 등록하여 간편하게 사용할 수 있습니다."});
+            "I키를 눌러 인벤토리를 열고 아이템을 사용해보세요."
+            });
 
         talkData.Add(104, new string[] { "p, 이건 뭐지?" ,
             "p, 열쇠..? 이런 곳에 열쇠가 왜 있는 거야?",
@@ -164,6 +164,12 @@ public class TalkManager : MonoBehaviour
 
         talkData.Add(308, new string[] {"열리지 않는다.", 
             "p 문을 열려면 열쇠가 필요해."});
+
+        talkData.Add(309, new string[] { "열매를 획득했다.",
+        "열매를 사용하면 배고픔이 랜덤으로 회복 혹은 감소합니다."});
+
+        talkData.Add(310, new string[] { "열쇠를 획득했다." });
+
 
     }
     private void SecondSaveDialog()
