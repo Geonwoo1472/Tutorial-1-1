@@ -131,6 +131,17 @@ public class TalkManager : MonoBehaviour
             "천막에서 쉬어가면 지난 기록들이 저장됩니다."});
         talkData.Add(201, new string[] { "p 역시 잠시라도 쉬길 잘했군. 몸이 가벼워졌어.",
             "피로도가 일정 수치 회복됐습니다."});
+        talkData.Add(202, new string[] {"p 여기 웬 도끼가 떨어져 있잖아? 이거 잘하면 요긴하게 쓰이겠는 걸?",
+            "SPACE BAR를 통해 도끼를 사용할 수 있습니다."});
+        talkData.Add(203, new string[] {"p 방금 주운 도끼를 여기다가 써보면 되겠군.",
+            "p 어디 한 번 베어 볼까?",
+            "p 이런, 너무 단단해서 안 베어지잖아?"});
+        talkData.Add(204, new string[] {"나무를 베어 막혀있던 길이 열렸습니다.",
+            "좋았어. 이렇게 하면 금방 이동할 수 있겠군."});
+        talkData.Add(205, new string[] { "p 이 나무라면 충분히 벨 수 있겠는데?",
+            "SPACE BAR를 눌러 도끼를 사용하세요."});
+
+        talkData.Add(206, new string[] { "다시 돌아갈 필요는 없을 것 같다." });
     }
     private void SecondChapterDialog()
     {
@@ -145,18 +156,14 @@ public class TalkManager : MonoBehaviour
         talkData.Add(302, new string[] { "p 여기 웬 도끼가 떨어져 있잖아? 이거 잘하면 요긴하게 쓰이겠는 걸?",
             "SPACE BAR를 통해 도끼를 사용할 수 있습니다. "});
 
-        talkData.Add(303, new string[] { "p 아까 주은 도끼를 여기다가 써보면 되겠군.", 
-            "p 어디 한 번 베어 볼까?",
-            "p 이런, 너무 단단해서 안 베어지잖아?"});
+ 
 
-        talkData.Add(304, new string[] { "p 이 나무라면 충분히 벨 수 있겠는데?",
-            "SPACE BAR를 눌러 도끼를 사용하세요."});
+        
 
         talkData.Add(305, new string[] { "나무를 베어 막혀있던 길이 열렸습니다.",
             "p 좋았어. 이렇게 하면 금방 이동할 수 있겠군."});
 
-        talkData.Add(306, new string[] { "p 이런, 늪지에 발이 빠져버렸어. 빨리 탈출하지 않으면 위험해..!",
-            "늪지 블록을 밟으면 움직일 수 없습니다. 방향키 좌,우를 연타하여 탈출하세요 (삭제대상) "});
+        talkData.Add(306, new string[] { "p 이런, 늪지에 발이 빠져버렸어."});
 
         talkData.Add(307, new string[] { "p가지고 있던 열쇠를 사용했다." ,
             "문이 열렸다.",
@@ -185,12 +192,33 @@ public class TalkManager : MonoBehaviour
             "...",
             "다른 길은 전부 막혀있어서 선택지가 딱히 없어 보여. 들어가 보자."});
 
-        talkData.Add(403, new string[] {""});
+        talkData.Add(403, new string[] {"되돌아 갈 필요는 없어보인다."});
     }
 
     private void ThirdChapterDialog()
     {
-
+        talkData.Add(500, new string[] {"아무래도 잠긴 것 같다.",
+            "한 번 통과한 문은 다시 통과할 수 없는 건가 보군."});
+        talkData.Add(501, new string[] {"열리지 않는다."});
+        talkData.Add(502, new string[] { "들어올 때부터 예상은 했지만 역시 앞이 거의 보이지 않는군.",
+            "어디 빛을 비출만한 게 있으면 좋을 텐데."});
+        talkData.Add(503, new string[] { "버섯을 획득했다.",
+            "버섯을 사용하면 배고픔이 랜덤으로 회복 혹은 감소합니다."});
+        talkData.Add(504, new string[] { "횃불을 획득했다.",
+            "빛이 약하긴 하지만, 없는 것 보단 낫겠지.",
+            " 횃불을 사용하면 잠시 동안 주변 시야가 밝아집니다."});
+        talkData.Add(505, new string[] { "이 곳은 뭐지? 설마 여기도 열쇠를 이용해서 들어가야 되나?",
+            "일단 한 번 지나가 보자."});
+        talkData.Add(506, new string[] { ".....!!!!",
+            "ㅁ, 뭐야.. 방금 지나온 데가 무너져 내렸어…!",
+            "만약 다 못지나가고 저 아래 깔렸다면…",
+            "……",
+            "윽.. 상상하기도 싫은데…",
+            "젠장, 갑자기 긴장했더니 온 몸이 다 아프군.",
+            "그나저나 길이 막혀버렸는데 이제 어쩌면 좋지.",
+            "붕괴된 곳은 다시 지나갈 수 없습니다."});
+        talkData.Add(507, new string[] {"가지고 있던 열쇠를 사용했다."});
+        
     }
     private void ThridSaveDialog()
     {

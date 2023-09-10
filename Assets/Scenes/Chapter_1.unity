@@ -18821,6 +18821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 201527146}
+  targetIsActive: 1
 --- !u!1001 &1604041190
 PrefabInstance:
   m_ObjectHideFlags: 0
