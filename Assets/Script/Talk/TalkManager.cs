@@ -24,6 +24,7 @@ public class TalkManager : MonoBehaviour
      */
     void GenerateData()
     {
+
         /* CommonData */
         CommonDialog();
 
@@ -42,19 +43,6 @@ public class TalkManager : MonoBehaviour
         /* Chapter 5 Data */
         FifthChapterDialog();
 
-
-        {
-            /*
-            portraitData.Add(200 + 0, portaitArr[0]);
-            portraitData.Add(200 + 1, portaitArr[1]);
-            portraitData.Add(200 + 2, portaitArr[2]);
-            portraitData.Add(200 + 3, portaitArr[3]);
-            portraitData.Add(1000 + 0, portaitArr[4]);
-            portraitData.Add(1000 + 1, portaitArr[5]);
-            portraitData.Add(1000 + 2, portaitArr[6]);
-            portraitData.Add(1000 + 3, portaitArr[7]);
-            */
-        }
     }
     /*
      TalkData에서 인덱스로 구별하여 원하는 문자를 가져옵니다.

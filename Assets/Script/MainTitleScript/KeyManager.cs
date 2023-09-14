@@ -75,7 +75,8 @@ public class KeyManager : MonoBehaviour
             }
 
             KeySetting.keys[(KeyAction)key] = KeyEvent.keyCode;
-            onKeyChange.Invoke();
+            if(onKeyChange != null)
+                onKeyChange.Invoke();
             key = -1;
         }
     }
