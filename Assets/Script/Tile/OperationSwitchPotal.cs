@@ -5,6 +5,7 @@ using UnityEngine;
 public class OperationSwitchPotal : MonoBehaviour
 {
     public OperationSwitch[] switchArray;
+    public bool isActive;
 
     private int activeSwitchCount;
     private int switchCount;
@@ -22,21 +23,29 @@ public class OperationSwitchPotal : MonoBehaviour
             switchArray[i].operationSwitchOn += SwitchOn;
             switchArray[i].operationSwitchOff += SwitchOff;
         }
-        gameObject.SetActive(false);
+        gameObject.SetActive(isActive);
     }
 
     private void SwitchOn()
     {
         ++activeSwitchCount;
         if (switchCount == activeSwitchCount)
-            OnActive();
+            ActiveChange();
+        
     }
 
     private void SwitchOff()
     {
         --activeSwitchCount;
-        OffActive();
+        ActiveChange();
     }
+
+    private void ActiveChange()
+    {
+        isActive = !isActive;
+        gameObject.SetActive(isActive);
+    }
+
 
     private void OnActive()
     {
