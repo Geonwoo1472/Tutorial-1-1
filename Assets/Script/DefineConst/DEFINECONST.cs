@@ -20,6 +20,7 @@ public static class SceneConstIndex
     public static readonly int CHAPTER4 = 4;
     public static readonly int CHAPTER5 = 5;
     public static readonly int CHAPTERSAVE = 6;
+    public static readonly int INTRO = 7;
 }
 
 public static class Constants

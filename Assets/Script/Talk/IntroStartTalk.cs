@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IntroStartTalk : MonoBehaviour
 {
@@ -22,9 +23,12 @@ public class IntroStartTalk : MonoBehaviour
         
     }
 
+    /*
+     말풍선 끝날 때 호출
+     */
     private void NextScene()
     {
-        //여기부터
+        SceneManager.LoadScene(SceneConstIndex.CHAPTER1);
     }
 
 }

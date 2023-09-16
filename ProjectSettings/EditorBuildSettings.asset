@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Chapter_Save.unity
     guid: 8e5ab75c27f61214ebe4268e81324b18
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 46f26ef8a954d894d96e5a39ea768959
   m_configObjects: {}
