@@ -7,6 +7,6 @@ public class OverUIReStart : MonoBehaviour
 {
     public void ReStart()
     {
-        SceneManager.LoadScene(GameManager.instance.SceneIndex);
+        SceneManager.LoadScene(GameManager.instance.sceneIndex);
     }
 }

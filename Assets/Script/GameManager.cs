@@ -21,14 +21,14 @@ public class GameManager : MonoBehaviour
         isGameover = false;
         activeEscPanel = false;
         moveStatus = false;
-        SceneIndex = 1;
+        sceneIndex = 1;
     }
     #endregion
 
     public string playerStartingPt;                     // 플레이어 재시작 위치입니다. MapPotal.cs에서 사용하고 있습니다.
     [Header("시작 맵 작성해야 피로도 배고픔 반영")]
     public string currentMapName;                       // 현재 맵의 이름
-    public int SceneIndex;                              // 현재 Scene의 Index번호 
+    public int sceneIndex;                              // 현재 Scene의 Index번호 
     public GameObject inventoryPanel;                   // InventoryPanel 오브젝트
     public GameObject OverUI;                           // GameOverUI 오브젝트입니다.
     public GameObject escPanel;                         // ESC UI 오브젝트입니다.
@@ -61,6 +61,12 @@ public class GameManager : MonoBehaviour
         set => moveStatus = value;            
     }
     
+    public int SceneIndex
+    {
+        get => sceneIndex;
+        set => sceneIndex = value;
+    }
+
     void Start()
     {
         quick1 = GameObject.Find("QuickSlot");

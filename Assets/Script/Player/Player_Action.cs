@@ -51,6 +51,7 @@ public class Player_Action : MonoBehaviour
     /*애니메이션 */
     Animator anim;
 
+    private AudioSource audioSrc;
 
     /* 값 가져오기 */
     private Rigidbody2D rigid;
@@ -64,7 +65,7 @@ public class Player_Action : MonoBehaviour
         isCharacterMove = false;
         baseSpeed = speed;
         decreaseSpeed = speed / 2;
-
+        audioSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -85,6 +86,8 @@ public class Player_Action : MonoBehaviour
         Player_Move();
         //실제 게임 velocity 주는 메소드
         PlayerVelocity();
+        //캐릭터 발 사운드
+        MoveSfx();
     }
 
     void FixedUpdate()
@@ -218,6 +221,17 @@ public class Player_Action : MonoBehaviour
         {
             rigid.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
+    }
+
+    private void MoveSfx()
+    {
+        if (rigid.velocity.x != 0 || rigid.velocity.y != 0)
+        {
+            if (!audioSrc.isPlaying)
+                audioSrc.Play();
+        }
+        else
+            audioSrc.Stop();
     }
 
     /*
