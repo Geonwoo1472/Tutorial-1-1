@@ -13,6 +13,7 @@ public class DisableTarget : MonoBehaviour
     private void OnDisable()
     {
         Debug.Log("OnDisable »£√‚");
-        target.SetActive(targetIsActive);
+        if(target != null)
+            target.SetActive(targetIsActive);
     }
 }
