@@ -15,9 +15,12 @@ public class moveBox : MonoBehaviour
     bool isReady;
     float boxMoveTime;
 
+    private AudioSource boxSound;
+
     private void Awake()
     {
         obj = GameObject.Find("Player");
+        boxSound = GetComponent<AudioSource>();
     }
     // Start is called before the first frame update
     void Start()
@@ -33,7 +36,10 @@ public class moveBox : MonoBehaviour
     private void FixedUpdate()
     {
         if (isReady)
+        {
+            SoundPlaying();
             moveObject();
+        }
         else
             resetPos();
     }
@@ -75,6 +81,7 @@ public class moveBox : MonoBehaviour
                     isReady = false;
                     PlayerStatus.instance.OnDamageFatigue(HF_Constance.BOXMOVE);
                     rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+                    
                 }
                 break;
             // 캐릭터가 왼쪽에서 박스를 밀었을 때 
@@ -106,6 +113,7 @@ public class moveBox : MonoBehaviour
                     isReady = false;
                     PlayerStatus.instance.OnDamageFatigue(HF_Constance.BOXMOVE);
                     rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+                    
                 }
                 break;
             // 캐릭터가 왼쪽에서 박스를 밀었을 때 
@@ -138,6 +146,7 @@ public class moveBox : MonoBehaviour
                     isReady = false;
                     PlayerStatus.instance.OnDamageFatigue(HF_Constance.BOXMOVE);
                     rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+                    
                 }
                 break;
             // 캐릭터가 왼쪽에서 박스를 밀었을 때 
@@ -170,6 +179,7 @@ public class moveBox : MonoBehaviour
                     isReady = false;
                     PlayerStatus.instance.OnDamageFatigue(HF_Constance.BOXMOVE);
                     rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
+                    
                 }
                 break;
 
@@ -191,5 +201,11 @@ public class moveBox : MonoBehaviour
     public void setisReady(bool isReady)
     {
         this.isReady = isReady;
+    }
+
+    private void SoundPlaying()
+    {
+        if(!boxSound.isPlaying)
+            boxSound.Play();
     }
 }

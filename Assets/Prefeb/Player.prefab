@@ -168,10 +168,10 @@ MonoBehaviour:
   playerAudio: {fileID: 968610549}
   footAudio:
   - {fileID: 8300000, guid: af49379294d4dad40bd32f2f053eb597, type: 3}
-  - {fileID: 8300000, guid: 5235c56980c2f3142bc111deb7fd99c9, type: 3}
   - {fileID: 8300000, guid: 20c52f8448b98ef4a968b86a77f208c1, type: 3}
+  - {fileID: 8300000, guid: 5235c56980c2f3142bc111deb7fd99c9, type: 3}
   - {fileID: 8300000, guid: ff70ece2c45b13b43ab9153c77251d0a, type: 3}
-  - {fileID: 8300000, guid: ff70ece2c45b13b43ab9153c77251d0a, type: 3}
+  - {fileID: 8300000, guid: bdb04121047aecf4eaba1f83b04b0d71, type: 3}
 --- !u!1 &1622544657
 GameObject:
   m_ObjectHideFlags: 0
