@@ -81,8 +81,8 @@ public class player_Raycast : MonoBehaviour
             if (pastTag == "Tree")
             {
                 // 수정 수정 수정 
-                // 삭제된 경우 컴포넌트를 찾을 수 없어 오류남., 수정할 것 !!
-                scanObject.GetComponent<IDestroyable>().OffDestroy();
+                if(scanObject!=null)
+                    scanObject.GetComponent<IDestroyable>().OffDestroy();
 
                 scanObject = null;
                 pastTag = null;

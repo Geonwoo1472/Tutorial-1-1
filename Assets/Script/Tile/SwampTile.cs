@@ -5,6 +5,12 @@ using UnityEngine;
 public class SwampTile : MonoBehaviour
 {
     private Player_Action playerAction;
+    private AudioSource swampSound;
+
+    private void Awake()
+    {
+        swampSound = GetComponent<AudioSource>();
+    }
 
     private void Start()
     {
@@ -16,6 +22,8 @@ public class SwampTile : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("SwapTile , OnTriggerEnter2D " + collision.name);
+            if(!swampSound.isPlaying)
+                swampSound.Play();
             playerAction.PlayerCorouine(PlayerState.MoveSlow, 1);
             PlayerStatus.instance.OnDamageFatigue(HF_Constance.SWAMPTILE);
         }
