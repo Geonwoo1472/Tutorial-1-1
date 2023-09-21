@@ -12,12 +12,12 @@ public class Teleport : MonoBehaviour
 
     void Awake()
     {
+        teleports = GetComponentInParent<TeleportParent>().numberOfPorts;
         numberArray = new int[teleports];
     }
     void Start()
     {
         int num = RandomNumber(numberArray, teleports);
-        Debug.Log(teleports);
         //Debug.Log(num);
         teleportPos = GameObject.Find("Spwan " + num).GetComponent<Transform>();
         playerPos = GameObject.Find("Player").GetComponent<Transform>();
