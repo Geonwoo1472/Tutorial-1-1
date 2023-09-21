@@ -3,16 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Teleport : MonoBehaviour
 {
-    public int maxNumber;                 // 난수 발생할 포트 넘버
-    private GameObject connectedCave;       // 반대현 동굴 정보
+    [HideInInspector]
+    public int teleports;                 // 난수 발생할 포트 넘버
+    [HideInInspector]
+    public static int[] numberArray;
     private Transform teleportPos;			// 이동할 위치
     private Transform playerPos;            // 플레이어 위치 
 
+    void Awake()
+    {
+        numberArray = new int[teleports];
+    }
     void Start()
     {
-        int num = RandomNumber(maxNumber);
-        Debug.Log(num);
-        connectedCave = GameObject.Find("Teleport " + num);
+        int num = RandomNumber(numberArray, teleports);
+        Debug.Log(teleports);
+        //Debug.Log(num);
         teleportPos = GameObject.Find("Spwan " + num).GetComponent<Transform>();
         playerPos = GameObject.Find("Player").GetComponent<Transform>();
     }
@@ -29,19 +35,26 @@ public class Teleport : MonoBehaviour
         playerPos.position = teleportPos.position;
     }
 
-    public int RandomNumber(int a)
+    public static int RandomNumber(int[] portArray, int maxNum)
     {
-        int b = Random.Range(1, a + 1);
-        int[] number = new int[a];
+        int number = Random.Range(0, maxNum);
 
-        if(number[b - 1] == 0)
+        if (portArray[number] == 0)
         {
-            number[b - 1] = b;
-            return number[b - 1];
+            portArray[number] = 1;
+            return number;
         }
         else
         {
-            return RandomNumber(a);
+            int i;
+            for(i = 0; i < maxNum; i++)
+            {
+                if (portArray[i] == 0)
+                    break;
+            }
+            number = i;
+            portArray[i] = 1;
+            return number;
         }
     }
 }
