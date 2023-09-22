@@ -49,11 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStartingPt: 
   currentMapName: CameraPos1
-  SceneIndex: 0
+  sceneIndex: 0
   inventoryPanel: {fileID: 0}
   OverUI: {fileID: 0}
   escPanel: {fileID: 0}
-  moveStatus: 0
   isGameover: 0
   interationGetKey: 0
   playerRay: {fileID: 0}
@@ -144,12 +143,12 @@ MonoBehaviour:
   - 15
   - 0
   HungerMaxData:
-  - 2
-  - 2
+  - 10
+  - 10
   - 10
   HungerData:
-  - 2
-  - 2
+  - 10
+  - 10
   - 10
 --- !u!114 &2970041688810947752
 MonoBehaviour:

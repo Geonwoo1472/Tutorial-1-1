@@ -12,12 +12,15 @@ public class NextStage : MonoBehaviour
     private GameObject player;                  // player 객체
     private Player_Action playerAction;         // 플레이어의 스크립트
     private FadeEffect fadeEffect;              // fade의 스크립트
+
+    private StatusManager statusManager;
     private void Start()
     {
         gameManager = GameManager.instance;
         player = GameObject.Find("Player");
         playerAction = player.GetComponent<Player_Action>();
         fadeEffect = GameObject.Find("FadeImage").GetComponent<FadeEffect>();
+        statusManager = StatusManager.instance;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -27,7 +30,15 @@ public class NextStage : MonoBehaviour
             if (MapDictionary.instance.dict.ContainsKey(transferMapName))
             {
                 gameManager.currentMapName = MapDictionary.instance.dict[transferMapName];
-                StatusManager.instance.FatigueSetting();
+
+                StatusManager.instance.FatigueSet();
+                StatusManager.instance.HungerSet();
+
+                /*내부 인덱스 셋팅이 메소드 안에 있다 Init부터하면 안됨..*/
+                PlayerStatus.instance.InitStatus(
+                   statusManager.HungerMaxData[statusManager.HungerIndex], statusManager.FatigueMaxData[statusManager.FatigueIndex],
+                   statusManager.HungerData[statusManager.HungerIndex], statusManager.FatigueData[statusManager.FatigueIndex]);
+
                 fadeEffect.OnFade(FadeState.FadeIn);
                 playerAction.PlayerCorouine(PlayerState.MoveOff,2.0f);
             }

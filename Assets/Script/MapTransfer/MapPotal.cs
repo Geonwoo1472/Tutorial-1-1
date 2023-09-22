@@ -50,8 +50,9 @@ public class MapPotal : MonoBehaviour
 
                 fadeEffect.OnFade(FadeState.FadeIn);
                 playerAction.PlayerCorouine(PlayerState.MoveOff,2.0f);
-                
-                StatusManager.instance.FatigueSetting();
+
+                StatusManager.instance.FatigueSet();
+                PlayerStatus.instance.OnDamageHunger(HF_Constance.MAPCHANGE);
             }
             else
             {

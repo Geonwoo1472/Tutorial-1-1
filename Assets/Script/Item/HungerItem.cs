@@ -10,6 +10,7 @@ public class HungerItem : Item
     public override bool Use()
     {
         PlayerStatus.instance.OnHealHunger(healValue);
+        StatusManager.instance.HungerDataReflection(healValue, OPERATIONTYPE.PLUS);
         Debug.Log("HungerHeal !!" + healValue);
         retValue = true;
 

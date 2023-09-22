@@ -1,14 +1,22 @@
+public static class OPERATIONTYPE
+{
+    public const int PLUS = 0;
+    public const int MINUS = 1;
+}
+
+
 public static class BrightnessConstIndex
 {
     public static readonly float BaseLight = 5.0f;
     public static readonly float ItemLight = 10.0f;
 }
 
-static class HF_Constance
+public static class HF_Constance
 {
     public const float BOXMOVE = 1;
     public const float SWAMPTILE = 1;
     public const float TREETILE = 1;
+    public const float MAPCHANGE = 1;
 }
 
 public static class SceneConstIndex

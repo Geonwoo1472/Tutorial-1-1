@@ -110,9 +110,10 @@ public class PlayerStatus : MonoBehaviour
         }
 
         Hunger -= damage;
+        StatusManager.instance.HungerDataReflection(damage,OPERATIONTYPE.MINUS);
 
         // 플레이어 배고픔 0에 도달한다면 GameOver 화면으로 가야함
-        if(Hunger <= 0)
+        if (Hunger <= 0)
         {
             GameManager.instance.EndGame();
         }
@@ -131,7 +132,7 @@ public class PlayerStatus : MonoBehaviour
 
 
         Fatigue -= damage;
-        StatusManager.instance.FDChange(HF_Constance.BOXMOVE);
+        StatusManager.instance.FatigueDataReflection(damage,OPERATIONTYPE.MINUS);
 
         // 플레이어 피로도 0에 도달한다면..
         if(Fatigue <= 0)
