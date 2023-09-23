@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scanObject: {fileID: 0}
+  pastTag: 
 --- !u!114 &407132581
 MonoBehaviour:
   m_ObjectHideFlags: 0
