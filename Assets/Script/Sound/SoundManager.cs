@@ -21,9 +21,16 @@ public class SoundManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    public void TreeBrokenSound()
+    public void SoundPlaying(int type)
     {
-        audioSource.clip = clipFiles[0];
+        if (type >= clipFiles.Length)
+        {
+            Debug.Log("SoundManager.cs , 오디오 파일 없음");
+            return;
+        }
+
+        audioSource.clip = clipFiles[type];
+
         if(!audioSource.isPlaying)
             audioSource.Play();
     }

@@ -11,26 +11,14 @@ public class FruitItem : Item
         int fruitRange = Random.Range(-2, 3);
 
         PlayerStatus.instance.OnHealFatigue(fruitRange);
-        LogUpdate(fruitRange);
+        if (fruitRange > 0)
+            CommunalSound.instance.SoundPlaying(SoundType.healSound);
+        else if (fruitRange < 0)
+            CommunalSound.instance.SoundPlaying(SoundType.damageSound);
 
         Debug.Log("FruitItem.cs 회복 수치: " + fruitRange);
 
         retValue = true;
         return base.Use();
-    }
-    private void LogUpdate(int fruitRange)
-    {
-        if (fruitRange > 0)
-        {
-            ItemLogData.instance.FruitHealCount++;
-        }
-        else if (fruitRange < 0)
-        {
-            ItemLogData.instance.FruitDamageCount++;
-        }
-        else
-        {
-            ItemLogData.instance.FruitZeroCount++;
-        }
     }
 }

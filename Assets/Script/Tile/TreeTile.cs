@@ -17,7 +17,7 @@ public class TreeTile : IDestroyable
             return;
 
         PlayerStatus.instance.OnDamageFatigue(HF_Constance.TREETILE);
-        soundManager.TreeBrokenSound();
+        soundManager.SoundPlaying(SoundType.breakTree);
         gameObject.SetActive(false);
         
     }

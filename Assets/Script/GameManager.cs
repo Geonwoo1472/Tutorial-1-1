@@ -91,6 +91,7 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("Inventory ±â´É !!");
                 OnInvenActive();
+                CommunalSound.instance.SoundPlaying(SoundType.inventoryOpen);
             }
             // M Å°¸¦ ´­·¶À» ¶§ ¸Ê
             if (Input.GetKeyDown(KeySetting.keys[KeyAction.MAP]))

@@ -39,6 +39,7 @@ public class Collapse : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Collapsing();
+            SoundManager.instance.SoundPlaying(SoundType.collapseSound);
         }
     }
 

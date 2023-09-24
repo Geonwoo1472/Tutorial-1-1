@@ -22,6 +22,7 @@ public class EyesightItem : Item
         playerLightController = PlayerLight2DController.instance;
         playerLightController.playerLight2DCoroutine(sightValue);
         PlayerStatus.instance.HasBrightened = true;
+        SoundManager.instance.SoundPlaying(SoundType.torchSound);
 
         retValue = true;
         

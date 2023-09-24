@@ -30,6 +30,9 @@ public class OperationSwitch : MonoBehaviour
         else
             operationSwitchOff.Invoke();
         spriteRenderer.sprite = changeSprite[spriteIndex];
+
+        SoundManager.instance.SoundPlaying(SoundType.switchOperation);
+
         ++spriteIndex;
         spriteIndex = spriteIndex % 2;
     }

@@ -45,6 +45,21 @@ public static class RayConstants
     public const float talkRayLength = 0.5f;
 }
 
+public class SoundType
+{
+    public const int breakTree = 0;
+    public const int switchOperation = 0;
+    public const int itemPickUp = 0;
+    public const int torchSound = 0;
+    public const int collapseSound = 1;
+
+    public const int inventoryOpen = 1;
+    public const int healSound = 2;
+    public const int potalSound = 3;
+    public const int sceneSound = 4;
+    public const int damageSound = 5;
+}
+
 public enum Direction
 {
     Right,
@@ -58,3 +73,4 @@ public enum TalkProperty
     Disposable,
     Reusable
 }
+

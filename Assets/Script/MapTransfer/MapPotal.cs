@@ -53,6 +53,8 @@ public class MapPotal : MonoBehaviour
 
                 StatusManager.instance.FatigueSet();
                 PlayerStatus.instance.OnDamageHunger(HF_Constance.MAPCHANGE);
+
+                CommunalSound.instance.SoundPlaying(SoundType.potalSound);
             }
             else
             {

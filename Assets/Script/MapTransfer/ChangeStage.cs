@@ -47,6 +47,7 @@ public class ChangeStage : MonoBehaviour
                             Destroy(invenSlot);
 
                             gameManager.currentMapName = transferMapname;
+                            CommunalSound.instance.SoundPlaying(SoundType.sceneSound);
                             SceneManager.LoadScene(SceneConstIndex.CHAPTERSAVE);
                         }
                     }

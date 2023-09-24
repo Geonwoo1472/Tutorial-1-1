@@ -11,6 +11,11 @@ public class FatigueItem : Item
     {
         PlayerStatus.instance.OnHealFatigue(healValue);
         Debug.Log("FatigueHeal !!" + healValue);
+        if(CommunalSound.instance != null)
+        {
+            CommunalSound.instance.SoundPlaying(SoundType.healSound);
+        }
+        
         retValue = true;
 
         return base.Use();

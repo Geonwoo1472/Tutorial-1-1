@@ -37,10 +37,8 @@ public class Inventory : MonoBehaviour
     //아이템 최대개수 / 현재개수 
     public int capacity;
     public int count;
-
     // 슬롯의 개수
     private int slotCnt;
-
     public int SlotCnt
     {
         get => slotCnt;
@@ -94,26 +92,22 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    
+
 
     // 플레이어가 아이템과 충돌한 경우
+    // 부딪힌 Tag가 FieldItem인 경우
+    // 해당 오브젝트가 가지고 있는 FildItem 컴포넌트를 가져오고
+    // FildItem 컴포넌트에 있는 정보인 Item을 가져오고
+    // UI내 슬롯이 충분하다면 List에 Item 정보를 담는다.
+    // 그리고 잘 저장되었다면 onChangeItem 함수를 호출하고 [델리게이트]
+    // 해당 오브젝트는 파괴한다.
+
+    // 가끔 2번 들어오는 경우가 있음.
+    // //2회 충돌 시 bool 값으로 처리..
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // 부딪힌 Tag가 FieldItem인 경우
-        // 해당 오브젝트가 가지고 있는 FildItem 컴포넌트를 가져오고
-        // FildItem 컴포넌트에 있는 정보인 Item을 가져오고
-        // UI내 슬롯이 충분하다면 List에 Item 정보를 담는다.
-        // 그리고 잘 저장되었다면 onChangeItem 함수를 호출하고 [델리게이트]
-        // 해당 오브젝트는 파괴한다.
-
-        // 가끔 2번 들어오는 경우가 있음.
-        // //2회 충돌 시 bool 값으로 처리..
-
-
         if (collision.CompareTag("FieldItem"))
         {
-            //Debug.Log("Inventory.cs 인데 나는 얘랑 충돌했어 !!" + collision.name);
-            //Debug.Log("내 이름은 : " + gameObject.name + " 이야 !");
             FildItem filditems = collision.GetComponent<FildItem>();
 
             if (filditems.isAvailable)
@@ -123,8 +117,8 @@ public class Inventory : MonoBehaviour
 
             if (AddItem(filditems.GetItem()))
             {
-                //filditems.DestoryItem();
                 collision.gameObject.SetActive(false);
+                CommunalSound.instance.SoundPlaying(SoundType.itemPickUp);
             }
         }
     }
