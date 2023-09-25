@@ -153,18 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   portaitArr:
-  - {fileID: 21300000, guid: ddbf78ad3f9701a41a7b4b1cabfef6b9, type: 3}
-  - {fileID: 21300000, guid: f18b765a6f15c40428cd3ba058609e34, type: 3}
-  - {fileID: 1988566015, guid: b8814c83d33f044eaa43a507df945000, type: 3}
-  - {fileID: -575516589, guid: b8814c83d33f044eaa43a507df945000, type: 3}
-  - {fileID: -676267575, guid: b8814c83d33f044eaa43a507df945000, type: 3}
-  - {fileID: 911008731, guid: b8814c83d33f044eaa43a507df945000, type: 3}
-  - {fileID: 2146800190, guid: b8814c83d33f044eaa43a507df945000, type: 3}
-  - {fileID: 344966246, guid: b8814c83d33f044eaa43a507df945000, type: 3}
-  - {fileID: 1077621534, guid: b8814c83d33f044eaa43a507df945000, type: 3}
-  - {fileID: -1917803003, guid: b8814c83d33f044eaa43a507df945000, type: 3}
-  - {fileID: 21300000, guid: f5de192d0f119ce4a8b6ee958c43308e, type: 3}
-  - {fileID: 21300000, guid: 3d271243fedaca44580218df68a0f1b7, type: 3}
+  - {fileID: 21300000, guid: bde38306ebfbada4f9fa473c242adad0, type: 3}
+  - {fileID: 21300000, guid: 082f5cb98ef29ac4b9df8bd70d7bf1a5, type: 3}
 --- !u!4 &40077566
 Transform:
   m_ObjectHideFlags: 0
