@@ -5,15 +5,18 @@ using UnityEngine;
 public class OperationSwitchPotal : MonoBehaviour
 {
     public OperationSwitch[] switchArray;
+    [Header("false라면 스위치 켜질 때 ON, true라면 스위치 켜질 때 OFF")]
     public bool isActive;
 
     private int activeSwitchCount;
     private int switchCount;
+    private bool powerStatus;
 
     private void Awake()
     {
         activeSwitchCount = 0;
         switchCount = switchArray.Length;
+        powerStatus = false;
     }
 
     void Start()
@@ -30,14 +33,22 @@ public class OperationSwitchPotal : MonoBehaviour
     {
         ++activeSwitchCount;
         if (switchCount == activeSwitchCount)
+        {
             ActiveChange();
-        
+            powerStatus = true;
+        }
+
+
     }
 
     private void SwitchOff()
     {
         --activeSwitchCount;
-        ActiveChange();
+        if (powerStatus == true)
+        {
+            ActiveChange();
+            powerStatus = false;
+        }
     }
 
     private void ActiveChange()
