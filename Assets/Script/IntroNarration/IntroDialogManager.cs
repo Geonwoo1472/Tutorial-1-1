@@ -77,9 +77,9 @@ public class IntroDialogManager : MonoBehaviour
             isAction = false;
             talkIndex = 0;
 
+
             if (endCommunication != null)
                 endCommunication.Invoke();
-
             if (objData.autoTalkUse == true)
             {
                 AutoTalk autoTalkScript = scanObject.GetComponent<AutoTalk>();
@@ -100,6 +100,25 @@ public class IntroDialogManager : MonoBehaviour
             talk.SetMsg(talkData.Split(':')[0]);
 
             portraitImg.sprite = talkManager.GetPortraite(ID, int.Parse(talkData.Split(':')[1]));
+
+            int a = int.Parse(talkData.Split(':')[2]);
+            if(a != 0)
+            {
+                switch (a)
+                {
+                    case 10:
+                         // ÃµµÕ»ç¿îµå play
+                    break;
+                    case 11:
+                        IntroSoundManager.instance.ShipSound();
+                    break;
+
+                }
+
+
+            }
+
+
             portraitImg.color = new Color(1, 1, 1, 1);
         }
         else
