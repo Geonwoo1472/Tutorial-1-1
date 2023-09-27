@@ -48,10 +48,16 @@ public static class RayConstants
 public class SoundType
 {
     public const int breakTree = 0;
-    public const int switchOperation = 0;
+    public const int switchOperation = 1;
     public const int itemPickUp = 0;
     public const int torchSound = 0;
     public const int collapseSound = 1;
+
+    public const int oneBoxSound = 0;
+    public const int twoBoxSound = 1;
+    public const int threeBoxSound = 2;
+    public const int fourBoxSound = 1;
+    public const int fiveBoxSound = 1;
 
     public const int inventoryOpen = 1;
     public const int healSound = 2;
@@ -74,3 +80,11 @@ public enum TalkProperty
     Reusable
 }
 
+public enum BoxSoundType
+{
+    Beach,
+    Forest,
+    Cave,
+    Ruins,
+    LastMap
+}

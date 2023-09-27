@@ -24,7 +24,11 @@ public class PlayerLight2DController : MonoBehaviour
 
     private void Start()
     {
-        playerLight2D = GetComponent<Light2D>();
+        playerLight2D = transform.GetChild(0).GetComponent<Light2D>();
+
+        if (playerLight2D == null)
+            Debug.Log("playerLight2D Null , 2DController.cs ");
+
         currentLightValue = playerLight2D.pointLightOuterRadius;
         expansionSpeed = 5;
     }

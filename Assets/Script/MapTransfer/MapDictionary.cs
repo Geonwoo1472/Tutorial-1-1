@@ -27,7 +27,7 @@ public class MapDictionary : MonoBehaviour
         Stage2();
         Stage3();
         Stage4();
-        //Stage5();
+        Stage5();
         SaveStage();
     }
 
@@ -163,7 +163,6 @@ public class MapDictionary : MonoBehaviour
         //dict.Add("SpawnTop3-9", "CameraPos3-9");
         dict.Add("SpawnLeft3-9", "CameraPos3-9");
     }
-
     private void Stage4()
     {
         //4-1
@@ -222,14 +221,20 @@ public class MapDictionary : MonoBehaviour
 
         /*Hideen Map*/
         //h1
-        dict.Add("SpawnTop4-h1", "CameraPos4-h1");
+        dict.Add("Spawn h1", "CameraPos4-h1");
         //h2
-        dict.Add("SpawnTop4-h2", "CameraPos4-h2");
+        dict.Add("Spawn h2", "CameraPos4-h2");
         //h3
-        dict.Add("SpawnTop4-h3", "CameraPos4-h3");
+        dict.Add("Spawn h3", "CameraPos4-h3");
         //h4
-        dict.Add("SpawnTop4-h4", "CameraPos4-h4");
+        dict.Add("Spawn h4", "CameraPos4-h4");
         //h5
-        dict.Add("SpawnTop4-h5", "CameraPos4-h5");
+        dict.Add("Spawn h5", "CameraPos4-h5");
+
+        
+    }
+    private void Stage5()
+    {
+
     }
 }

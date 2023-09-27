@@ -10,12 +10,14 @@ public class HidenMapCollider : MonoBehaviour
     private TimeText timeText;          // float값 TimeText UI에 연동
     private Light2D globalLight2D;      // 전역 라이트 
     private PlayerLight2DController playerLight2DController;    // 플레이어 라이트
+    private GameObject playerLightObject;
 
     private void Start()
     {
         timeText = GameObject.Find("TimeTextParent").transform.Find("TimeText").GetComponent<TimeText>();
         globalLight2D = GameObject.Find("BackGroundLight2D").GetComponent<Light2D>();
         playerLight2DController = PlayerLight2DController.instance;
+        playerLightObject = playerLight2DController.transform.GetChild(0).gameObject;
     }
 
 
@@ -31,7 +33,7 @@ public class HidenMapCollider : MonoBehaviour
         {
             timeText.OnActive(initTime);
             globalLight2D.color = Color.black;
-            playerLight2DController.SetActive(true);
+            playerLightObject.SetActive(true);
         }
     }
 
@@ -48,7 +50,7 @@ public class HidenMapCollider : MonoBehaviour
         {
             timeText.OffActive();
             globalLight2D.color = Color.white;
-            playerLight2DController.SetActive(false);
+            playerLightObject.SetActive(false);
         }
     }
 }

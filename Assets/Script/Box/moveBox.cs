@@ -5,6 +5,7 @@ using UnityEngine;
 public class moveBox : MonoBehaviour
 {
     public float speed;
+    public BoxSoundType soundType;
 
     Rigidbody2D rigid;
     GameObject obj;
@@ -15,12 +16,11 @@ public class moveBox : MonoBehaviour
     bool isReady;
     float boxMoveTime;
 
-    private AudioSource boxSound;
+    
 
     private void Awake()
     {
         obj = GameObject.Find("Player");
-        boxSound = GetComponent<AudioSource>();
     }
     // Start is called before the first frame update
     void Start()
@@ -205,7 +205,33 @@ public class moveBox : MonoBehaviour
 
     private void SoundPlaying()
     {
-        if(!boxSound.isPlaying)
-            boxSound.Play();
+        switch(soundType)
+        {
+            case BoxSoundType.Beach:
+                {
+                    SoundManager.instance.SoundPlaying(SoundType.oneBoxSound);
+                }
+                break;
+            case BoxSoundType.Forest:
+                {
+                    SoundManager.instance.SoundPlaying(SoundType.twoBoxSound);
+                }
+                break;
+            case BoxSoundType.Cave:
+                {
+                    SoundManager.instance.SoundPlaying(SoundType.threeBoxSound);
+                }
+                break;
+            case BoxSoundType.Ruins:
+                {
+                    SoundManager.instance.SoundPlaying(SoundType.fourBoxSound);
+                }
+                break;
+            case BoxSoundType.LastMap:
+                {
+                    SoundManager.instance.SoundPlaying(SoundType.fiveBoxSound);
+                }
+                break;
+        }
     }
 }

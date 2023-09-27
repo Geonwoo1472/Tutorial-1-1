@@ -16,10 +16,14 @@ public class MapPotal : MonoBehaviour
     private CameraMove CMove;               // 카메라의 스크립트
     private FadeEffect fadeEffect;          // fade의 스크립트
 
+    private void Awake()
+    {
+        map = GameObject.Find(transferMapName);
+    }
+
     private void Start()
     {
         gameManager = GameManager.instance;
-        map = GameObject.Find(transferMapName);
         player = GameObject.Find("Player");
         playerAction = player.GetComponent<Player_Action>();
         CMove = GameObject.Find("Main Camera").GetComponent<CameraMove>();
@@ -66,7 +70,7 @@ public class MapPotal : MonoBehaviour
     private void NullChecking()
     {
         if (map == null)
-            Debug.Log(transferMapName +"is Null , MapPotal.cs ");
+            Debug.Log(transferMapName +" :is Null , MapPotal.cs , GameObject Name: " + gameObject.name);
         if (player == null)
             Debug.Log("Player is Null, MapPotal.cs ");
         if(playerAction == null)

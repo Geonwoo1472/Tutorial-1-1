@@ -66734,6 +66734,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2444235920224506377, guid: 2d0ad743615a3974eb63493d11fde43f, type: 3}
+      propertyPath: soundType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d0ad743615a3974eb63493d11fde43f, type: 3}
 --- !u!1001 &1066707072
@@ -85467,6 +85471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clipFiles:
   - {fileID: 8300000, guid: 366827ce62b2ec848a1fbf464e6ed70d, type: 3}
+  - {fileID: 8300000, guid: 107a8dda3de0a8042930b37085c1e206, type: 3}
 --- !u!4 &1508101959
 Transform:
   m_ObjectHideFlags: 0
