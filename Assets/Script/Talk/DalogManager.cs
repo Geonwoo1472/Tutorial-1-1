@@ -8,6 +8,12 @@ public class DalogManager : MonoBehaviour
     public TypeEffect talk;                     //TypeEffect.cs
     public GameObject talkPanel;                //인게임 말풍선 판넬 이미지
     public bool isAction;                       // 판넬의 ON/OFF 여부입니다.
+    public bool IsAction
+    {
+        get { return isAction; }
+        set { isAction = value; }
+    }
+
     public TalkManager talkManager;             //talkManger.cs
     public Image portraitImg;                   //NPC 이미지
     public int talkIndex;                       //현재 문자열 인덱스 구분
@@ -16,6 +22,9 @@ public class DalogManager : MonoBehaviour
     private GameObject scanObject;
     private ObjectTalkData objData;
     private PlayerCompulsionMove compulsionScript;
+
+    public delegate void LastDalog();
+    public LastDalog lastDalog;
 
     /* 
      스캔된 오브젝트의 ID를 확인하고
@@ -73,6 +82,9 @@ public class DalogManager : MonoBehaviour
         {
             isAction = false;
             talkIndex = 0;
+
+            if (lastDalog != null)
+                lastDalog.Invoke();
 
             if (objData.autoTalkUse == true)
             {

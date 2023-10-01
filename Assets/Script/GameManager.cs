@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public player_Raycast playerRay;                    //playerRaycast  
 
+    private DalogManager dalogManager;
+
     public bool MoveStatus
     {
         get => moveStatus;
@@ -77,6 +79,7 @@ public class GameManager : MonoBehaviour
         inven = Inventory.instance;
         interationGetKey = false;
         playerRay = GameObject.Find("Player").GetComponent<player_Raycast>();
+        dalogManager = GameObject.Find("DalogManager").GetComponent<DalogManager>();
 
         NullChecking();
     }
@@ -101,7 +104,6 @@ public class GameManager : MonoBehaviour
             // SPACEBAR 눌렀을 때 상호작용
             if (Input.GetKey(KeySetting.keys[KeyAction.INTERACTION]))
             {
-                Debug.Log("Interaction 기능 !!");
                 interationGetKey = true;
                 if (playerRay.scanObject != null)
                 {
@@ -123,10 +125,11 @@ public class GameManager : MonoBehaviour
             {
                 interationGetKey = false;
             }
-            //SPACEBAR 1회
+            /*SPACEBAR , KeyDown. 현재는 스위치만 사용하고 있다.
+             판넬 ON중인 경우 스위치는 작동할 필요 없으므로 return */
             if(Input.GetKeyDown(KeySetting.keys[KeyAction.INTERACTION]))
             {
-                if(playerRay.scanObject != null)
+                if(playerRay.scanObject != null && !dalogManager.IsAction)
                 {
                     switch (playerRay.pastTag)
                     {

@@ -15,6 +15,7 @@ public class TimeText : MonoBehaviour
     private RectTransform rectTransform;
 
     private GameObject statusUI;
+    private DalogManager dalogManager;
 
     private void Awake()
     {
@@ -25,8 +26,18 @@ public class TimeText : MonoBehaviour
         timeLimit = 1.0f;
     }
 
+    private void Start()
+    {
+        dalogManager = GameObject.Find("DalogManager").GetComponent<DalogManager>();
+    }
+
+    /*만약 Panel이 활성화 되어 있는 경우
+     시간초가 움직이면 안되므로 return 합니다.*/
     private void FixedUpdate()
     {
+        if (dalogManager.IsAction)
+            return;
+
         if (timeLimit <= 0)
         {
             GameManager.instance.EndGame();
