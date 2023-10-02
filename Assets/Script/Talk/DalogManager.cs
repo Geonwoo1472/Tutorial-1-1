@@ -12,7 +12,7 @@ public class DalogManager : MonoBehaviour
     {
         get { return isAction; }
         set { isAction = value; }
-    }
+    }                                           //판넬 프로퍼티
 
     public TalkManager talkManager;             //talkManger.cs
     public Image portraitImg;                   //NPC 이미지
@@ -23,7 +23,7 @@ public class DalogManager : MonoBehaviour
     private ObjectTalkData objData;
     private PlayerCompulsionMove compulsionScript;
 
-    public delegate void LastDalog();
+    public delegate void LastDalog();           //문자열 종료 시 연결된 메소드 호출용 델리게이트
     public LastDalog lastDalog;
 
     /* 
@@ -43,7 +43,7 @@ public class DalogManager : MonoBehaviour
         Talk(objData.ID, objData.isNpc);
 
         talkPanel.SetActive(isAction);
-        GameManager.instance.setMove(isAction);     // 플레이어 움직임 막는곳
+        GameManager.instance.setMove(isAction);
         if(compulsionScript != null)
         {
             if(isAction == false)

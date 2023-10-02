@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PrefabPotal
       objectReference: {fileID: 0}
+    - target: {fileID: 7918792452784567755, guid: cb75b9ab5c572604598ec8ed7643c982, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 7918792452784567765, guid: cb75b9ab5c572604598ec8ed7643c982, type: 3}
       propertyPath: m_RootOrder
       value: 1

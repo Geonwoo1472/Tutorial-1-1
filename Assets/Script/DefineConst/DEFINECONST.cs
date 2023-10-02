@@ -64,6 +64,7 @@ public class SoundType
     public const int potalSound = 3;
     public const int sceneSound = 4;
     public const int damageSound = 5;
+    public const int mapSound = 2;
 }
 
 public enum Direction
