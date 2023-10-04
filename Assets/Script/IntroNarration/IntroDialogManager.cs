@@ -107,8 +107,9 @@ public class IntroDialogManager : MonoBehaviour
                 switch (a)
                 {
                     case 10:
-                         // ÃµµÕ»ç¿îµå play
+                        IntroSoundManager.instance.Lightning(); // ÃµµÕ»ç¿îµå play
                     break;
+
                     case 11:
                         IntroSoundManager.instance.ShipSound();
                     break;

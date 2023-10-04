@@ -22,4 +22,10 @@ public class IntroSoundManager : MonoBehaviour
         audioSource.clip = auidoClipfiles[0];
         audioSource.Play();
     }
+
+    public void Lightning()
+    {
+        audioSource.clip = auidoClipfiles[1];
+        audioSource.Play();
+    }
 }
