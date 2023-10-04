@@ -84,7 +84,10 @@ public class DalogManager : MonoBehaviour
             talkIndex = 0;
 
             if (lastDalog != null)
+            {
+                Debug.Log(lastDalog.Target + " target ?");
                 lastDalog.Invoke();
+            }
 
             if (objData.autoTalkUse == true)
             {

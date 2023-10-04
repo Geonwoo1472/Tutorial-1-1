@@ -20,8 +20,8 @@ public struct CoordinateObject
 
 public class CameraController : MonoBehaviour
 {
-    public Transform cameraPos;
-    public Transform playerPos;
+    private Transform cameraPos;
+    private Transform playerPos;
 
     [SerializeField]
     public CoordinateObject[] structCoordinate;
@@ -46,7 +46,7 @@ public class CameraController : MonoBehaviour
      */
     private void Awake()
     {
-        cameraVector = new Vector3(playerPos.position.x, playerPos.position.y, -10);
+        
         mapIndex = 0;
         mapMovingPos = new MapMovingPos[structCoordinate.Length];
 
@@ -57,9 +57,16 @@ public class CameraController : MonoBehaviour
             mapMovingPos[i].xMaxPos = structCoordinate[i].maxCoordinate.position.x;
             mapMovingPos[i].yMaxPos = structCoordinate[i].maxCoordinate.position.y;
         }
-        InitSetPosition();
-
     }
+
+    private void Start()
+    {
+        cameraPos = GameObject.Find("Main Camera").transform;
+        playerPos = GameObject.Find("Player").transform;
+        cameraVector = new Vector3(playerPos.position.x, playerPos.position.y, -10);
+        InitSetPosition();
+    }
+
 
     /*
      범위 내에서 움직인다면 카메라는 플레이어의 위치를 따라갑니다.
