@@ -18,12 +18,14 @@ public class PlayerLight2DController : MonoBehaviour
     }
     #endregion
 
+    private GameObject lightObject;
     private Light2D playerLight2D;
     private float currentLightValue;
     private int expansionSpeed;
 
     private void Start()
     {
+        lightObject = transform.GetChild(0).gameObject;
         playerLight2D = transform.GetChild(0).GetComponent<Light2D>();
 
         if (playerLight2D == null)
@@ -44,6 +46,10 @@ public class PlayerLight2DController : MonoBehaviour
         gameObject.SetActive(mValue);
     }
 
+    public void LightSetActive(bool value)
+    {
+        lightObject.SetActive(value);
+    }
 
     // 시야 증가
     private IEnumerator AddEyesight(float eyeSightValue)
