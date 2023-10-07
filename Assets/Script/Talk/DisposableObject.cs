@@ -16,4 +16,9 @@ public class DisposableObject : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    private void OnDestroy()
+    {
+        dalogManager.lastDalog -= DeleteObject;
+    }
 }
