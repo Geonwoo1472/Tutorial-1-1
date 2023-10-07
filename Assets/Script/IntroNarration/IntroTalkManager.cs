@@ -76,14 +76,6 @@ public class IntroTalkManager : MonoBehaviour
             "“여기가 어딘진 모르겠지만 우선 살아 나갈 방법을 찾아 봐야겠어.”:1:1",
             "방향키나 WASD 를 눌러 이동할 수 있습니다.:1:1"});
 
-
-        /* Ending 대사 */
-        talkData.Add(1, new string[] { "ABC.:0:0",
-            "DEF.:0:0",
-            "GHIJK.:0:0",
-            "QWER.:0:0",
-            "TYUI.:0:0"});
-
     }
 
 
@@ -91,8 +83,8 @@ public class IntroTalkManager : MonoBehaviour
     {
         portraitData.Add(0, portaitArr[0]); // soundClip[0] ~ 
         portraitData.Add(0 + 1, portaitArr[1]);
-        portraitData.Add(0 + 2, portaitArr[2]);
-        /* portraitData.Add(0 + 3, portaitArr[3]);
+        /* portraitData.Add(0 + 2, portaitArr[2]);
+        portraitData.Add(0 + 3, portaitArr[3]);
         portraitData.Add(0 + 4, portaitArr[4]);
         portraitData.Add(0 + 5, portaitArr[5]);
         portraitData.Add(0 + 6, portaitArr[6]);
