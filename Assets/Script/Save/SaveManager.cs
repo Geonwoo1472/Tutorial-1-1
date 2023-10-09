@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Text;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
@@ -155,11 +156,11 @@ public class SaveManager : MonoBehaviour
         /* 
          데이터 셋팅
         */
+        SceneManager.LoadScene(SceneConstIndex.CHAPTERSAVE);
         DataSetting(dataFile.playerPos.x , dataFile.playerPos.y , dataFile.itemNumberList);
-        
-
     }
 
+    /* LoadPopup 캔버스 업데이트 */
     private void LoadPopupUpdate(int _slotNumber, int _imageNumber, string _date, string _stage, string _story)
     {
         imagePanel[_slotNumber].sprite = imagePanelSource[_imageNumber];
@@ -178,7 +179,6 @@ public class SaveManager : MonoBehaviour
             SlotFile(i);
         }
     }
-
     private void SlotFile(int i)
     {
         FileStream stream = new FileStream(Application.dataPath + "/SaveFile/" + i + "SlotFile.json", FileMode.Open);

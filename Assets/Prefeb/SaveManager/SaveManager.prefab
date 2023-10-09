@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6190318826793926751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6190318826793926750}
+  - component: {fileID: 6190318826793926748}
+  - component: {fileID: 6190318826793926749}
+  m_Layer: 0
+  m_Name: SaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6190318826793926750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6190318826793926751}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6190318826793926748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6190318826793926751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d6b8f26bd8f7b448ab1f096f485efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  savePointCount: 4
+  dalogManager: {fileID: 0}
+  saveYNPanel: {fileID: 0}
+  rayCastTalk: {fileID: 0}
+  playerTransform: {fileID: 0}
+  imagePanelSource:
+  - {fileID: 21300000, guid: 8dfc93a197e8745b2805ed63f5b184d9, type: 3}
+  - {fileID: 21300000, guid: 2e9dcb0b6a3244ad9b171c6ba5bac782, type: 3}
+  - {fileID: 21300000, guid: ae95722a82f8046e083d79839425b46f, type: 3}
+  - {fileID: 21300000, guid: 4225f9c79de1146c7992166dd9451c4e, type: 3}
+  itemIvenPanel: {fileID: 0}
+  imagePanel:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  datePanel:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  stagePanel:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  storyPanel:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  loadPenel: {fileID: 0}
+  itemPrefab: {fileID: 1328622761294406458, guid: 374e35a65b41d724eb82c1479e34630f, type: 3}
+  itemArray:
+  - {fileID: 11400000, guid: 3642c7db97eb8e84da5dd9c0a1afece9, type: 2}
+  - {fileID: 11400000, guid: edcf89fdacef1b64a9e8e01f6586fa8c, type: 2}
+  - {fileID: 11400000, guid: c2e5e4da0d09af944a6f7fb7171c4f42, type: 2}
+  - {fileID: 11400000, guid: 0b39cc17cbae33b469269e022283d590, type: 2}
+  - {fileID: 11400000, guid: 39d7cc9e58470db47a7588155a1cd7cb, type: 2}
+  - {fileID: 11400000, guid: 5500d2f109cb9fc4b99a582c1814e4c2, type: 2}
+  - {fileID: 11400000, guid: bc7f10e03d4950e4da33437747d68896, type: 2}
+  - {fileID: 11400000, guid: e5f43d9faaa989945bd0a55cf1792622, type: 2}
+  - {fileID: 11400000, guid: ab782d5194941e74a8fe29cc501f2c94, type: 2}
+  - {fileID: 11400000, guid: 7cc10dbf3e018cc44bd0ffac00c85e61, type: 2}
+  - {fileID: 11400000, guid: cc3d9c2e940dc5d4988c0f1df56ac6c0, type: 2}
+--- !u!114 &6190318826793926749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6190318826793926751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bea89531d660c240a7d38ad5e9f8d12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
