@@ -98,9 +98,9 @@ public class InventoryUI : MonoBehaviour
     void Update()
     {
         // e키 눌렀을 경우 테스트용
-        if (Input.GetKeyDown(KeyCode.E))
+        /*if (Input.GetKeyDown(KeyCode.E))
         {
             AddSlot();
-        }
+        }*/
     }
 }

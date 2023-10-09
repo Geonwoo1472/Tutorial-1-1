@@ -15,3 +15,4 @@ MonoBehaviour:
   itemType: 0
   itemName: Fruit
   itemImage: {fileID: -528648358, guid: c2d8af77363200841b895cbb4d1f2863, type: 3}
+  itemNumber: 3

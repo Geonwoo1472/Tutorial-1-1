@@ -15,4 +15,5 @@ MonoBehaviour:
   itemType: 0
   itemName: FireItem
   itemImage: {fileID: 21300000, guid: 7318dafbe8edeb045b95b21a5be6ff76, type: 3}
+  itemNumber: 2
   sightValue: 10

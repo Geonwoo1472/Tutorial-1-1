@@ -15,4 +15,5 @@ MonoBehaviour:
   itemType: 0
   itemName: ChickenLeg
   itemImage: {fileID: 21300000, guid: 7f487c5e780a4084d9735a2fa01f2ef8, type: 3}
+  itemNumber: 1
   healValue: 3

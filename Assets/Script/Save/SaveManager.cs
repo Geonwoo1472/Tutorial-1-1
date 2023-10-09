@@ -24,10 +24,14 @@ public class SaveManager : MonoBehaviour
     public Text[] storyPanel;
 
     public GameObject loadPenel;
+    public GameObject itemPrefab;
+    public Item[] itemArray;
 
     private List<int> itemNumberList;
     private int stageNumber;
     private int slotNumber;
+
+    
 
     private bool saveMode;
     public bool SaveMode
@@ -121,14 +125,14 @@ public class SaveManager : MonoBehaviour
 
     private void FileSave()
     {
+        int imageNumber = stageNumber;
         string stageLineText = SetStageLine();
         string storyLineText = SetStoryLine();
         ItemNumberListInit();
 
-        DataFile jTest1 = new DataFile(stageLineText, storyLineText, playerTransform.position.x, playerTransform.position.y, itemNumberList);
+        DataFile jTest1 = new DataFile(imageNumber,stageLineText, storyLineText, playerTransform.position.x, playerTransform.position.y, itemNumberList);
         string jsonData = JsonConvert.SerializeObject(jTest1);
-        LoadPopupUpdate(slotNumber, jTest1.timeLine, jTest1.stageLine, jTest1.storyLine);
-
+        LoadPopupUpdate(slotNumber, jTest1.imageNumber,jTest1.timeLine, jTest1.stageLine, jTest1.storyLine);
 
         FileStream stream = new FileStream(Application.dataPath + "/SaveFile/" + slotNumber + "SlotFile.json", FileMode.OpenOrCreate);
         byte[] data = Encoding.UTF8.GetBytes(jsonData);
@@ -146,19 +150,19 @@ public class SaveManager : MonoBehaviour
         stream.Close();
         string dataDeserialize = Encoding.UTF8.GetString(data);
 
-        DataFile jtest2 = JsonConvert.DeserializeObject<DataFile>(dataDeserialize);
+        DataFile dataFile = JsonConvert.DeserializeObject<DataFile>(dataDeserialize);
 
         /* 
          데이터 셋팅
-         
-         */
+        */
+        DataSetting(dataFile.playerPos.x , dataFile.playerPos.y , dataFile.itemNumberList);
+        
 
-        jtest2.Print();
     }
 
-    private void LoadPopupUpdate(int _slotNumber, string _date, string _stage, string _story)
+    private void LoadPopupUpdate(int _slotNumber, int _imageNumber, string _date, string _stage, string _story)
     {
-        imagePanel[_slotNumber].sprite = imagePanelSource[slotNumber];
+        imagePanel[_slotNumber].sprite = imagePanelSource[_imageNumber];
         datePanel[_slotNumber].text = _date;
         stagePanel[_slotNumber].text = _stage;
         storyPanel[_slotNumber].text = _story;
@@ -184,7 +188,39 @@ public class SaveManager : MonoBehaviour
         string dataDeserialize = Encoding.UTF8.GetString(data);
 
         DataFile dataFile = JsonConvert.DeserializeObject<DataFile>(dataDeserialize);
-        LoadPopupUpdate(0, dataFile.timeLine, dataFile.stageLine, dataFile.storyLine);
+        LoadPopupUpdate(i, dataFile.imageNumber, dataFile.timeLine, dataFile.stageLine, dataFile.storyLine);
+    }
+
+
+    private void DataSetting(float _x, float _y, List<int> _itemList)
+    {
+        playerTransform.position = new Vector2(_x, _y);
+        ItemClear();
+        ItemSetting(_itemList);
+
+    }
+
+    private void ItemClear()
+    {
+        for (int i = 0; i < itemIvenPanel.transform.childCount; ++i)
+        {
+            if(itemIvenPanel.transform.GetChild(i).childCount >0)
+            {
+                GameObject deleteObject = itemIvenPanel.transform.GetChild(i).GetChild(0).gameObject;
+                Destroy(deleteObject);
+            }
+        }
+    }
+
+    private void ItemSetting(List<int> _itemList)
+    {
+        for(int i=0; i< _itemList.Count; ++i)
+        {
+            GameObject fish = Instantiate(itemPrefab);
+            fish.transform.SetParent(itemIvenPanel.transform.GetChild(i), false);
+            DraggableUI ui = fish.GetComponent<DraggableUI>();
+            ui.SetItemInfo(itemArray[_itemList[i]]);
+        }
     }
 
     private string SetStageLine()
@@ -211,7 +247,7 @@ public class SaveManager : MonoBehaviour
     }
     private string SetStoryLine()
     {
-        string str = string.Format("{0} 스테이지를 향해 !!", stageNumber + 1);
+        string str = string.Format("{0} 스테이지를 향해 !!", stageNumber + 2);
 
         return str;
     }
@@ -222,7 +258,9 @@ public class SaveManager : MonoBehaviour
         {
             if (itemIvenPanel.transform.GetChild(i).childCount > 0)
             {
-                itemNumberList.Add(itemIvenPanel.transform.GetChild(0).GetComponent<DraggableUI>().item.itemNumber);
+                DraggableUI ui = itemIvenPanel.transform.GetChild(i).GetChild(0).GetComponent<DraggableUI>();
+                int itemNum = ui.item.itemNumber;
+                itemNumberList.Add(itemNum);
             }
         }
     }

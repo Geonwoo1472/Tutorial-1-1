@@ -15,4 +15,5 @@ MonoBehaviour:
   itemType: 2
   itemName: key3
   itemImage: {fileID: 21300000, guid: 5b20cbe9bfc2a4e89acade0bc84473f1, type: 3}
+  itemNumber: 7
   keyValue: 3
