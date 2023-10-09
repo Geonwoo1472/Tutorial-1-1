@@ -60,18 +60,18 @@ public class OutTroTalkManager : MonoBehaviour
 
     private void OutTroDialog()
     {
-        talkData.Add(0, new string[] { "12345:0:0",
-            "입안 가득 퍼석한 10알이 씹힌다.:0:0",
-            "기침과 함께 토해냈지만 여전히 혓바닥과 in 천장은 까끌거린다.:0:0"});
-
+        talkData.Add(0, new string[] { "가까스로 해변에 도착한 존은 신호탄을 터뜨렸다.:0:0",
+            "구조 신호를 발견한 배가 뱃머리를 돌리는 것이 보였다.:0:0",
+            "희미하던 뱃소리가 가까워지고 부산스러운 사람들 소리가 주변을 둘러쌌다.:1:0",
+            "선원의 도움으로 배에 올라탄 존은 그제야 마음 놓고 멀어지는 섬을 바라볼 수 있었다.:1:0"});
     }
 
 
     private void OutTroImage()
     {
         portraitData.Add(0, portaitArr[0]); // soundClip[0] ~ 
-        /* portraitData.Add(0 + 1, portaitArr[1]);
-         portraitData.Add(0 + 2, portaitArr[2]);
+         portraitData.Add(0 + 1, portaitArr[1]);
+        /* portraitData.Add(0 + 2, portaitArr[2]);
          portraitData.Add(0 + 3, portaitArr[3]);
          portraitData.Add(0 + 4, portaitArr[4]);
          portraitData.Add(0 + 5, portaitArr[5]);
