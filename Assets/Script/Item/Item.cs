@@ -19,6 +19,7 @@ public class Item : ScriptableObject
     public ItemType itemType;           // 아이템 Type
     public string itemName;             // 아이템 Name
     public Sprite itemImage;            // 아이템 Image
+    public int itemNumber;               // 아이템 고유번호
 
     protected bool retValue = false;    // 오버라이딩이 잘 되었는지 확인하는 변수
 

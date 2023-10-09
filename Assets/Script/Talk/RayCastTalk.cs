@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class RayCastTalk : MonoBehaviour
 {
+    private bool isButtonDown;
+    public bool IsButtonDown
+    {
+        get { return isButtonDown; }
+        set { isButtonDown = value; }
+    }
+
+
     private Player_Action action;               //플레이어의 방향을 받아오기 위함.
     private GameObject scanObject;              //스캔된 오브젝트 저장
     private Rigidbody2D rigid;                  // 
@@ -12,6 +20,7 @@ public class RayCastTalk : MonoBehaviour
 
     private void Start()
     {
+        isButtonDown = true;
         action = GetComponent<Player_Action>();
         rigid = GetComponent<Rigidbody2D>();
         dalogManager = GameObject.Find("DalogManager").GetComponent<DalogManager>();
@@ -28,7 +37,11 @@ public class RayCastTalk : MonoBehaviour
         {
             if (scanObject != null)
             {
-                 dalogManager.Action(scanObject);
+                if (isButtonDown)
+                {
+                    Debug.Log("RayCastTalk.cs , Interation button Down");
+                    dalogManager.Action(scanObject);
+                }
             }
         }
     }

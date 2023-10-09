@@ -72,6 +72,15 @@ public class TalkManager : MonoBehaviour
         talkData.Add(1000, new string[] { "다음 장소로 이동 할 수 있는 열쇠를 소지하지 않아서 지나갈 수 없습니다." ,
             "p, 열쇠라고? 내가 지나온 길에 열쇠 같은건 없었는데?",
             "이런.. 설마 열쇠를 찾으러 되돌아가야 하나?"});
+        talkData.Add(2000, new string[] { "1.5 스테이지 저장하시겠습니까?" });
+        talkData.Add(2001, new string[] { "2.5 스테이지 저장하시겠습니까?" });
+        talkData.Add(2002, new string[] { "3.5 스테이지 저장하시겠습니까?" });
+        talkData.Add(2003, new string[] { "4.5 스테이지 저장하시겠습니까?" });
+
+        talkData.Add(3000, new string[] { "1번 슬롯칸에 저장하시겠습니까?" });
+        talkData.Add(3001, new string[] { "2번 슬롯칸에 저장하시겠습니까?" });
+        talkData.Add(3002, new string[] { "3번 슬롯칸에 저장하시겠습니까?" });
+
     }
 
     /*Chapter 1 Data */

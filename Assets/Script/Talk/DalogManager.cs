@@ -26,6 +26,8 @@ public class DalogManager : MonoBehaviour
     public delegate void LastDalog();           //문자열 종료 시 연결된 메소드 호출용 델리게이트
     public LastDalog lastDalog;
 
+    public delegate void SaveDalog(int val);
+    public SaveDalog saveDalog;
     /* 
      스캔된 오브젝트의 ID를 확인하고
      Talk 메소드를 호출합니다.
@@ -52,6 +54,17 @@ public class DalogManager : MonoBehaviour
                 compulsionScript = null;
             }
         }
+    }
+
+    public void Action(int ID)
+    {
+        if (ID == 0)
+            Talk();
+        else
+            Talk(ID, false);
+
+        talkPanel.SetActive(isAction);
+        GameManager.instance.setMove(isAction);
     }
 
     /* 
@@ -85,9 +98,14 @@ public class DalogManager : MonoBehaviour
 
             if (lastDalog != null)
             {
-                Debug.Log(lastDalog.Target + " target ?");
                 lastDalog.Invoke();
             }
+
+            if (saveDalog != null)
+            {
+                saveDalog.Invoke(ID);
+            }
+
 
             if (objData.autoTalkUse == true)
             {
@@ -121,4 +139,13 @@ public class DalogManager : MonoBehaviour
         talkIndex++;
 
     }
+
+    void Talk()
+    {
+        isAction = false;
+        talkIndex = 0;
+        return;
+    }
+
 }
+
