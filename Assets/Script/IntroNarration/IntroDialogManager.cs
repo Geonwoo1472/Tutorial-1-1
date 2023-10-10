@@ -111,7 +111,7 @@ public class IntroDialogManager : MonoBehaviour
                     break;
 
                     case 11:
-                        IntroSoundManager.instance.ShipSound();
+                        IntroSoundManager.instance.BGMSound();
                     break;
 
                 }

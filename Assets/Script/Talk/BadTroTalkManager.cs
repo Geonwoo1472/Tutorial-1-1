@@ -9,13 +9,11 @@ public class BadTroTalkManager : MonoBehaviour
                                           //  Dictionary<int, Sound> soundData;
 
     public Sprite[] portaitArr;                             // 사용될 이미지를 저장하고있는 배열입니다.
-    // public Sound[] soundClip;
 
     private void Awake()
     {
         talkData = new Dictionary<int, string[]>();
         portraitData = new Dictionary<int, Sprite>();
-        // soundData = new Dictionary<int, Sound>();
         GenerateData();
     }
 
@@ -53,10 +51,7 @@ public class BadTroTalkManager : MonoBehaviour
         return portraitData[ID + portaitIndex];
     }
 
-    /*public Sound GetSound(int ID, int soundIndex)
-    {
-        return portaitIndex(int ID + int soundIndex);
-    } */
+ 
 
     private void OutTroDialog()
     {
@@ -71,17 +66,8 @@ public class BadTroTalkManager : MonoBehaviour
 
     private void OutTroImage()
     {
-        portraitData.Add(0, portaitArr[0]); // soundClip[0] ~ 
+        portraitData.Add(0, portaitArr[0]); 
         portraitData.Add(0 + 1, portaitArr[1]);
-        /* portraitData.Add(0 + 2, portaitArr[2]);
-         portraitData.Add(0 + 3, portaitArr[3]);
-         portraitData.Add(0 + 4, portaitArr[4]);
-         portraitData.Add(0 + 5, portaitArr[5]);
-         portraitData.Add(0 + 6, portaitArr[6]);
-         portraitData.Add(0 + 7, portaitArr[7]);
-         portraitData.Add(0 + 8, portaitArr[8]);
-         portraitData.Add(0 + 9, portaitArr[9]);
-         portraitData.Add(0 + 10, portaitArr[10]);
-         portraitData.Add(0 + 11, portaitArr[11]); */
+
     }
 }

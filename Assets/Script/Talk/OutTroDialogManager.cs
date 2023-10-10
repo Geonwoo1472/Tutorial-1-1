@@ -107,7 +107,11 @@ public class OutTroDialogManager : MonoBehaviour
                 switch (a)
                 {
                     case 10:
-                            OutTroSoundmanager.instance.EndingSound(); // 엔딩BGM play
+                        OutTroSoundmanager.instance.beach(); // 파도소리
+                        break;
+
+                    case 11:
+                        OutTroSoundmanager.instance.flare(); // 플레어
                         break;
 
                 }

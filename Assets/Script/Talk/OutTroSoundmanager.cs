@@ -13,13 +13,20 @@ public class OutTroSoundmanager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 
-        if (instance != null)
-            instance = this;
+        if(instance != null)
+            return;
+        instance = this;
     }
 
-    public void EndingSound()
+    public void beach()
     {
         audioSource.clip = auidoClipfiles[0];
+        audioSource.Play();
+    }
+
+    public void flare()
+    {
+        audioSource.clip = auidoClipfiles[1];
         audioSource.Play();
     }
 }

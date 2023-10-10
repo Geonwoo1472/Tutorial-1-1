@@ -14,10 +14,11 @@ public class IntroSoundManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
         if(instance != null)
-            instance = this;
+            return;
+        instance = this;
     }
 
-    public void ShipSound()
+    public void BGMSound()
     {
         audioSource.clip = auidoClipfiles[0];
         audioSource.Play();
