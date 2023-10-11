@@ -29,8 +29,6 @@ public class SaveManager : MonoBehaviour
     public Item[] itemArray;
 
     public FadeEffect fadeEffect;
-    
-    public GameObject pauseMenu;
 
 
     private List<int> itemNumberList;
