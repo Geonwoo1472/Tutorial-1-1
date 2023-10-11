@@ -45630,6 +45630,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1510643578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2459297072722470519, guid: 545a165b70cc6e544b7b4bf2f7396200, type: 3}
+  m_PrefabInstance: {fileID: 2086287999}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7c517ec0d9df745899a2b98506f896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1547730527
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -56232,6 +56243,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 401673483}
+    - target: {fileID: 2459297071235215365, guid: 545a165b70cc6e544b7b4bf2f7396200, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2459297071319760211, guid: 545a165b70cc6e544b7b4bf2f7396200, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -56388,6 +56403,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 175183694}
+    - target: {fileID: 4032309509481603769, guid: 545a165b70cc6e544b7b4bf2f7396200, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 401673483}
+    - target: {fileID: 5354879613335814110, guid: 545a165b70cc6e544b7b4bf2f7396200, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 401673483}
+    - target: {fileID: 5969876928029642631, guid: 545a165b70cc6e544b7b4bf2f7396200, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 401673483}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 545a165b70cc6e544b7b4bf2f7396200, type: 3}
 --- !u!114 &2086288000 stripped
@@ -56913,6 +56940,14 @@ PrefabInstance:
       propertyPath: loadPenel
       value: 
       objectReference: {fileID: 1351251025}
+    - target: {fileID: 6190318826793926748, guid: e22d7f04665b1f443a64130747974e2d, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 2086288006}
+    - target: {fileID: 6190318826793926748, guid: e22d7f04665b1f443a64130747974e2d, type: 3}
+      propertyPath: fadeEffect
+      value: 
+      objectReference: {fileID: 1510643578}
     - target: {fileID: 6190318826793926748, guid: e22d7f04665b1f443a64130747974e2d, type: 3}
       propertyPath: rayCastTalk
       value: 

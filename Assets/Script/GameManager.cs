@@ -182,14 +182,14 @@ public class GameManager : MonoBehaviour
 
     public void ModifyMove()
     {
-        moveStatus = !moveStatus;
-        Player_Action.instance.ModifyRigidbody(moveStatus);
+        MoveStatus = !MoveStatus;
+        Player_Action.instance.ModifyRigidbody(MoveStatus);
     }
 
     public void setMove(bool _setMove)
     {
-        moveStatus = _setMove;
-        Player_Action.instance.ModifyRigidbody(moveStatus);
+        MoveStatus = _setMove;
+        Player_Action.instance.ModifyRigidbody(MoveStatus);
     }
 
 
