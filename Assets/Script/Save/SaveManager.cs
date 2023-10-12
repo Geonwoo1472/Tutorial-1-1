@@ -166,7 +166,9 @@ public class SaveManager : MonoBehaviour
             SceneManager.LoadScene(SceneConstIndex.CHAPTERSAVE);
             DataSetting(dataFile.playerPos.x, dataFile.playerPos.y, dataFile.itemNumberList);
             loadPenel.SetActive(false);
-            GameManager.instance.OnEscActive();
+
+            if(GameManager.instance.EscKeyDown ==true)
+                GameManager.instance.OnEscActive();
 
 
             fadeEffect.OnFade(FadeState.FadeIn);
