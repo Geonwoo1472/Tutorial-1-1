@@ -28,6 +28,8 @@ public class DebugManager : MonoBehaviour
             return;
         if (other.CompareTag("MapBoxCollider"))
         {
+            if(myCamera == null)
+                myCamera = GameObject.Find("Main Camera").transform;
             myCamera.position = other.transform.position;
         }
     }

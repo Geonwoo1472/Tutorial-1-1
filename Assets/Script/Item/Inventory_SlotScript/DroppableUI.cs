@@ -76,6 +76,9 @@ public class DroppableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler,
          */
     private void ItemUsing()
     {
+        if (transform.childCount == 0)
+            return;
+
         GameObject slotObject = transform.GetChild(0).gameObject;
         DraggableUI draggableUI = slotObject.GetComponent<DraggableUI>();
         Item item = draggableUI.item;

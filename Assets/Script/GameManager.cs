@@ -50,6 +50,12 @@ public class GameManager : MonoBehaviour
     public delegate void OnInterationMap();
     public OnInterationMap onInterationMap;             // Map키 델리게이트
 
+    private bool escKeyDown;
+    public bool EscKeyDown
+    {
+        get { return escKeyDown; }
+    }
+
     public bool MoveStatus
     {
         get => moveStatus;
@@ -64,6 +70,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        escKeyDown = false;
         inven = Inventory.instance;
         interationGetKey = false;
         playerRay = GameObject.Find("Player").GetComponent<player_Raycast>();
@@ -136,6 +143,7 @@ public class GameManager : MonoBehaviour
             // ESC키 
             if(Input.GetKeyDown(KeySetting.keys[KeyAction.ESC]))
             {
+                escKeyDown = !escKeyDown;
                 OnEscActive();
             }
         }
@@ -182,14 +190,14 @@ public class GameManager : MonoBehaviour
 
     public void ModifyMove()
     {
-        moveStatus = !moveStatus;
-        Player_Action.instance.ModifyRigidbody(moveStatus);
+        MoveStatus = !MoveStatus;
+        Player_Action.instance.ModifyRigidbody(MoveStatus);
     }
 
     public void setMove(bool _setMove)
     {
-        moveStatus = _setMove;
-        Player_Action.instance.ModifyRigidbody(moveStatus);
+        MoveStatus = _setMove;
+        Player_Action.instance.ModifyRigidbody(MoveStatus);
     }
 
 

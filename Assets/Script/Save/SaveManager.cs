@@ -28,6 +28,9 @@ public class SaveManager : MonoBehaviour
     public GameObject itemPrefab;
     public Item[] itemArray;
 
+    public FadeEffect fadeEffect;
+
+
     private List<int> itemNumberList;
     private int stageNumber;
     private int slotNumber;
@@ -135,7 +138,7 @@ public class SaveManager : MonoBehaviour
         string jsonData = JsonConvert.SerializeObject(jTest1);
         LoadPopupUpdate(slotNumber, jTest1.imageNumber,jTest1.timeLine, jTest1.stageLine, jTest1.storyLine);
 
-        FileStream stream = new FileStream(Application.dataPath + "/SaveFile/" + slotNumber + "SlotFile.json", FileMode.OpenOrCreate);
+        FileStream stream = new FileStream(Application.dataPath + "/SaveFile/" + slotNumber + "SlotFile.json", FileMode.Create);
         byte[] data = Encoding.UTF8.GetBytes(jsonData);
         stream.Write(data, 0, data.Length);
         stream.Close();
@@ -145,19 +148,35 @@ public class SaveManager : MonoBehaviour
     {
         slotNumber = number - 3000;
 
-        FileStream stream = new FileStream(Application.dataPath + "/SaveFile/" + slotNumber + "SlotFile.json", FileMode.Open);
-        byte[] data = new byte[stream.Length];
-        stream.Read(data, 0, data.Length);
-        stream.Close();
-        string dataDeserialize = Encoding.UTF8.GetString(data);
+        try
+        {
+            FileStream stream = new FileStream(Application.dataPath + "/SaveFile/" + slotNumber + "SlotFile.json", FileMode.Open);
+            byte[] data = new byte[stream.Length];
+            stream.Read(data, 0, data.Length);
+            stream.Close();
+            string dataDeserialize = Encoding.UTF8.GetString(data);
+            var dataFile = JsonConvert.DeserializeObject<DataFile>(dataDeserialize);
 
-        DataFile dataFile = JsonConvert.DeserializeObject<DataFile>(dataDeserialize);
+            if (dataFile.timeLine == "저장 기록이 없습니다 .. ")
+            {
+                Debug.Log("파일은 존재하나 저장 기록 없음.");
+                return;
+            }
 
-        /* 
-         데이터 셋팅
-        */
-        SceneManager.LoadScene(SceneConstIndex.CHAPTERSAVE);
-        DataSetting(dataFile.playerPos.x , dataFile.playerPos.y , dataFile.itemNumberList);
+            SceneManager.LoadScene(SceneConstIndex.CHAPTERSAVE);
+            DataSetting(dataFile.playerPos.x, dataFile.playerPos.y, dataFile.itemNumberList);
+            loadPenel.SetActive(false);
+
+            if(GameManager.instance.EscKeyDown ==true)
+                GameManager.instance.OnEscActive();
+
+
+            fadeEffect.OnFade(FadeState.FadeIn);
+        }
+        catch
+        {
+            Debug.Log(slotNumber + "슬롯 칸 저장 파일 없음.");
+        }
     }
 
     /* LoadPopup 캔버스 업데이트 */
@@ -179,18 +198,44 @@ public class SaveManager : MonoBehaviour
             SlotFile(i);
         }
     }
-    private void SlotFile(int i)
+    private void SlotFile(int slotNumber)
     {
-        FileStream stream = new FileStream(Application.dataPath + "/SaveFile/" + i + "SlotFile.json", FileMode.Open);
-        byte[] data = new byte[stream.Length];
-        stream.Read(data, 0, data.Length);
-        stream.Close();
-        string dataDeserialize = Encoding.UTF8.GetString(data);
+        try
+        {
+            FileStream stream = new FileStream(Application.dataPath + "/SaveFile/" + slotNumber + "SlotFile.json", FileMode.Open);
+            byte[] data = new byte[stream.Length];
+            stream.Read(data, 0, data.Length);
+            stream.Close();
 
-        DataFile dataFile = JsonConvert.DeserializeObject<DataFile>(dataDeserialize);
-        LoadPopupUpdate(i, dataFile.imageNumber, dataFile.timeLine, dataFile.stageLine, dataFile.storyLine);
+            string dataDeserialize = Encoding.UTF8.GetString(data);
+            var dataFile = JsonConvert.DeserializeObject<DataFile>(dataDeserialize);
+            LoadPopupUpdate(slotNumber, dataFile.imageNumber, dataFile.timeLine, dataFile.stageLine, dataFile.storyLine);
+        }
+        catch
+        {
+            LoadPopupUpdate(slotNumber, 0, "저장 기록이 없습니다 .. ", "스테이지 저장 기록이 없습니다 ..", "진행 중 목표 없음 ..");
+        }
+        
     }
 
+
+
+    /*관리자용 데이터 삭제 버튼 , 맨 처음으로 초기화함. */
+    public void DeleteSaveFile(int slotNumber)
+    {
+        DataFile defaultData = new DataFile();
+        defaultData.timeLine = "저장 기록이 없습니다 .. ";
+        defaultData.stageLine = "스테이지 저장 기록이 없습니다 ..";
+        defaultData.storyLine = "진행 중 목표 없음 ..";
+
+        string jsonData = JsonConvert.SerializeObject(defaultData);
+        LoadPopupUpdate(slotNumber, defaultData.imageNumber, defaultData.timeLine, defaultData.stageLine, defaultData.storyLine);
+
+        FileStream stream = new FileStream(Application.dataPath + "/SaveFile/" + slotNumber + "SlotFile.json", FileMode.Create);
+        byte[] data = Encoding.UTF8.GetBytes(jsonData);
+        stream.Write(data, 0, data.Length);
+        stream.Close();
+    }
 
     private void DataSetting(float _x, float _y, List<int> _itemList)
     {
@@ -199,7 +244,6 @@ public class SaveManager : MonoBehaviour
         ItemSetting(_itemList);
 
     }
-
     private void ItemClear()
     {
         for (int i = 0; i < itemIvenPanel.transform.childCount; ++i)
@@ -211,7 +255,6 @@ public class SaveManager : MonoBehaviour
             }
         }
     }
-
     private void ItemSetting(List<int> _itemList)
     {
         for(int i=0; i< _itemList.Count; ++i)
@@ -222,7 +265,6 @@ public class SaveManager : MonoBehaviour
             ui.SetItemInfo(itemArray[_itemList[i]]);
         }
     }
-
     private string SetStageLine()
     {
         string str = string.Format("{0}.5 스테이지 ", stageNumber + 1);
