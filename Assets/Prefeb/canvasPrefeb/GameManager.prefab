@@ -50,7 +50,7 @@ MonoBehaviour:
   playerStartingPt: 
   currentMapName: CameraPos1
   sceneIndex: 0
-  inventoryPanel: {fileID: 0}
+  invenPanelActive: {fileID: 0}
   OverUI: {fileID: 0}
   escPanel: {fileID: 0}
   isGameover: 0

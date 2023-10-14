@@ -28,7 +28,7 @@ public class DataFile
 
     public DataFile()
     {
-        Debug.Log("나는 빈 깡통 생성자");
+        //Debug.Log("나는 빈 깡통 생성자");
     }
 
     public DataFile(int _imageNumber, string _stageLine, string _storyLine, float xpos, float ypos, List<int> _itemNumberList)

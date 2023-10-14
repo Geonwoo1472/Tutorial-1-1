@@ -165,10 +165,12 @@ public class SaveManager : MonoBehaviour
 
             SceneManager.LoadScene(SceneConstIndex.CHAPTERSAVE);
             DataSetting(dataFile.playerPos.x, dataFile.playerPos.y, dataFile.itemNumberList);
-            loadPenel.SetActive(false);
 
-            if(GameManager.instance.EscKeyDown ==true)
-                GameManager.instance.OnEscActive();
+            // 용도는 켜져있는 판넬창 전부 끄는용
+            loadPenel.SetActive(false);
+            // 용도는 켜져있는 판넬창 전부 끄는용
+            /*if(GameManager.instance.EscKeyDown ==true)
+                GameManager.instance.OnEscActive();*/
 
 
             fadeEffect.OnFade(FadeState.FadeIn);

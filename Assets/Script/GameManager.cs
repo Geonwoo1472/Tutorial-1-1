@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : UIActive
 {
     #region Singleton
     public static GameManager instance;
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     [Header("시작 맵 작성해야 피로도 배고픔 반영")]
     public string currentMapName;                       // 현재 맵의 이름
     public int sceneIndex;                              // 현재 Scene의 Index번호 
-    public GameObject inventoryPanel;                   // InventoryPanel 오브젝트
+    public InvenActive invenPanelActive;                   // InventoryPanel 오브젝트
     public GameObject OverUI;                           // GameOverUI 오브젝트입니다.
     public GameObject escPanel;                         // ESC UI 오브젝트입니다.
 
@@ -49,19 +49,19 @@ public class GameManager : MonoBehaviour
 
     public delegate void OnInterationMap();
     public OnInterationMap onInterationMap;             // Map키 델리게이트
-
-    private bool escKeyDown;
-    public bool EscKeyDown
+   
+    public bool ActiveEscPanel
     {
-        get { return escKeyDown; }
+        get { return activeEscPanel; }
+        set { activeEscPanel = value; }
     }
 
     public bool MoveStatus
     {
         get => moveStatus;
-        set => moveStatus = value;            
+        set => moveStatus = value;
     }
-    
+
     public int SceneIndex
     {
         get => sceneIndex;
@@ -70,7 +70,6 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        escKeyDown = false;
         inven = Inventory.instance;
         interationGetKey = false;
         playerRay = GameObject.Find("Player").GetComponent<player_Raycast>();
@@ -88,7 +87,8 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeySetting.keys[KeyAction.INVENTORY]))
             {
                 Debug.Log("Inventory 기능 !!");
-                OnInvenActive();
+                invenPanelActive.InvenOnActive();
+                //OnInvenActive();
                 CommunalSound.instance.SoundPlaying(SoundType.inventoryOpen);
             }
             // M 키를 눌렀을 때 맵
@@ -124,9 +124,9 @@ public class GameManager : MonoBehaviour
             }
             /*SPACEBAR , KeyDown. 현재는 스위치만 사용하고 있다.
              판넬 ON중인 경우 스위치는 작동할 필요 없으므로 return */
-            if(Input.GetKeyDown(KeySetting.keys[KeyAction.INTERACTION]))
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.INTERACTION]))
             {
-                if(playerRay.scanObject != null && !dalogManager.IsAction)
+                if (playerRay.scanObject != null && !dalogManager.IsAction)
                 {
                     switch (playerRay.pastTag)
                     {
@@ -140,37 +140,48 @@ public class GameManager : MonoBehaviour
                     }
                 }
             }
-            // ESC키 
-            if(Input.GetKeyDown(KeySetting.keys[KeyAction.ESC]))
+            if (Input.GetKeyDown(KeySetting.keys[KeyAction.ESC]))
             {
-                escKeyDown = !escKeyDown;
-                OnEscActive();
+                if (ESCManager.instance.UIStack.Count == 0)
+                {
+                    OnActive();
+                    ESCManager.instance.UIStack.Push(this);
+                }
+                else
+                {
+                    escKeyDown();
+                }
+
+                Debug.Log("현재 Stack 수 : " + ESCManager.instance.UIStack.Count);
             }
+
         }
-        else
-        {
-            
-        }
-
-
-
     }
-    
 
+    public override void OnActive()
+    {
+        OnEscActive();
+    }
+
+    /* 버튼을 다시 누른 경우나 [X] 를 누른경우 호출합니다
+     스택에 있는 추상화 클래스를 꺼내 작성된 메소드를 호출합니다. */
+    public void escKeyDown()
+    {
+        UIActive obj = ESCManager.instance.UIStack.Pop();
+        obj.OnActive();
+    }
 
     //인벤토리
     public void OnInvenActive()
     {
         activeInventory = !activeInventory;
-        inventoryPanel.SetActive(activeInventory);
+        //inventoryPanel.SetActive(activeInventory);
     }
 
-    //ESC
     public void OnEscActive()
     {
         activeEscPanel = !activeEscPanel;
-        // 캐릭터 정지
-        ModifyMove();
+        ModifyMoveChange();
         escPanel.SetActive(activeEscPanel);
     }
 
@@ -188,7 +199,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void ModifyMove()
+    public void ModifyMoveChange()
     {
         MoveStatus = !MoveStatus;
         Player_Action.instance.ModifyRigidbody(MoveStatus);
@@ -200,153 +211,9 @@ public class GameManager : MonoBehaviour
         Player_Action.instance.ModifyRigidbody(MoveStatus);
     }
 
-
     private void NullChecking()
     {
         if (playerRay == null)
             Debug.Log("playerRay crash , GameManager.cs ");
-    }
-
-    /*퀵슬롯 봉인*/
-    private GameObject quick1;                          // 퀵1 오브젝트
-    private GameObject quick2;                          // 퀵2 오브젝트
-    private GameObject quick3;                          // 퀵3 오브젝트
-    private GameObject quick4;                          // 퀵4 오브젝트
-    private GameObject quick5;                          // 퀵5 오브젝트
-    private void QuickInit()
-    {
-        quick1 = GameObject.Find("QuickSlot");
-        quick2 = GameObject.Find("QuickSlot (1)");
-        quick3 = GameObject.Find("QuickSlot (2)");
-        quick4 = GameObject.Find("QuickSlot (3)");
-        quick5 = GameObject.Find("QuickSlot (4)");
-    }
-    private void QuickSlotInput()
-    {
-        // 아이템 1번
-        if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKONE]))
-        {
-            Debug.Log("Quick1 기능 !!");
-
-            /* 해당 퀵 슬롯에 자식이 있다면 그 자식오브젝트를 가져와 Item.Use를 실행 시키는 것이 목적*/
-            if (!(quick1.transform.childCount > 0))
-                return;
-
-            GameObject gameobject = quick1.transform.GetChild(0).gameObject;
-            if (gameobject != null)
-            {
-                DraggableUI ui = gameobject.GetComponent<DraggableUI>();
-                Item item = ui.item;
-                if (item != null)
-                {
-                    inven.RemoveItem();
-                    item.Use();
-
-                    Destroy(gameobject);
-                }
-                else
-                    Debug.Log("DraggableUI에 Item클래스가 없음!");
-            }
-        }
-        // 아이템 2번
-        if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKTWO]))
-        {
-            Debug.Log("Quick2 기능 !!");
-
-            /* 해당 퀵 슬롯에 자식이 있다면 그 자식오브젝트를 가져와 Item.Use를 실행 시키는 것이 목적*/
-            if (!(quick2.transform.childCount > 0))
-                return;
-
-            GameObject gameobject = quick2.transform.GetChild(0).gameObject;
-            if (gameobject != null)
-            {
-                DraggableUI ui = gameobject.GetComponent<DraggableUI>();
-                Item item = ui.item;
-                if (item != null)
-                {
-                    inven.RemoveItem();
-                    item.Use();
-
-                    Destroy(gameobject);
-                }
-                else
-                    Debug.Log("DraggableUI에 Item클래스가 없음!");
-            }
-        }
-        // 아이템 3번
-        if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKTHREE]))
-        {
-            Debug.Log("Quick3 기능 !!");
-
-            /* 해당 퀵 슬롯에 자식이 있다면 그 자식오브젝트를 가져와 Item.Use를 실행 시키는 것이 목적*/
-            if (!(quick3.transform.childCount > 0))
-                return;
-
-            GameObject gameobject = quick3.transform.GetChild(0).gameObject;
-            if (gameobject != null)
-            {
-                DraggableUI ui = gameobject.GetComponent<DraggableUI>();
-                Item item = ui.item;
-                if (item != null)
-                {
-                    inven.RemoveItem();
-                    item.Use();
-
-                    Destroy(gameobject);
-                }
-                else
-                    Debug.Log("DraggableUI에 Item클래스가 없음!");
-            }
-        }
-        // 아이템 4번
-        if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKFOUR]))
-        {
-            Debug.Log("Quick4 기능 !!");
-
-            /* 해당 퀵 슬롯에 자식이 있다면 그 자식오브젝트를 가져와 Item.Use를 실행 시키는 것이 목적*/
-            if (!(quick4.transform.childCount > 0))
-                return;
-
-            GameObject gameobject = quick4.transform.GetChild(0).gameObject;
-            if (gameobject != null)
-            {
-                DraggableUI ui = gameobject.GetComponent<DraggableUI>();
-                Item item = ui.item;
-                if (item != null)
-                {
-                    inven.RemoveItem();
-                    item.Use();
-
-                    Destroy(gameobject);
-                }
-                else
-                    Debug.Log("DraggableUI에 Item클래스가 없음!");
-            }
-        }
-        // 아이템 5번
-        if (Input.GetKeyDown(KeySetting.keys[KeyAction.QUICKFIVE]))
-        {
-            Debug.Log("Quick5 기능 !!");
-
-            /* 해당 퀵 슬롯에 자식이 있다면 그 자식오브젝트를 가져와 Item.Use를 실행 시키는 것이 목적*/
-            if (!(quick5.transform.childCount > 0))
-                return;
-
-            GameObject gameobject = quick5.transform.GetChild(0).gameObject;
-            if (gameobject != null)
-            {
-                DraggableUI ui = gameobject.GetComponent<DraggableUI>();
-                Item item = ui.item;
-                if (item != null)
-                {
-                    inven.RemoveItem();
-                    item.Use();
-
-                    Destroy(gameobject);
-                }
-                else
-                    Debug.Log("DraggableUI에 Item클래스가 없음!");
-            }
-        }
     }
 }
