@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
+/*외부에서도 참조하니 일단 여기에서 관리
+  용이하게 관리하는 방법이 있다면 이동시킬 것 */
 public enum FadeState
 {
     FadeIn = 0,
@@ -11,6 +13,18 @@ public enum FadeState
     FadeOutIn,
     FadeLoopOutIn
 }
+
+/// <summary>
+/// #용도#
+/// 부착된 Image컴포넌트의 
+/// 
+/// #부착 오브젝트#
+/// FadeImage
+/// 
+/// #Method#
+/// 
+/// 
+/// </summary>
 
 public class FadeEffect : MonoBehaviour
 {

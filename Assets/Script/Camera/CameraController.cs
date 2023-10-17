@@ -2,24 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct MapMovingPos
-{
-    public float xMinPos;
-    public float xMaxPos;
-    public float yMinPos;
-    public float yMaxPos;
-}
-
-[System.Serializable]
-public struct CoordinateObject
-{
-    public Transform minCoordinate;
-    public Transform maxCoordinate;
-}
-
-
+/// <summary>
+/// 카메라가 플레이어를 따라다니도록 합니다.
+/// 지정된 외곽위치까지만 따라다닙니다.
+/// 
+/// -Method
+/// void InitSetPosition() : 플레이어가 외곽에서 시작하는 경우 카메라가 외곽을 랜더링하지 않도록 방지합니다.
+/// </summary>
 public class CameraController : MonoBehaviour
 {
+    public struct MapMovingPos
+    {
+        public float xMinPos;
+        public float xMaxPos;
+        public float yMinPos;
+        public float yMaxPos;
+    }
+
+    [System.Serializable]
+    public struct CoordinateObject
+    {
+        public Transform minCoordinate;
+        public Transform maxCoordinate;
+    }
+
     private Transform cameraPos;
     private Transform playerPos;
 

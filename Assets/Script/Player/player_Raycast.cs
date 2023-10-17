@@ -43,7 +43,7 @@ public class player_Raycast : MonoBehaviour
                         canTransTo = true;
                         scanObject = rayHit.collider.gameObject;
                         //박스 움직이는 메소드
-                        scanObject.GetComponent<moveBox>().setisReady(true);
+                        scanObject.GetComponent<moveBox>().SetIsReady(true);
 
                         //캐릭터 움직임 잠구는 메소드
                         _pA.isCharacterSetter(true);

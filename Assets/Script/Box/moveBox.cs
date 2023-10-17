@@ -2,6 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 플레이어가 박스를 미는 경우
+/// 박스가 이동되기 위한 로직이 구현되어 있습니다.
+/// 
+/// -Method
+/// void MoveObject() : 박스가 밀리는 움직임을 처리합니다. / 유저의 움직임을 막습니다.
+/// void setisReady(bool) : 박스의 움직임 유무 변수 isReady의 값을 Set하는 용도로 사용됩니다.
+/// public void ResetPos() : 박스가 올바르게 밀린 후 정지 처리를 담당합니다.
+/// void SoundPlaying() : soundType변수에 맞추어 사운드 매니저를 호출하여 박스의 밀리는 소리를 호출합니다.
+/// </summary>
 public class moveBox : MonoBehaviour
 {
     public float speed;
@@ -38,13 +48,13 @@ public class moveBox : MonoBehaviour
         if (isReady)
         {
             SoundPlaying();
-            moveObject();
+            MoveObject();
         }
         else
-            resetPos();
+            ResetPos();
     }
 
-    void moveObject()
+    void MoveObject()
     {
         Debug.Log("moveObject() .. ");
 
@@ -192,13 +202,13 @@ public class moveBox : MonoBehaviour
 
     }
 
-    void resetPos()
+    void ResetPos()
     {
         rigid.velocity = Vector2.zero;
         transform.position = past_pos;
     }
 
-    public void setisReady(bool isReady)
+    public void SetIsReady(bool isReady)
     {
         this.isReady = isReady;
     }
