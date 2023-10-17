@@ -16,14 +16,19 @@ public enum FadeState
 
 /// <summary>
 /// #용도#
-/// 부착된 Image컴포넌트의 
+/// 부착된 Image컴포넌트의 이미지 알파 값을 서서히 변경시킵니다.
 /// 
 /// #부착 오브젝트#
 /// FadeImage
 /// 
 /// #Method#
+/// -public void OnFade(FadeState)
+/// FadeIn 호출 시 이미지의 알파 값이 1부터 서서히 0으로 수렴합니다.
+/// FadeOut 호출 시 이미지의 알파 값이 0부터 서서히 1로 수렴합니다.
+/// FadeInOut 호출 시 이미지의 알파 값이 0으로 서서히 수렴하고 이후 1로 서서히 수렴합니다.
+/// FadeOutIn 호출 시 이미지의 알파 값이 1로 서서히 수렴하고 이후 0으로 서서히 수렴합니다.
 /// 
-/// 
+/// FadeLoopInOut , FadeLoopOutIn  호출 시 무한으로 반복합니다.
 /// </summary>
 
 public class FadeEffect : MonoBehaviour

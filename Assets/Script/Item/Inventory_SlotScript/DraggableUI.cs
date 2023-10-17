@@ -4,39 +4,52 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-/* 설명 */
-/*
-드래그 시작 시 , 드래그 중, 드래그를 종료할 때 호출되는 함수가 있습니다.  
-
-
-
- */
-
+/// <summary>
+/// #용도#
+/// UI에서 드래그가 가능하도록 합니다.
+/// 
+/// 
+/// #부착 오브젝트#
+/// Prefab의 Item 게임오브젝트
+/// 
+/// #Method#
+/// -public void SetItemInfo(Item)
+/// 맵에 배치된 아이템오브젝트의 Item스크립트를 받아와
+/// UI에 등록될 아이템에 데이터를 복사합니다.
+/// 
+/// -public void OnBeginDrag(PointerEventData)
+/// 드래그가 시작되는 순간 호출받습니다.
+/// 의도하지 않은 곳에 드랍되는 것을 방지하기위해 변경 전 위치값을 저장합니다.
+/// 최상단에 랜더링되어야 하기 때문에 순위를 변경합니다.
+/// 드랍이 가능했던 슬롯칸의 스크립트의 변수 isFull의 값을 변경합니다.
+/// 
+/// -public void OnDrag(PointerEventData)
+/// 드래그 중 매 프레임 호출합니다.
+/// 포지션을 업데이트합니다.
+/// 
+/// -public void OnEndDrag(PointerEventData)
+/// 드래그를 종료하는 경우 호출합니다.
+/// 슬롯에 드래그하지 못하는 경우 아이템 자리를
+/// 이전으로 복구를 위한 로직입니다.
+/// </summary>
 public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    public Item item;                   // //아이템 정보 저장
+
     private Transform canvas;           // UI가 소속되어 있는 최상단의 Canvas Transform
     private Transform previousParent;   // 해당 오브젝트가 직전에 소속되어 있었던 부모 Transform
     private RectTransform rect;
     private CanvasGroup canvasGroup;
-
-    private SlotManager slotManager; // [삭제대상]
     private DroppableUI dropaableUI;
-
-    //아이템 정보 저장
-    public Item item;
-    
-    [Header("public에서 private로 바꿀것")]
-    public Image image;
+    private Image image;
 
     private void Awake()
     {
         canvas = FindObjectOfType<Canvas>().transform;
         rect = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-
-        // Manager는 부모에게 있으므로 
-        slotManager = GetComponentInParent<SlotManager>(); // [삭제대상]
         dropaableUI = GetComponentInParent<DroppableUI>();
+        image = GetComponentInParent<Image>();
     }
 
     private void Start()
@@ -51,12 +64,7 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     {
         if (_item != null)
             item = _item;
-        /*item.itemType = _item.itemType;
-        item.itemName = _item.itemName;
-        item.itemImage = _item.itemImage;
-        item.itemHeal = _item.itemHeal;
 
-        */
         image.sprite = item.itemImage;
     }
 
@@ -82,7 +90,7 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         if (dropaableUI != null)
             dropaableUI.isFull = false;
         else
-            Debug.Log("크래쉬! 디버그 GO ! ");
+            Debug.Log("DraggableUI.cs , 68Line Crash");
 
     }
 
@@ -110,12 +118,4 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         canvasGroup.alpha = 1.0f;
         canvasGroup.blocksRaycasts = true;
     }
-
-
-    private void Update()
-    {
-        //Debug.Log("부모 : " + slotManager);
-
-    }
-
 }

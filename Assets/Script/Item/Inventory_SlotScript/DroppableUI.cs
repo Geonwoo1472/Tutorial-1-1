@@ -4,16 +4,34 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-/* 설명 */
-/*
-    슬롯에 있는 스크립트로
-    슬롯 마우스 클릭 시
-    슬롯에서 마우스 포인터가 들어온 경우
-    슬롯에서 마우스 포인터가 나간 경우
-    슬롯 영역 내부에서 드롭이 되었을 때 호출됩니다.
-
-    
- */
+/// <summary>
+/// #용도#
+/// 아이템 슬롯에 대한 기능이 정의되어 있습니다.
+/// 슬롯을 클릭, 마우스 포인터가 들어오는 경우, 나가는 경우
+/// 아이템이 슬롯에 들어오는 경우의 기능을 처리합니다.
+/// 
+/// #부착 오브젝트#
+/// InventorySlot [Prefab]
+/// 
+/// #Method#
+/// -public void OnPointerClick(PointerEventData)
+/// 마우스를 클릭할 때 호출됩니다.
+/// 아이템을 사용하는 로직이 작성되어 있습니다.
+/// 아이템이 사용할 수 있는 Type이라면 Use()를 호출하여 사용되고 소멸합니다.
+/// 
+/// -public void OnPointerEnter(PointerEventData)
+/// 마우스 포인터가 들어온 경우 호출됩니다.
+/// 마우스가 들어왔다는 것을 알리기위해 이미지의 색을 변경합니다.
+/// 
+/// - public void OnPointerExit(PointerEventData)
+/// 마우스가 나갈 때 호출됩니다.
+/// 이미지를 원래의 색으로 변경합니다.
+/// 
+/// -public void OnDrop(PointerEventData)
+/// 아이템이 드랍되는 경우 아이템을 슬롯의 자식으로 삼습니다.
+/// 
+///
+/// </summary>
 public class DroppableUI : MonoBehaviour, IPointerEnterHandler, IDropHandler,
     IPointerExitHandler, IPointerClickHandler
 {

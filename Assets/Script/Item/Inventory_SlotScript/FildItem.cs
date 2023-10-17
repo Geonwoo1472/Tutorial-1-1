@@ -2,29 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// #용도#
+/// 필드에 떨어져 있는 아이템에 부착하며
+/// 아이템의 정보를 저장합니다.
+/// 
+/// #부착 오브젝트#
+/// ChickLeg , FireItem, Food, Fruit, Key, MushRoom
+/// 
+/// #Method#
+/// -public Item GetItem()
+/// 아이템의 정보를 반환합니다.
+/// 
+/// -public void DestoryItem()
+/// 게임 오브젝트를 파괴합니다.
+/// </summary>
 public class FildItem : MonoBehaviour
 {
     public Item item;                   // Scriptable 아이템 정보 받기
 
-    private SpriteRenderer image;       // 스크립테이블에 등록된 이미지로 변경하기 위함
     [HideInInspector]
     public bool isAvailable;            // 아이템 사용 유무, 2회 획득 방지
 
-    private void Awake()
-    {
-        image = GetComponent<SpriteRenderer>();
-        
-    }
-
     private void Start()
     {
-        SetItem(item);
         isAvailable = false;
-    }
-
-    public void SetItem(Item _item)
-    {
-        image.sprite = item.itemImage;
     }
 
     public Item GetItem()
