@@ -4,10 +4,33 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// #용도#
+/// 플레이어가 아이템을 획득할 시 인벤토리에 반영되기 위한 기능들이 있습니다.
+/// 
+/// #부착 오브젝트#
+/// Canvas
+/// 
+/// #Method#
+/// -void RedrawSlotUI(Item)
+/// 플레이어가 아이템을 획득할 시 인벤토리를 랜더링합니다.
+/// 실제로 그리는 것만이 아닌 게임오브젝트를 생성함으로써 랜더링됩니다.
+/// 
+/// -void TmpTextChange(int , int)
+/// 인벤토리에 변동이 있을 시 무게 Text 변경용
+/// 
+/// -void SliderWeightChange(int , int)
+/// 인벤토리에 변동이 있을 시 슬라이더 Value 변경용
+/// 
+/// [변경]
+/// Slot[] 삭제 , Slot의 미사용으로 스크립트 삭제
+/// SlotChange() 삭제, 슬롯 증가 기능 삭제로 Button의 interactable유무 판단이 불필요해짐.
+/// inven.onSlotCountChange += SlotChange; 구문 삭제, SlotChange() 삭제로 인해 불필요.
+/// AddSlot() 삭제, 슬롯 증가 기능 삭제로 불필요해짐.
+/// 
+/// </summary>
 public class InventoryUI : MonoBehaviour
 {
-    // 자식의 slots 스크립트를 배열로 관리
-    public Slot[] slots; // [삭제대상]
     // 자식들을 가져오기 위함. 인스펙터에서 할당
     public Transform slotHolder;
 
@@ -23,14 +46,8 @@ public class InventoryUI : MonoBehaviour
     
 
     void Start()
-    {
-        //자식 오브젝트 중 Slot스크립트를 전부 가져온다.
-        slots = slotHolder.GetComponentsInChildren<Slot>(); // [삭제대상]
-
-
+    { 
         inven = Inventory.instance;
-        // 대리자 등록 , 인벤토리에서 set하면 SlotChange 메소드 호출
-        inven.onSlotCountChange += SlotChange;
 
         // 대리자 등록 , 아이템 획득 시 UI에 반영되도록
         inven.onChangeItem += RedrawSlotUI;
@@ -40,34 +57,9 @@ public class InventoryUI : MonoBehaviour
         inven.onChangeItemTextUI += SliderWeightChange;
     }
 
-    private void SlotChange(int val)
-    {
-        // 사용가능 슬롯 개수만큼 슬롯 ON/OFF
-        for (int i = 0; i < slots.Length; i++)
-        {
-            if (i < inven.SlotCnt)
-                slots[i].GetComponent<Button>().interactable = true;
-            else
-                slots[i].GetComponent<Button>().interactable = false;
-        }
-    }
-
-    // 가방 아이템을 먹으면 이 메소드를 호출!!
-    // https://www.youtube.com/watch?v=TT7wJbpt2H4 오류나면 여기보고 순서 설정
-    // -> 이게 뭐냐면 대리자가 메소드를 참조하기전에 호출해서 생기는 버그
-    public void AddSlot()
-    {
-        // 인벤 4칸씩 증가
-        inven.SlotCnt += 4;
-    }
-
-    // 아이템 인벤토리 획득 시마다 대리자에 의해 호출되는 함수
+    // 플레이어가 필드 아이템 획득 시 호출
     void RedrawSlotUI(Item _item)
     {
-        // 활성화된 슬롯 개수만큼 반복
-        // 만약 자식이 없다면 그곳에 오브젝트 생성
-        // 해당 오브젝트는 Item 프리팹
-        // 생성한 프리팹의 item에 들어온 매개변수 저장
         for (int i = 0; i < inven.SlotCnt; ++i)
         {
             // 버튼이 활성화 되있고 && 자식이 없다면
@@ -94,13 +86,4 @@ public class InventoryUI : MonoBehaviour
         invenSlider.value = (float)count / (float)capacity;
     }
 
-
-    void Update()
-    {
-        // e키 눌렀을 경우 테스트용
-        /*if (Input.GetKeyDown(KeyCode.E))
-        {
-            AddSlot();
-        }*/
-    }
 }

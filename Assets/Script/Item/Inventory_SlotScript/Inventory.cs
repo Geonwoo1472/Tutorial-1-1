@@ -2,6 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// #용도#
+/// 플레이어가 맵에 배치된 아이템을 획득할 수 있도록 합니다.
+/// 인벤토리에 아이템이 들어가고, 델리게이트 호출합니다.
+/// 
+/// #부착 오브젝트#
+/// Player
+/// 
+/// #Method#
+/// -public bool AddItem(Item)
+/// 아이템을 획득할 때 
+/// 슬롯에 빈공간이 있거나, 최대용량을 초과하지 않는다면
+/// 아이템을 획득합니다.
+/// 
+/// -public bool RemoveItem()
+/// 일반적으로 아이템이 소모되는 경우 호출합니다.
+/// 아이템 수를 일괄 관리합니다
+/// 
+/// -private void OnTriggerEnter2D(Collider2D)
+/// 플레이어가 아이템과 부딪히는 경우
+/// 아이템의 정보를 얻어와 인벤토리에 추가한다.
+/// 인벤토리에 변동이 있는 경우 델리게이트 기능이 사용된다.
+/// 
+/// [변경]
+/// OnSlotCountChange(int) 삭제, 아이템 칸이 증가하는 기능이 없어지므로 불필요.
+/// </summary>
 public class Inventory : MonoBehaviour
 {
     #region Singleton
@@ -17,11 +43,6 @@ public class Inventory : MonoBehaviour
         instance = this;
     }
     #endregion
-    // 슬롯 칸이 변경되었다면 대리자로 다른 애들에게 알려주기
-    public delegate void OnSlotCountChange(int val);     // 대리자 정의
-    public OnSlotCountChange onSlotCountChange;          // 대리자 인스턴스화
-
-
     // 아이템이 추가되면 슬롯UI에도 추가되는 대리자
     public delegate void OnChangeItem(Item _item);
     public OnChangeItem onChangeItem;
@@ -45,7 +66,6 @@ public class Inventory : MonoBehaviour
         set
         {
             slotCnt = value;
-            onSlotCountChange.Invoke(slotCnt);
         }
     }
 
