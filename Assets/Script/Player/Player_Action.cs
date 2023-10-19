@@ -1,18 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
 /*
  BugList
 1) 코루틴에서 멈추었는데 Update에서 풀어서 움직이는 것 같음
    맵탄 상태에서 키 계속 누르고 있으면 미세하게 반응함.
  */
+
+/// <summary>
+/// #Usage(용도)#
+/// 플레이어의 움직임을 담당하는 로직이 작성되어 있습니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// Player
+/// 
+/// #Method#
+/// -void Player_Move()
+/// 방향키입력을 받아 캐릭터가 움직일 수 있도록 합니다.
+/// 
+/// -void PlayerVelocity()
+/// 입력한 방향을 바탕으로 플레이어가 바라보는 방향을 저장합니다.
+/// 
+/// -public short GetShortDirection()
+/// getter
+/// 
+/// -public Vector3 GetVector3DirVec()
+/// getter
+/// 
+/// -public void MovePause(bool)
+/// 움직임을 잠시 멈추기 위해
+/// 내부 bool값을 변경합니다.
+/// 
+/// -public void ModifyRigidbody(bool)
+/// 정지한경우의 캐릭터 애니메이션로직입니다.
+/// 
+/// -private void MoveSfx()
+/// 캐릭터가 이동 중이라면 발소리를 냅니다.
+/// 
+/// -public void PlayerCorouine(PlayerState, float)
+/// 플레이어 움직임임을 제어하는 코루틴 메서드입니다.
+/// 상태와, 시간을 매개변수로 받아 잠시 멈춥니다.
+/// 
+/// </summary>
 public enum PlayerState
 {
-    MoveOn =0,
-    MoveOff,
-    MoveSlow
+    pauseMovement,
+    slowMovement
 }
 
 public class Player_Action : MonoBehaviour
@@ -32,29 +65,20 @@ public class Player_Action : MonoBehaviour
 
     private PlayerState playerState;
 
-    // 캐릭터 속력
     public float speed;
     private float baseSpeed;
     private float decreaseSpeed;
 
-    // 캐릭터 방향
-    short direction;
-    Vector3 dirVec;
-    bool isCharacterMove;
-    float isCharacterTime;
-
-    // h : horizontal , v : vertical
-    float h;
-    float v;
-
-    bool isHorizonMove;
-    /*애니메이션 */
-    Animator anim;
-
-    private AudioSource audioSrc;
-
-    /* 값 가져오기 */
-    private Rigidbody2D rigid;
+    short direction;                    //캐릭터 방향
+    Vector3 dirVec;                     //캐릭터 방향
+    bool playerStop;               //캐릭터를 잠시 멈추기 위한 구분자
+    float isCharacterTime;              //캐릭터 내부 시간
+    float h;                            //수평 값
+    float v;                            //수직 값
+    bool isHorizonMove;                 //
+    Animator anim;                      //플레이어 애니메이션
+    private AudioSource audioSrc;       //플레이어 오디오소스
+    private Rigidbody2D rigid;          //플레이어 rigidbody2D
     private void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -62,13 +86,12 @@ public class Player_Action : MonoBehaviour
         direction = Constants.DD;
         dirVec = Vector3.down;
         isCharacterTime = 0f;
-        isCharacterMove = false;
+        playerStop = false;
         baseSpeed = speed;
         decreaseSpeed = speed / 2;
         audioSrc = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -90,14 +113,16 @@ public class Player_Action : MonoBehaviour
         MoveSfx();
     }
 
+    /* 캐릭터가 일시정지하고자 한다면
+     0.7초 동안 멈추고 값 변경*/
     void FixedUpdate()
     {
-        if (isCharacterMove)
+        if (playerStop)
         {
             isCharacterTime += Time.deltaTime;
             if (isCharacterTime >= 0.7f)
             {
-                isCharacterMove = false;
+                playerStop = false;
                 isCharacterTime = 0f;
             }
         }
@@ -106,7 +131,7 @@ public class Player_Action : MonoBehaviour
     void Player_Move()
     {
 
-        if (isCharacterMove)
+        if (playerStop)
         {
             rigid.constraints = RigidbodyConstraints2D.FreezePosition | RigidbodyConstraints2D.FreezeRotation;
 
@@ -202,9 +227,9 @@ public class Player_Action : MonoBehaviour
         return dirVec;
     }
 
-    public void isCharacterSetter(bool isCharacter)
+    public void MovePause(bool value)
     {
-        isCharacterMove = isCharacter;
+        playerStop = value;
     }
 
     //정지시 캐릭터 애니메이션 
@@ -244,13 +269,10 @@ public class Player_Action : MonoBehaviour
 
         switch (playerState)
         {
-            case PlayerState.MoveOn:
-                //StartCoroutine(Stop());
-                break;
-            case PlayerState.MoveOff:
+            case PlayerState.pauseMovement:
                 StartCoroutine(MoveStop(applyTime));
                 break;
-            case PlayerState.MoveSlow:
+            case PlayerState.slowMovement:
                 StartCoroutine(MoveSlow(applyTime));
                 break;
             default:
@@ -262,17 +284,8 @@ public class Player_Action : MonoBehaviour
 
     private IEnumerator MoveStop(float applyTime)
     {
-        while (true)
-        {
-            yield return StartCoroutine(Stop(applyTime));
-
-            yield return StartCoroutine(Move());
-
-            if (playerState == PlayerState.MoveOff)
-            {
-                break;
-            }
-        }
+        yield return StartCoroutine(Stop(applyTime));
+        yield return StartCoroutine(Move());
     }
 
     private IEnumerator Stop(float applyTime)
@@ -309,7 +322,7 @@ public class Player_Action : MonoBehaviour
 
             yield return StartCoroutine(OffSlow());
 
-            if (playerState == PlayerState.MoveSlow)
+            if (playerState == PlayerState.slowMovement)
             {
                 break;
             }

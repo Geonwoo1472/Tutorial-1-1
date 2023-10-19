@@ -3,6 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal; //new version URP
 
+/// <summary>
+/// #Usage(용도)#
+/// Light2D의 밝기범위의 를 관리합니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// Light2D 오브젝트를 자식으로 가지고 있는 게임오브젝트
+/// 
+/// #Method#
+/// -public void brightnessChangeCorutin(float)
+/// 내부 코루틴을 호출시킵니다 float 값 만큼 밝기가 서서히 증가합니다.
+/// 
+/// 
+/// -public void SetActive(bool)
+/// 부착된 게임오브젝트의 활성유무를 bool 값으로 변경합니다.
+/// 
+/// 
+/// -public void LightSetActive(bool)
+/// 자식오브젝트 Light2D의 활성유무를 bool 값으로 변경합니다.
+/// 
+/// 
+/// -private IEnumerator changeBrightness(float)
+/// 매 프레임 마다 밝기 범위를 float 값만큼 서서히 증가시킵니다.
+/// 
+/// </summary>
 public class PlayerLight2DController : MonoBehaviour
 {
     #region Singleton
@@ -35,9 +59,9 @@ public class PlayerLight2DController : MonoBehaviour
         expansionSpeed = 5;
     }
 
-    public void playerLight2DCoroutine(float eyeSightValue)
+    public void brightnessChangeCorutin(float eyeSightValue)
     {
-        StartCoroutine(AddEyesight(eyeSightValue));
+        StartCoroutine(changeBrightness(eyeSightValue));
     }
 
 
@@ -52,18 +76,7 @@ public class PlayerLight2DController : MonoBehaviour
     }
 
     // 시야 증가
-    private IEnumerator AddEyesight(float eyeSightValue)
-    {
-        while(true)
-        {
-            yield return StartCoroutine(OnEyesight(eyeSightValue));
-            yield return StartCoroutine(OffEyesight());
-
-            break;
-        }
-    }
-
-    private IEnumerator OnEyesight(float eyeSightValue)
+    private IEnumerator changeBrightness(float eyeSightValue)
     {
         while (currentLightValue >= eyeSightValue)
         {
@@ -81,11 +94,5 @@ public class PlayerLight2DController : MonoBehaviour
 
             yield return null;
         }
-
-        yield return null;
-    }
-    private IEnumerator OffEyesight()
-    {
-        yield return null;
     }
 }

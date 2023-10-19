@@ -3,6 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// #Usage(용도)#
+/// 플레이어의 스텟을 셋팅합니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// NextChange.cs 가 부착되어 있는 오브젝트 중
+/// 캐릭터 스텟이 셋팅되어야 하는 경우
+/// 
+/// #Method#
+/// private void OnTriggerEnter2D(Collider2D)
+/// 게임매니저가 가지고 있는 맵 정보 문자열을 바꿔줍니다.
+/// 이후 플레이어의 스텟을 셋팅합니다.
+/// 
+/// </summary>
 public class NextStage : MonoBehaviour
 {
     public string transferMapName;              //이동할 맵 이름
@@ -40,7 +54,7 @@ public class NextStage : MonoBehaviour
                    statusManager.HungerData[statusManager.HungerIndex], statusManager.FatigueData[statusManager.FatigueIndex]);
 
                 fadeEffect.OnFade(FadeState.FadeIn);
-                playerAction.PlayerCorouine(PlayerState.MoveOff,2.0f);
+                playerAction.PlayerCorouine(PlayerState.pauseMovement,2.0f);
             }
 
             gameManager.currentMapName = transferMapName;

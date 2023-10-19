@@ -2,6 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// #Usage(용도)#
+/// 맵이름과 일치하는 게임오브젝트 명의 자료형이 선언되어 있습니다.
+/// key 값은 현재 맵의 문자열이며
+/// Value 값은 맵에 배치된 게임오브젝트 명입니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// GameManager
+/// 
+/// #Method#
+/// X
+/// 
+/// </summary>
 public class MapDictionary : MonoBehaviour
 {
     #region Singleton

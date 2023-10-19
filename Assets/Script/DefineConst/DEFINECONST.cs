@@ -89,3 +89,20 @@ public enum BoxSoundType
     Ruins,
     LastMap
 }
+public enum KeyAction
+{
+    UP = 0,
+    DOWN = 1,
+    LEFT = 2,
+    RIGHT = 3,
+    INVENTORY = 4,
+    MAP = 5,
+    INTERACTION = 6,
+    QUICKONE = 7,
+    QUICKTWO = 8,
+    QUICKTHREE = 9,
+    QUICKFOUR = 10,
+    QUICKFIVE = 11,
+    ESC = 12,
+    KEYCOUNT
+}

@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// #Usage(용도)#
+///
+/// #object used(부착 오브젝트)#
+///
+/// #Method#
+///
+/// </summary>
 public class player_Raycast : MonoBehaviour
 {
-
-    Rigidbody2D rigid;
-    Player_Action _pA;
+    Rigidbody2D rigid;                  // player의 Rigidbody
+    Player_Action playerAction;         // 
     public GameObject scanObject;
     bool canTransTo;
     float canTransTime;
@@ -18,14 +25,14 @@ public class player_Raycast : MonoBehaviour
         canTransTo = false;
         canTransTime = 0f;
         rigid = GetComponent<Rigidbody2D>();
-        _pA = GetComponent<Player_Action>();
+        playerAction = GetComponent<Player_Action>();
         pastTag = null;
     }
 
     void Update()
     {
-        Debug.DrawRay(rigid.position, _pA.GetVector3DirVec() * RayConstants.objectRayLength , new Color(1, 1, 1));
-        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, _pA.GetVector3DirVec(), RayConstants.objectRayLength, LayerMask.GetMask("Object"));
+        Debug.DrawRay(rigid.position, playerAction.GetVector3DirVec() * RayConstants.objectRayLength , new Color(1, 1, 1));
+        RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, playerAction.GetVector3DirVec(), RayConstants.objectRayLength, LayerMask.GetMask("Object"));
 
 
         if (rayHit.collider != null)
@@ -46,7 +53,7 @@ public class player_Raycast : MonoBehaviour
                         scanObject.GetComponent<moveBox>().SetIsReady(true);
 
                         //캐릭터 움직임 잠구는 메소드
-                        _pA.isCharacterSetter(true);
+                        playerAction.MovePause(true);
                         break;
                     }
                 case "Tree":
@@ -80,7 +87,6 @@ public class player_Raycast : MonoBehaviour
         {
             if (pastTag == "Tree")
             {
-                // 수정 수정 수정 
                 if(scanObject!=null)
                     scanObject.GetComponent<IDestroyable>().OffDestroy();
 
@@ -108,12 +114,5 @@ public class player_Raycast : MonoBehaviour
                 canTransTo = false;
             }
         }
-
-
-
     }
-
-
-
-
 }

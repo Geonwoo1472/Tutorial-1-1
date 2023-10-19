@@ -31,7 +31,7 @@ public class EyesightItem : Item
     public override bool Use()
     {
         playerLightController = PlayerLight2DController.instance;
-        playerLightController.playerLight2DCoroutine(sightValue);
+        playerLightController.brightnessChangeCorutin(sightValue);
         PlayerStatus.instance.HasBrightened = true;
         SoundManager.instance.SoundPlaying(SoundType.torchSound);
 

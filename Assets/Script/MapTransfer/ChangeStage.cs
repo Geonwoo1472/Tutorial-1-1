@@ -3,6 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// #Usage(용도)#
+/// 열쇠 보유를 검사 후 다음 씬으로 넘어가는 기능입니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// 다음씬으로 넘어가는 입구
+/// 
+/// #Method#
+/// -private void OnTriggerEnter2D(Collider2D)
+/// 플레이어인지 확인 후
+/// 인벤토리의 열쇠 유무를 판단하기 위해 순회합니다.
+/// 올바른 Key가 있다면 다음 씬으로 이동합니다.
+/// 
+/// </summary>
 public class ChangeStage : MonoBehaviour
 {
     public short exitKey;                                                   // 열쇠와 맵핑되어야하는 고유 값

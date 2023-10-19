@@ -22,7 +22,7 @@ public class StunTile : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            playerAction.PlayerCorouine(PlayerState.MoveOff, stunTime);
+            playerAction.PlayerCorouine(PlayerState.pauseMovement, stunTime);
         }
     }
 

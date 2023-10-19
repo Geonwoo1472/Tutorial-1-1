@@ -3,6 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// #Usage(용도)#
+/// 맵 이동 기능이 구현되어 있습니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// 맵 포탈
+/// 
+/// #Method#
+/// 캐릭터가 다음 맵으로 넘어가는 경우의 기능 처리입니다.
+/// 게임 매니저에 현재 맵을 등록하고,
+/// 카메라 좌표를 이동시킵니다.
+/// 페이드 효과를 연출하고, 플레이어를 잠시간 멈춥니다.
+/// 플레이어의 피로도를 맵의 번호에 맞게 새롭게 셋팅합니다.
+///     
+/// 
+/// </summary>
 public class MapPotal : MonoBehaviour
 {
     public string transferMapName;          // 이동할 Spwan 문자열 변수
@@ -32,14 +48,6 @@ public class MapPotal : MonoBehaviour
         NullChecking();
     }
 
-    /*
-     캐릭터가 다음 맵으로 넘어가는 경우의 기능 처리입니다.
-    게임 매니저에 현재 맵을 등록하고,
-    플레이어 위치를 다음 맵으로 이동시킵니다.
-    카메라 좌표를 이동시킵니다.
-    페이드 효과를 연출하고, 플레이어를 잠시간 멈춥니다.
-    플레이어의 피로도를 맵의 번호에 맞게 새롭게 셋팅합니다.
-     */
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -53,7 +61,7 @@ public class MapPotal : MonoBehaviour
                 CMove.CameraPosMove();
 
                 fadeEffect.OnFade(FadeState.FadeIn);
-                playerAction.PlayerCorouine(PlayerState.MoveOff,2.0f);
+                playerAction.PlayerCorouine(PlayerState.pauseMovement,2.0f);
 
                 StatusManager.instance.FatigueSet();
                 PlayerStatus.instance.OnDamageHunger(HF_Constance.MAPCHANGE);
