@@ -3,7 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+/// <summary>
+/// #Usage(용도)#
+/// 파일을 저장하기 위한 직렬화데이터 클래스입니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// X 
+/// 
+/// #Method#
+/// X
+/// 
+/// </summary>
 public class DataFile
 {
     public int imageNumber;

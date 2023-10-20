@@ -7,6 +7,79 @@ using System.Text;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// #Usage(용도)#
+/// 파일을 불러와 상황에 맞는 셋팅을 하거나
+/// 파일을 저장하는 기능입니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// SaveManager 오브젝트
+/// 
+/// #Method#
+/// -Start()
+/// 불러오기 저장창을 저장된 파일을 읽어 UI를 랜더링합니다.
+/// 
+/// -private void LastDalogAfterCall(int val)
+/// talk가 끝난시점에 호출됨
+/// 
+/// -public void openLoadCanvas()
+/// SaveMode로 변경하며 저장할 수 있게함.
+/// 저장판넬을 활성화 시킴.
+/// 
+/// -public void SaveScreenButtonClick(int number)
+/// 슬롯 1,2,3 번 중 어떤 슬롯이 눌렸는지 매개변수로 받아
+/// save모드라면 ->저장
+/// save모드가 아니라면 -> 불러오기 실행함.
+/// 
+/// -private void SaveInformationWindow(int number)
+/// 저장하겠다는 의사를 한번 더 물어봄.
+/// 
+/// -public void Save()
+/// 저장 창의 [예] 버튼이 눌린경우 현재 데이터를 직렬화하고
+/// 파일로 저장함. 이후 플레이로 돌아감.
+/// 
+/// -public void DoNotSave()
+/// 저장 창의 [아니오] 버튼이 눌린경우
+/// 진행중인 플레이로 돌아감.
+/// 
+/// -private void FileSave()
+/// 현재 데이터를 직렬화해 json파일로 저장하는 메소드
+/// 
+/// -private void Load(int number)
+/// 저장된 데이터를 불러옵니다.
+/// 
+/// -private void LoadPopupUpdate(int _slotNumber, int _imageNumber, string _date, string _stage, string _story)
+/// 데이터의 변동이 있을 시 호출하여 UI의 text를 새롭게 랜더링합니다.
+/// 
+/// -private void LoadPopupUIRendering()
+/// 저장된 데이터를 기반으로 로드 판넬의 UI를 랜더링합니다.
+/// 
+/// -private void SlotFile(int slotNumber)
+/// 정해진 슬롯에 UI를 랜더링합니다.
+/// 
+/// -public void DeleteSaveFile(int slotNumber)
+/// 저장된 파일을 지웁니다.
+/// 
+/// -private void DataSetting(float _x, float _y, List<int> _itemList)
+/// 플레이어의 좌표와 아이템 데이터를 셋팅합니다.
+/// 
+/// -private void ItemClear()
+/// 인벤토리에 있는 아이템을 초기화합니다.
+/// 
+/// -private void ItemSetting(List<int> _itemList)
+/// 저장된 정보를 기반으로 아이템을 셋팅합니다.
+/// 
+/// -private string SetStageLine()
+/// 저장된 정보를 기반으로 로드 UI에 출력할 문자열을 초기화합니다.
+/// 
+/// -private string SetStoryLine()
+/// 저장된 정보를 기반으로 로드 UI에 출력할 문자열을 초기화합니다.
+/// 
+/// -private void ItemNumberListInit()
+/// 현재 아이템을 기반으로 직렬화할 아이템을 리스트로 변환합니다.
+/// 
+/// 
+/// </summary>
 public class SaveManager : MonoBehaviour
 {
     public static SaveManager instance;

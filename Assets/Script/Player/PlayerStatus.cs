@@ -4,11 +4,28 @@ using UnityEngine;
 
 /// <summary>
 /// #Usage(용도)#
-///
+/// 플레이어 스텟 클래스입니다.
+/// 맵에따른 스텟 값은 외부 스크립트 참조를해 Init메소드로 얻어옵니다.
+/// 
 /// #object used(부착 오브젝트)#
-///
+/// Player
+/// 
 /// #Method#
-///
+/// -public bool InitStatus(float _HungerMax, float _FatigueMax, float _Hunger, float _Fatigue)
+/// 플레이어의 스텟을 매개변수로 초기화합니다.
+/// 
+/// -public bool OnDamageHunger(float)
+/// 인자의 값 만큼 배고픔을 감소시킵니다.
+/// 
+/// -public bool OnHealHunger(float)
+/// 인자의 값 만큼 배고픔을 회복합니다.
+/// 
+/// -public bool OnDamageFatigue(float)
+/// 인자의 값 만큼 피로도를 감소시킵니다.
+/// 
+/// -public bool OnHealFatigue(float)
+/// 인자의 값 만큼 피로도를 회복합니다.
+/// 
 /// </summary>
 public class PlayerStatus : MonoBehaviour
 {
@@ -25,7 +42,7 @@ public class PlayerStatus : MonoBehaviour
     }
     #endregion
 
-    private MyStates states;            // 플레이어의 상태 정보 구조체.
+    private MyStates states;           
     [HideInInspector]
     public bool testMode;
 
@@ -49,11 +66,6 @@ public class PlayerStatus : MonoBehaviour
     {
         set => states.FatigueMax = value;
         get => states.FatigueMax;
-    }
-    public short KeyValue
-    {
-        set => states.keyValue = value;
-        get => states.keyValue;
     }
     public bool HasBrightened
     {
@@ -176,14 +188,6 @@ public class PlayerStatus : MonoBehaviour
 
         return true;
     }
-
-    public bool OnKeyValue(short value)
-    {
-        KeyValue = value;
-
-        return true;
-    }
-
 }
 
 [System.Serializable]
@@ -197,8 +201,6 @@ public struct MyStates
     public float Fatigue;
     [HideInInspector]
     public float FatigueMax;
-    [HideInInspector]
-    public short keyValue;
     [HideInInspector]
     public bool hasBrightened;
 }

@@ -4,21 +4,27 @@ using UnityEngine;
 
 /// <summary>
 /// #Usage(용도)#
-///
+/// RayCast로 앞에있는 오브젝트를 판별합니다.
+/// 
 /// #object used(부착 오브젝트)#
-///
+/// Player
+/// 
 /// #Method#
-///
+/// -void Update()
+/// Layer, Object로 등록된 물체들을 읽어옵니다.
+/// 현재 관리하는 게임오브젝트는 Box, Tree, Switch입니다.
+/// 
+/// 
 /// </summary>
 public class player_Raycast : MonoBehaviour
 {
-    Rigidbody2D rigid;                  // player의 Rigidbody
-    Player_Action playerAction;         // 
-    public GameObject scanObject;
-    bool canTransTo;
-    float canTransTime;
+    Rigidbody2D rigid;                          // player의 Rigidbody
+    Player_Action playerAction;                 // 박스 민 경우 플레이어 컨트롤 정지용
+    public GameObject scanObject;               // 현재 스캔중인 오브젝트
+    bool canTransTo;                            // 
+    float canTransTime;                         // 
 
-    public string pastTag;
+    public string pastTag;                      // 
 
     void Start()
     {
