@@ -2,6 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// #Usage(용도)#
+/// 말풍선이 끝난 후 플레이어를 지정된 방향으로 강제 이동시킵니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// 통과시키지 않을 게임오브젝트
+/// AutoTalk의 프로퍼티변수를 재사용으로, Compulsion 사용으로 해둔 후
+/// 해당 컴포넌트를 추가하여 사용
+/// 
+/// #Method#
+/// -public void CorotineCompulsionMove()
+/// 지정된 방향으로 지정된 시간만큼
+/// 플레이어 움직임을 막아두고 플레이어를 강제 이동시킵니다.
+/// 
+/// 
+/// </summary>
 public class PlayerCompulsionMove : MonoBehaviour
 {
     public Direction compulsionDirection;               // 플레이어가 강제로 이동할 방향

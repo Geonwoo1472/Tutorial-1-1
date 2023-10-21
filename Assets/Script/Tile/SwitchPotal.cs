@@ -2,6 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// #Usage(용도)#
+/// 누르는 스위치의 작동여부에 따라 오브젝트를 활성/비활성 합니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// 빈 오브젝트
+/// 
+/// #Method#
+/// 델리게이트로 돌아가기 때문에
+/// 적용할 switchArray 변수에 스위치를 잘 초기화해서 사용할 것
+/// 
+/// </summary>
 public class SwitchPotal : MonoBehaviour
 {
     public PushSwitchTile[] switchArray;

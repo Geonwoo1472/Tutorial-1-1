@@ -2,6 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// #Usage(용도)#
+/// 게임 모든챕터에서 사용하는 사운드를 관리하고 출력합니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// CommunalSoundManager
+/// 
+/// #Method#
+/// -public void SoundPlaying(int)
+/// 인자 값에 맞는 사운드 Clip으로 교체 후
+/// Play() 합니다.
+/// 
+/// </summary>
 public class CommunalSound : MonoBehaviour
 {
     public static CommunalSound instance;

@@ -2,6 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// #Usage(용도)#
+/// Tag : TalkObject의 사물을 스캔해옵니다
+/// 이후 [상호작용 키]가 눌렸다면
+/// 해당 사물의 ID를 얻어와 그 정보로 말풍선 기능을 실행합니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// Player
+/// 
+/// #Method#
+/// X
+/// 
+/// </summary>
 public class RayCastTalk : MonoBehaviour
 {
     private bool isButtonDown;
@@ -9,6 +22,10 @@ public class RayCastTalk : MonoBehaviour
     {
         get { return isButtonDown; }
         set { isButtonDown = value; }
+    }
+    public GameObject ScanObject
+    {
+        get { return scanObject; }
     }
 
 
@@ -48,6 +65,7 @@ public class RayCastTalk : MonoBehaviour
 
     /*
      Tag TalkObject로 되어있는 물체를 스캔해옵니다.
+     Update에 작성하지 않은 이유는 급박하게 처리할 필요가 없기 때문
      */
     private void FixedUpdate()
     {
@@ -60,13 +78,5 @@ public class RayCastTalk : MonoBehaviour
         }
         else
             scanObject = null;
-    }
-
-    /*
-     스캔된 오브젝트를 외부로 반환해줍니다.
-     */
-    public GameObject getScanObject()
-    {
-        return scanObject;
     }
 }

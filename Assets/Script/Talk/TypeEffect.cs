@@ -3,6 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// #Usage(용도)#
+/// 말풍선 이펙트 타이핑
+/// 
+/// #object used(부착 오브젝트)#
+/// TalkText 
+/// 
+/// #Method#
+/// 메소드 위 주석 설명
+/// 
+/// </summary>
 public class TypeEffect : MonoBehaviour
 {
     public int CharPerSeconds;                  // 대사 속도

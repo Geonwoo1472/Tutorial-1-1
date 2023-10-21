@@ -2,6 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// #Usage(용도)#
+/// 해당 오브젝트와 충돌한 경우 플레이어를 내부 변수의 값의 시간만큼 정지시킵니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// StunTile
+/// 
+/// #Method#
+/// -void OnTriggerEnter2D(Collider2D)
+/// 플레이어를 잠시동안 움직이지 못하도록합니다.
+/// 
+/// </summary>
 public class StunTile : MonoBehaviour
 {
     [Header("기절시간")]

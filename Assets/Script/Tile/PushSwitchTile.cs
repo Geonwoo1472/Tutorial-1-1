@@ -2,6 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// #Usage(용도)#
+/// 누르는 스위치 기능입니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// Sprite Render,
+/// BoxCollider2D가 포함된
+/// 스위치로 사용할 게임오브젝트
+/// 
+/// #Method#
+/// -OnTrigerEnter()
+/// 스위치가 눌렸을 때의 로직이 구현되어 있습니다.
+/// 
+/// -OnTriggerExit()
+/// 스위치를 땠을 때의 로직이 구현되어 있습니다.
+/// 
+/// 
+/// </summary>
 public class PushSwitchTile : MonoBehaviour
 {
     public Sprite beforeSprite;

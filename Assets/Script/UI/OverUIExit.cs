@@ -3,7 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+/// <summary>
+/// #Usage(용도)#
+/// 프로세스를 종료합니다
+/// 
+/// #object used(부착 오브젝트)#
+/// 버튼의 OnClick() 으로 호출
+/// 
+/// #Method#
+/// -public void ExitGame()
+/// 프로세스를 종료합니다.
+/// 
+/// </summary>
 public class OverUIExit : MonoBehaviour
 {
     public void ExitGame()

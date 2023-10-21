@@ -2,6 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// #Usage(용도)# 
+/// 오브젝트 ID에 맞는 출력할 말풍선 문자열이 저장되어 있습니다.
+/// 말풍선의 DB입니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// TalkManager
+/// 
+/// #Method#
+/// -public string GetTalk(int , int)
+/// ID 인자와, ID로 지정된 문자열의 인덱스를 인자로 받아
+/// 저장된 문자열을 반환합니다.
+/// 
+/// -public Sprite GetPortraite(int , int)
+/// ID인자와, 지정한 문자열의 인덱스를 인자로 받아
+/// 저장된 Sprite를 반환합니다.
+/// 
+/// </summary>
 public class TalkManager : MonoBehaviour
 {
     Dictionary<int, string[]> talkData;                     // 대화의 문자열을 저장하는 자료구조입니다.

@@ -3,19 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal; //new version URP
 
+/// <summary>
+/// #Usage(용도)#
+/// 히든맵에 들어가는 경우 Light를 활성화 시키고
+/// TimeText의 UI가 활성화 되도록합니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// MapBoxCollider
+/// 
+/// #Method#
+/// -private void OnTriggerEnter2D(Collider2D)
+/// 플레이어 라이트를 활성화시키고, 제한시간이 적용되는 오브젝트를 활성화합니다.
+/// 
+/// -private void OnTriggerExit2D(Collider2D)
+/// 플레이어 라이트를 비활성시키고 , 제한시간이 적용되는 오브젝트를 비활성합니다.
+/// 
+/// </summary>
 public class HidenMapCollider : MonoBehaviour
 {
     public float initTime;              // 현재 방 시간초 제한 설정
 
     private TimeText timeText;          // float값 TimeText UI에 연동
-    private Light2D globalLight2D;      // 전역 라이트 
+    //private Light2D globalLight2D;      // 전역 라이트 
     private PlayerLight2DController playerLight2DController;    // 플레이어 라이트
     private GameObject playerLightObject;
 
     private void Start()
     {
         timeText = GameObject.Find("TimeTextParent").transform.Find("TimeText").GetComponent<TimeText>();
-        globalLight2D = GameObject.Find("BackGroundLight2D").GetComponent<Light2D>();
+        //globalLight2D = GameObject.Find("BackGroundLight2D").GetComponent<Light2D>();
         playerLight2DController = PlayerLight2DController.instance;
         playerLightObject = playerLight2DController.transform.GetChild(0).gameObject;
     }
@@ -32,7 +48,7 @@ public class HidenMapCollider : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             timeText.OnActive(initTime);
-            globalLight2D.color = Color.black;
+            //globalLight2D.color = Color.black;
             playerLightObject.SetActive(true);
         }
     }
@@ -49,7 +65,7 @@ public class HidenMapCollider : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             timeText.OffActive();
-            globalLight2D.color = Color.white;
+            //globalLight2D.color = Color.white;
             playerLightObject.SetActive(false);
         }
     }

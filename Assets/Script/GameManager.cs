@@ -110,7 +110,7 @@ public class GameManager : UIActive
                             {
                                 IDestroyable iDestroyable = playerRay.scanObject.GetComponent<IDestroyable>();
                                 if (iDestroyable != null)
-                                    iDestroyable.interactionDestroy();
+                                    iDestroyable.InteractionDestroy();
                                 break;
                             }
                         default:

@@ -3,6 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// #Usage(용도)#
+/// 타이머 기능이 구현되어 있습니다.
+/// 시간이 0이 되면 GameOver됩니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// TimeText,
+/// TextMeshPro UI 
+/// 
+/// #Method#
+/// -public void OnActive(float)
+/// 시간초를 셋팅하고 플레이어 머리위로 이동합니다.
+/// 게임오브젝트를 활성화 시켜 시간이 줄게합니다.
+/// 
+/// 
+/// -public void OffActive()
+/// 게임오브젝트를 비활성시키고 기능을 정지시킵니다.
+/// 
+/// 
+/// </summary>
 public class TimeText : MonoBehaviour
 {
     public float timeLimit;

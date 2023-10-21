@@ -4,12 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro; // TextMeshPro
 
-/* 수정사항 */
+/// <summary>
+/// #Usage(용도)#
+/// 플레이어의 스텟 상태를 UI에 반영합니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// HungerFatigueUI
+/// 
+/// #Method#
+/// [현재는 업데이트 문으로 실시간 UI를 호출하고 있습니다]
+/// 
+/// /* 수정할 것 */
 // UI Update문에서 하지 말고 메소드로 실행시킬 것.
-// 맵마다 피로도 부여 할 것
-// 스테이지 1에서 배고픔 부여 할 것
-// 피로도 다 쓰면 재시작 기능 넣을 것
-// 배고픔 다 쓰면 게임 오버 시킬 것
+/// 
+/// </summary>
 
 public class HF_UI : MonoBehaviour
 {

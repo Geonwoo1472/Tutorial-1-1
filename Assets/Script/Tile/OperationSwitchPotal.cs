@@ -2,6 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// #Usage(용도)#
+/// 오브젝트가 등록한 스위치로 인해 활성/비활성되는 기능입니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// 스위치로 활성/비활성 을 판단하는 게임오브젝트
+/// 
+/// #Method#
+/// -public으로 사용하는 기능 없음.
+/// 대신 연결할 스위치를 switchArray에 등록하여야함.
+/// 
+/// 
+/// </summary>
 public class OperationSwitchPotal : MonoBehaviour
 {
     public OperationSwitch[] switchArray;
@@ -57,7 +70,7 @@ public class OperationSwitchPotal : MonoBehaviour
         gameObject.SetActive(isActive);
     }
 
-
+    /*
     private void OnActive()
     {
         gameObject.SetActive(true);
@@ -67,4 +80,5 @@ public class OperationSwitchPotal : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+    */
 }

@@ -2,6 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// #Usage(용도)#
+/// 스위치가 가져야 할 기능들이 정의되어 있습니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// Switch 게임오브젝트
+/// 
+/// #Method#
+/// -public void IsAction()
+/// 플레이어 RayCast에서 호출합니다.
+/// 스위치를 ON <-> OFF 합니다.
+/// 
+/// </summary>
 public class OperationSwitch : MonoBehaviour
 {
     public Sprite[] changeSprite;

@@ -19,7 +19,7 @@ public class IDestroyable : MonoBehaviour
         destroyTree = false;
     }
 
-    public virtual void interactionDestroy()
+    public virtual void InteractionDestroy()
     {
 
     }

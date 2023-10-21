@@ -3,6 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// #Usage(용도)#
+/// 말풍선 관련 UI기능을 담당하며
+/// 저장된 문자열 정보를 받아 말풍선 Text를 변경합니다.
+/// 
+/// #object used(부착 오브젝트)#
+/// DalogManager
+/// 
+/// #Method#
+/// -public void Action(GameObject)
+/// 스캔된 오브젝트의 ID를 확인하고 말풍선 관련 기능들이 시작됩니다.
+/// 플레이어는 말풍선 판넬이 활성화 되는 경우에는 움직일 수 없습니다.
+/// 
+/// -public void Action(int)
+/// 말풍선이 진행중이더라도 끝났다고 판단하고
+/// 말풍선의 UI를 끄고, 캐릭터가 다시 움직일 수 있도록 변경합니다.
+/// 
+/// -void Talk(int,bool)
+/// 말풍선 UI 판넬을 관리하고, 
+/// 저장된 문자열을 받아와 말풍선 Text를 변경합니다.
+/// 
+/// 
+/// -void Talk()
+/// 진행하고 있는 말풍선이 있더라도
+/// 끝났다고 판단하여 그 내부 인덱스 값들을 초기화합니다.
+/// 
+/// </summary>
 public class DalogManager : MonoBehaviour
 {
     public TypeEffect talk;                     //TypeEffect.cs
