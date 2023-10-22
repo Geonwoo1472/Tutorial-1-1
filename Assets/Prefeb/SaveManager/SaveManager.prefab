@@ -84,7 +84,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bc7f10e03d4950e4da33437747d68896, type: 2}
   - {fileID: 11400000, guid: e5f43d9faaa989945bd0a55cf1792622, type: 2}
   - {fileID: 11400000, guid: ab782d5194941e74a8fe29cc501f2c94, type: 2}
-  - {fileID: 11400000, guid: 7cc10dbf3e018cc44bd0ffac00c85e61, type: 2}
   - {fileID: 11400000, guid: cc3d9c2e940dc5d4988c0f1df56ac6c0, type: 2}
   fadeEffect: {fileID: 0}
 --- !u!114 &6190318826793926749

@@ -18950,10 +18950,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1751152046}
     - target: {fileID: 6190318826793926748, guid: e22d7f04665b1f443a64130747974e2d, type: 3}
-      propertyPath: pauseMenu
-      value: 
-      objectReference: {fileID: 1751152031}
-    - target: {fileID: 6190318826793926748, guid: e22d7f04665b1f443a64130747974e2d, type: 3}
       propertyPath: fadeEffect
       value: 
       objectReference: {fileID: 1751152027}
