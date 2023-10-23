@@ -57,16 +57,16 @@ public class MapPotal : MonoBehaviour
 
             if (MapDictionary.instance.dict.ContainsKey(transferMapName))
             {
-                gameManager.currentMapName = MapDictionary.instance.dict[transferMapName];
-                CMove.CameraPosMove();
+                gameManager.currentMapName = MapDictionary.instance.dict[transferMapName];          // 게임 매니저에 현재 맵 저장
+                CMove.CameraPosMove();                                                              // 카메라 이동 [삭제 예정]
 
-                fadeEffect.OnFade(FadeState.FadeIn);
-                playerAction.PlayerCorouine(PlayerState.pauseMovement,2.0f);
+                fadeEffect.OnFade(FadeState.FadeIn);                                                // 페이드 기능
+                playerAction.PlayerCorouine(PlayerState.pauseMovement,2.0f);                        // 플레이어 조작 block
 
-                StatusManager.instance.FatigueSet();
-                PlayerStatus.instance.OnDamageHunger(HF_Constance.MAPCHANGE);
+                StatusManager.instance.FatigueSet();                                                // 피로도 셋팅
+                PlayerStatus.instance.OnDamageHunger(HF_Constance.MAPCHANGE);                       // 배고픔 소모
 
-                CommunalSound.instance.SoundPlaying(SoundType.potalSound);
+                CommunalSound.instance.SoundPlaying(SoundType.potalSound);                          // 사운드 출력
             }
             else
             {

@@ -31,6 +31,9 @@ public class MapDictionary : MonoBehaviour
     #endregion
 
     public Dictionary<string, string> dict;         // 스폰된 위치에 따라 현재 맵을 구분하는 사전입니다.
+                                                    // Key : 스폰위치 게임오브젝트 명
+                                                    // Value : 맵 중앙 Pivot 오브젝트 명
+
 
     private void Start()
     {
@@ -248,6 +251,7 @@ public class MapDictionary : MonoBehaviour
     }
     private void Stage5()
     {
-
+        dict.Add("SpawnSea", "CameraPos5-S");
+        dict.Add("SpawnLand", "CameraPos5-L");
     }
 }

@@ -29,6 +29,8 @@ public static class SceneConstIndex
     public static readonly int CHAPTER5 = 5;
     public static readonly int CHAPTERSAVE = 6;
     public static readonly int INTRO = 7;
+    public static readonly int ENDING = 8;
+    public static readonly int BADENDING = 9;
 }
 
 public static class Constants
@@ -57,7 +59,7 @@ public class SoundType
     public const int twoBoxSound = 1;
     public const int threeBoxSound = 2;
     public const int fourBoxSound = 1;
-    public const int fiveBoxSound = 1;
+    public const int fiveBoxSound = 0;
 
     public const int inventoryOpen = 1;
     public const int healSound = 2;

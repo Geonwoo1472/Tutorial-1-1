@@ -29,6 +29,7 @@ public class MapCoordinate : MonoBehaviour
             if (cameraController != null)
             {
                 cameraController.MapIndex = mapIndexNumber;
+                cameraController.InitSetPosition();
             }
         }
     }

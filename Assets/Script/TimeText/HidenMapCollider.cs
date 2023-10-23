@@ -22,16 +22,15 @@ using UnityEngine.Rendering.Universal; //new version URP
 public class HidenMapCollider : MonoBehaviour
 {
     public float initTime;              // 현재 방 시간초 제한 설정
+    public bool lightActive;            // Light 사용 여부
 
     private TimeText timeText;          // float값 TimeText UI에 연동
-    //private Light2D globalLight2D;      // 전역 라이트 
     private PlayerLight2DController playerLight2DController;    // 플레이어 라이트
     private GameObject playerLightObject;
 
     private void Start()
     {
         timeText = GameObject.Find("TimeTextParent").transform.Find("TimeText").GetComponent<TimeText>();
-        //globalLight2D = GameObject.Find("BackGroundLight2D").GetComponent<Light2D>();
         playerLight2DController = PlayerLight2DController.instance;
         playerLightObject = playerLight2DController.transform.GetChild(0).gameObject;
     }
@@ -48,8 +47,9 @@ public class HidenMapCollider : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             timeText.OnActive(initTime);
-            //globalLight2D.color = Color.black;
-            playerLightObject.SetActive(true);
+
+            if(lightActive)
+                playerLightObject.SetActive(true);
         }
     }
 
@@ -65,8 +65,9 @@ public class HidenMapCollider : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             timeText.OffActive();
-            //globalLight2D.color = Color.white;
-            playerLightObject.SetActive(false);
+
+            if(lightActive)
+                playerLightObject.SetActive(false);
         }
     }
 }

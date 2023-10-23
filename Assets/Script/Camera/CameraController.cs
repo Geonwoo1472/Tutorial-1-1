@@ -95,8 +95,10 @@ public class CameraController : MonoBehaviour
     /*
      맨 처음 구석에서 시작하는 경우 외곽의 검은색이 노출됩니다.
      노출을 막기 위해 예외처리하는 과정입니다.
+     인덱스가 변경될때마다도 호출됩니다. 테스트시 검은색 화면이 오버되는데
+     바로잡아주지 못하고 있습니다.
      */
-    private void InitSetPosition()
+    public void InitSetPosition()
     {
         if (playerPos.position.x < mapMovingPos[mapIndex].xMinPos)
             cameraVector.x = mapMovingPos[mapIndex].xMinPos;

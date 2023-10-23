@@ -185,7 +185,8 @@ public class StatusManager : MonoBehaviour
         FatigueDict.Add("CameraPos4-h4", 42); // 4-4h
         FatigueDict.Add("CameraPos4-h5", 43); // 4-5h
 
-        
+        FatigueDict.Add("CameraPos5-L", 50); // 5
+        FatigueDict.Add("CameraPos5-S", 50); // 5
     }
 
     private void HungerDictAdd()
@@ -230,7 +231,8 @@ public class StatusManager : MonoBehaviour
         HungerDict.Add("CameraPos4-h4", 3); // 4-4h
         HungerDict.Add("CameraPos4-h5", 3); // 4-5h
 
-        
+        HungerDict.Add("CameraPos5-S", 4); // 5
+        HungerDict.Add("CameraPos5-L", 4); // 5
     }
 
 }
