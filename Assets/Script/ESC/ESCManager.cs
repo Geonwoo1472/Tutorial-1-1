@@ -31,4 +31,13 @@ public class ESCManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
+    public void EmptyStack()
+    {
+        while(UIStack.Count > 0)
+        {
+            UIActive ui = UIStack.Pop();
+            ui.OnActive();
+        }
+    }
 }

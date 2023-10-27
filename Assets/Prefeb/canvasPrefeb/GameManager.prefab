@@ -50,7 +50,7 @@ MonoBehaviour:
   playerStartingPt: 
   currentMapName: CameraPos1
   sceneIndex: 0
-  invenPanelActive: {fileID: 0}
+  invenPanel: {fileID: 0}
   OverUI: {fileID: 0}
   escPanel: {fileID: 0}
   isGameover: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   - 0
   - 50
   FatigueData:
-  - 15
+  - 1
   - 15
   - 15
   - 15

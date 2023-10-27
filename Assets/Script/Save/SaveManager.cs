@@ -238,15 +238,9 @@ public class SaveManager : MonoBehaviour
 
             SceneManager.LoadScene(SceneConstIndex.CHAPTERSAVE);
             DataSetting(dataFile.playerPos.x, dataFile.playerPos.y, dataFile.itemNumberList);
-
-            // 용도는 켜져있는 판넬창 전부 끄는용
-            loadPenel.SetActive(false);
-            // 용도는 켜져있는 판넬창 전부 끄는용
-            /*if(GameManager.instance.EscKeyDown ==true)
-                GameManager.instance.OnEscActive();*/
-
-
+            ESCManager.instance.EmptyStack();
             fadeEffect.OnFade(FadeState.FadeIn);
+            GameManager.instance.IsGameOver = false;
         }
         catch
         {
@@ -321,14 +315,7 @@ public class SaveManager : MonoBehaviour
     }
     private void ItemClear()
     {
-        for (int i = 0; i < itemIvenPanel.transform.childCount; ++i)
-        {
-            if(itemIvenPanel.transform.GetChild(i).childCount >0)
-            {
-                GameObject deleteObject = itemIvenPanel.transform.GetChild(i).GetChild(0).gameObject;
-                Destroy(deleteObject);
-            }
-        }
+        Inventory.instance.EmptyInventory();
     }
     private void ItemSetting(List<int> _itemList)
     {

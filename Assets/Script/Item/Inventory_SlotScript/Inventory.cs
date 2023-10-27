@@ -50,14 +50,18 @@ public class Inventory : MonoBehaviour
     // 아이템 사용 / 획득 시 사용될 대리자
     public delegate void OnItemTextUI(int count, int capacity);
     public OnItemTextUI onChangeItemTextUI;
-
-
-    // 아이템이 사용되면 슬롯UI에도 추가되는 대리자
+    private GameObject itemIvenPanel;
 
 
     //아이템 최대개수 / 현재개수 
     public int capacity;
     public int count;
+    public int Count
+    {
+        get { return count; }
+        set { count = value; }
+    }
+
     // 슬롯의 개수
     private int slotCnt;
     public int SlotCnt
@@ -71,10 +75,9 @@ public class Inventory : MonoBehaviour
 
     void Start()
     {
-        // 초기 슬롯 개수
-        SlotCnt = 20;
-        // 초기 최대 치
-        capacity = 10;
+        itemIvenPanel = GameObject.Find("Canvas").transform.Find("InventoryPanel").transform.Find("ItemInvenPanel").gameObject;
+        SlotCnt = 20;       // 초기 슬롯 개수
+        capacity = 10;      // 초기 슬롯 개수
         count = 0;
         onChangeItemTextUI.Invoke(count, capacity);
     }
@@ -112,7 +115,20 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-
+    /*인벤토리 초기화*/
+    public void EmptyInventory()
+    {
+        for (int i = 0; i < itemIvenPanel.transform.childCount; ++i)
+        {
+            if (itemIvenPanel.transform.GetChild(i).childCount > 0)
+            {
+                GameObject deleteObject = itemIvenPanel.transform.GetChild(i).GetChild(0).gameObject;
+                Destroy(deleteObject);
+            }
+        }
+        Count = 0;
+        onChangeItemTextUI.Invoke(count, capacity);
+    }
 
     // 플레이어가 아이템과 충돌한 경우
     // 부딪힌 Tag가 FieldItem인 경우

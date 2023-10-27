@@ -16,8 +16,27 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class OverUIMainMenu : MonoBehaviour
 {
+    private Transform playerPos;
+
+    private void Start()
+    {
+        playerPos = GameObject.Find("Player").GetComponent<Transform>();
+    }
+
+    /* Main Title [button] */
     public void LoadMainScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneConstIndex.MAINTITLE);
+        SetPlayerBeginPosition();
+        ESCManager.instance.EmptyStack();
+        Inventory.instance.EmptyInventory();
+        StatusManager.instance.RevertValueStatus();
     }
+
+    private void SetPlayerBeginPosition()
+    {
+        Vector2 vec = new Vector2(-11.3f, 3.9f);
+        playerPos.position = vec;
+    }   
+    
 }

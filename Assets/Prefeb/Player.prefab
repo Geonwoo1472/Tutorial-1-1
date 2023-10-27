@@ -575,6 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e515560ccccdb84ba45af234961af34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemIvenPanel: {fileID: 0}
   capacity: 0
   count: 0
 --- !u!114 &1615749553

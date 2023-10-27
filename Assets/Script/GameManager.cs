@@ -29,14 +29,19 @@ public class GameManager : UIActive
     [Header("시작 맵 작성해야 피로도 배고픔 반영")]
     public string currentMapName;                       // 현재 맵의 이름
     public int sceneIndex;                              // 현재 Scene의 Index번호 
-    public InvenActive invenPanelActive;                   // InventoryPanel 오브젝트
-    public GameObject OverUI;                           // GameOverUI 오브젝트입니다.
+    public InvenActive invenPanel;                      // InventoryPanel 오브젝트
+    public GameOverUIActive OverUI;                     // GameOverUI 오브젝트입니다.
     public GameObject escPanel;                         // ESC UI 오브젝트입니다.
 
     [HideInInspector]
     private bool moveStatus;                             // Just stop moving
     [HideInInspector]
     public bool isGameover;                             // Key All stop
+    public bool IsGameOver
+    {
+        get { return isGameover; }
+        set { isGameover = value; }
+    }
 
     private bool activeEscPanel;                        // ESC Panel SetActive유무 변수
     private bool activeInventory;                       // InventoryPanel SetActive유무 변수
@@ -87,7 +92,7 @@ public class GameManager : UIActive
             if (Input.GetKeyDown(KeySetting.keys[KeyAction.INVENTORY]))
             {
                 Debug.Log("Inventory 기능 !!");
-                invenPanelActive.InvenOnActive();
+                invenPanel.InvenOnActive();
                 //OnInvenActive();
                 CommunalSound.instance.SoundPlaying(SoundType.inventoryOpen);
             }
@@ -189,14 +194,13 @@ public class GameManager : UIActive
     public void StartGame()
     {
         isGameover = false;
-        OverUI.SetActive(false);
+        OverUI.OnActive();
     }
 
     public void EndGame()
     {
         isGameover = true;
-        OverUI.SetActive(true);
-
+        OverUI.OnActive();
     }
 
     public void ModifyMoveChange()

@@ -20,6 +20,6 @@ public class NewGame : MonoBehaviour
     public void InGame()
     {
         SceneManager.LoadScene(SceneConstIndex.INTRO);
-        
+        GameManager.instance.IsGameOver = false;
     }
 }

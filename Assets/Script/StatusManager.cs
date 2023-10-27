@@ -16,6 +16,9 @@ public class StatusManager : MonoBehaviour
             return;
         }
         instance = this;
+        FatigueDict = new Dictionary<string, int>();
+        HungerDict = new Dictionary<string, int>();
+
     }
     #endregion
 
@@ -48,30 +51,12 @@ public class StatusManager : MonoBehaviour
 
     void Start()
     {
-        FatigueDict = new Dictionary<string, int>();
         FatigueDictAdd();
-
-        HungerDict = new Dictionary<string, int>();
         HungerDictAdd();
 
-        // 현재 맵에 따른 피로도 인덱스 가져오기
-        if (FatigueDict.ContainsKey(GameManager.instance.currentMapName))
-            fatigueIndex = FatigueDict[GameManager.instance.currentMapName];
-        else
-            fatigueIndex = 0;
-
-        // 현재 맵에 따른 배고픔 인덱스 가져오기
-        if (HungerDict.ContainsKey(GameManager.instance.currentMapName))
-            hungerIndex = HungerDict[GameManager.instance.currentMapName];
-        else
-            fatigueIndex = 0;
-
-        // 현재 맵 정보에 따라서 배고픔 피로도 첫 초기화 
-        if (!PlayerStatus.instance.InitStatus(HungerMaxData[hungerIndex],
-            FatigueMaxData[fatigueIndex], HungerData[hungerIndex], FatigueData[fatigueIndex]))
-        {
-            Debug.Log("초기화 실패");
-        }
+        GetFatigueIndex();
+        GetHungerIndex();
+        SetStatusValue();
     }
 
     //맵 바뀔 때 마다 피로도 셋팅
@@ -143,6 +128,44 @@ public class StatusManager : MonoBehaviour
         
     }
 
+
+    public void RevertValueStatus()
+    {
+        for(int i=0; i<HungerMaxData.Length; ++i)
+        {
+            HungerData[i] = HungerMaxData[i];
+        }
+
+        for(int i=0; i<FatigueMaxData.Length; ++i)
+        {
+            FatigueData[i] = FatigueMaxData[i];
+        }
+    }
+    public void GetFatigueIndex()
+    {
+        if (FatigueDict.ContainsKey(GameManager.instance.currentMapName))
+            fatigueIndex = FatigueDict[GameManager.instance.currentMapName];
+        else
+            fatigueIndex = 0;
+    }
+    public void GetHungerIndex()
+    {
+        if (HungerDict.ContainsKey(GameManager.instance.currentMapName))
+            hungerIndex = HungerDict[GameManager.instance.currentMapName];
+        else
+            fatigueIndex = 0;
+    }
+
+    public void SetStatusValue()
+    {
+        // 현재 맵 정보에 따라서 배고픔 피로도 첫 초기화 
+        if (!PlayerStatus.instance.InitStatus(HungerMaxData[hungerIndex],
+            FatigueMaxData[fatigueIndex], HungerData[hungerIndex], FatigueData[fatigueIndex]))
+        {
+            Debug.Log("초기화 실패");
+        }
+    }
+
     private void FatigueDictAdd()
     {
         FatigueDict.Add("CameraPos1", 0); // 1-1
@@ -188,7 +211,6 @@ public class StatusManager : MonoBehaviour
         FatigueDict.Add("CameraPos5-L", 50); // 5
         FatigueDict.Add("CameraPos5-S", 50); // 5
     }
-
     private void HungerDictAdd()
     {
         HungerDict.Add("CameraPos1", 0); // 1 stage
@@ -234,5 +256,4 @@ public class StatusManager : MonoBehaviour
         HungerDict.Add("CameraPos5-S", 4); // 5
         HungerDict.Add("CameraPos5-L", 4); // 5
     }
-
 }

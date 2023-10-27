@@ -19,6 +19,7 @@ public class Teleport : MonoBehaviour
     public static int[] numberArray;
     private Transform teleportPos;			// 이동할 위치
     private Transform playerPos;            // 플레이어 위치 
+    private CameraController controller;
 
     void Awake()
     {
@@ -28,7 +29,7 @@ public class Teleport : MonoBehaviour
     void Start()
     {
         int num = RandomNumber(numberArray, teleports);
-        //Debug.Log(num);
+        controller = GameObject.Find("CameraController").GetComponent<CameraController>();
         teleportPos = GameObject.Find("Spwan " + num).GetComponent<Transform>();
         playerPos = GameObject.Find("Player").GetComponent<Transform>();
     }
@@ -43,6 +44,7 @@ public class Teleport : MonoBehaviour
     protected virtual void Collapsing()
     {
         playerPos.position = teleportPos.position;
+        controller.InitSetPosition();
     }
 
     public static int RandomNumber(int[] portArray, int maxNum)
