@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 0
   itemName: Bread
-  itemImage: {fileID: -764557499, guid: 96e8295f31e7e944689327c5a410706b, type: 3}
+  itemImage: {fileID: -2100716720, guid: 96e8295f31e7e944689327c5a410706b, type: 3}
+  itemNumber: 0
   healValue: 5
