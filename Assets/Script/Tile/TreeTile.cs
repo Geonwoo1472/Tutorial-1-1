@@ -28,7 +28,7 @@ public class TreeTile : IDestroyable
 
     public override void InteractionDestroy()
     {
-        if (!destroyTree)
+        if (!destroyObject)
             return;
 
         PlayerStatus.instance.OnDamageFatigue(HF_Constance.TREETILE);
