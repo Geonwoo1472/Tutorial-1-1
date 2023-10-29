@@ -10,7 +10,7 @@ public class ItemEffect : MonoBehaviour
     private Rigidbody2D itemRigidbody;
     private Vector2 movementTop;
     private Vector2 movementBottom;
-    
+
     private void Awake()
     {
         itemRigidbody = GetComponent<Rigidbody2D>();
