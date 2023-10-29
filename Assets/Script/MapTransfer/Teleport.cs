@@ -45,6 +45,7 @@ public class Teleport : MonoBehaviour
     {
         playerPos.position = teleportPos.position;
         controller.InitSetPosition();
+        Player_Action.instance.PlayerCorouine(PlayerState.pauseMovement, 0.5f);
     }
 
     public static int RandomNumber(int[] portArray, int maxNum)

@@ -60,6 +60,7 @@ public class Collapse : MonoBehaviour
         {
             Collapsing();
             SoundManager.instance.SoundPlaying(SoundType.collapseSound);
+
         }
     }
 
@@ -73,6 +74,7 @@ public class Collapse : MonoBehaviour
     protected virtual void Collapsing()
     {
         playerPos.position = teleportPos.position;
+        Player_Action.instance.PlayerCorouine(PlayerState.pauseMovement, 1f);
         SetActive(true);
         oppositeCollapse.SetActive(true);
     }
