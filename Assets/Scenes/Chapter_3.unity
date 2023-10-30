@@ -26528,11 +26528,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2848520586195425377, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 125.5
+      value: 83.3
       objectReference: {fileID: 0}
     - target: {fileID: 2848520586195425377, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 26.5
+      value: 31.7
       objectReference: {fileID: 0}
     - target: {fileID: 2848520586195425377, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -49826,6 +49826,7 @@ GameObject:
   - component: {fileID: 1015992044}
   - component: {fileID: 1015992046}
   - component: {fileID: 1015992047}
+  - component: {fileID: 1015992048}
   m_Layer: 0
   m_Name: Exit
   m_TagString: Untagged
@@ -49915,7 +49916,7 @@ SpriteRenderer:
   m_SortingLayerID: -1966814127
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 59f8be9ac32f44aa9b21128c25814868, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a2ce5986d4bc0d74b9f4a07f8c97dcad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -49953,6 +49954,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lightYN: 0
+--- !u!95 &1015992048
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015992041}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1e359a4dacfc5b645976e3692997faae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1016111295
 GameObject:
   m_ObjectHideFlags: 0
