@@ -36253,6 +36253,8 @@ GameObject:
   - component: {fileID: 507022121}
   - component: {fileID: 507022120}
   - component: {fileID: 507022119}
+  - component: {fileID: 507022122}
+  - component: {fileID: 507022123}
   m_Layer: 0
   m_Name: Cat-2-Licking 1_0
   m_TagString: Untagged
@@ -36293,7 +36295,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.125, y: 3.125}
+    oldSize: {x: 3.3333333, y: 3.3333333}
     newSize: {x: 0.5, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -36375,6 +36377,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &507022122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507022117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79dea0abb00b9a344b0e38fc5e92dd5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &507022123
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 507022117}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &507659171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -58242,7 +58277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 818526184}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.13, y: -0.14, z: 0}
+  m_LocalPosition: {x: 0.02, y: -0.26, z: 0}
   m_LocalScale: {x: 0.88, y: 0.67, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -64949,9 +64984,13 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: bb020e722814c6a43a5c92e73cc882a3, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 576
     m_Data: {fileID: 1149418831, guid: b8814c83d33f044eaa43a507df945000, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileMatrixArray:
@@ -79999,7 +80038,7 @@ SpriteRenderer:
   m_SortingLayerID: -1966814127
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c9796717ed1e8be46be546801676b407, type: 3}
+  m_Sprite: {fileID: 1149418831, guid: b8814c83d33f044eaa43a507df945000, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
