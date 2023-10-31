@@ -22,6 +22,10 @@ public class StatusManager : MonoBehaviour
     }
     #endregion
 
+    // 스텟의 변동이 있는 경우 UI랜더링
+    public delegate void OnChangeStatusUI();
+    public OnChangeStatusUI onChangeStatusUI;
+
     // 스테이지가 가지고 있는 인덱스 정리
     public Dictionary<string, int> FatigueDict;
     public Dictionary<string, int> HungerDict;
@@ -71,6 +75,7 @@ public class StatusManager : MonoBehaviour
         fatigueIndex = FatigueDict[GameManager.instance.currentMapName];
         PlayerStatus.instance.InitFatigueMax(FatigueMaxData[fatigueIndex]);
         PlayerStatus.instance.InitFatigue(FatigueData[fatigueIndex]);
+        ChangePlayerStatus();
     }
     
     //챕터 변경 마다 배고픔 셋팅
@@ -84,19 +89,7 @@ public class StatusManager : MonoBehaviour
         hungerIndex = HungerDict[GameManager.instance.currentMapName];
         PlayerStatus.instance.InitHungerMax(HungerMaxData[hungerIndex]);
         PlayerStatus.instance.InitHunger(HungerData[hungerIndex]);
-    }
-
-    public void Substitution()
-    { 
-        for (int i=0; i<HungerMaxData.Length; ++i)
-        {
-            HungerData[i] = HungerMaxData[i];
-        }
-
-        for(int i=0; i<FatigueMaxData.Length; ++i)
-        {
-            FatigueData[i] = FatigueMaxData[i];
-        }
+        ChangePlayerStatus();
     }
 
     public void FatigueDataReflection(float value,int type)
@@ -111,7 +104,7 @@ public class StatusManager : MonoBehaviour
                 break;
         }
 
-        
+        ChangePlayerStatus();
     }
 
     public void HungerDataReflection(float value,int type)
@@ -125,7 +118,7 @@ public class StatusManager : MonoBehaviour
                 HungerData[hungerIndex] -= value;
                 break;
         }
-        
+        ChangePlayerStatus();
     }
 
 
@@ -140,6 +133,7 @@ public class StatusManager : MonoBehaviour
         {
             FatigueData[i] = FatigueMaxData[i];
         }
+        ChangePlayerStatus();
     }
     public void GetFatigueIndex()
     {
@@ -147,6 +141,8 @@ public class StatusManager : MonoBehaviour
             fatigueIndex = FatigueDict[GameManager.instance.currentMapName];
         else
             fatigueIndex = 0;
+
+        ChangePlayerStatus();
     }
     public void GetHungerIndex()
     {
@@ -154,6 +150,8 @@ public class StatusManager : MonoBehaviour
             hungerIndex = HungerDict[GameManager.instance.currentMapName];
         else
             fatigueIndex = 0;
+
+        ChangePlayerStatus();
     }
 
     public void SetStatusValue()
@@ -164,6 +162,7 @@ public class StatusManager : MonoBehaviour
         {
             Debug.Log("초기화 실패");
         }
+        ChangePlayerStatus();
     }
 
     private void FatigueDictAdd()
@@ -255,5 +254,13 @@ public class StatusManager : MonoBehaviour
 
         HungerDict.Add("CameraPos5-S", 4); // 5
         HungerDict.Add("CameraPos5-L", 4); // 5
+    }
+
+    private void ChangePlayerStatus()
+    {
+        if (onChangeStatusUI != null)
+        {
+            onChangeStatusUI.Invoke();
+        }
     }
 }

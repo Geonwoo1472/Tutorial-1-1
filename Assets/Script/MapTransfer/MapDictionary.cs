@@ -247,7 +247,13 @@ public class MapDictionary : MonoBehaviour
         //h5
         dict.Add("Spawn h5", "CameraPos4-h5");
 
-        
+        /*hiedden map -> map */
+        dict.Add("SpawnPit4-1", "CameraPos4-1");
+        dict.Add("SpawnPit4-3", "CameraPos4-3");
+        dict.Add("SpawnPit4-4", "CameraPos4-4");
+        dict.Add("SpawnPit4-6", "CameraPos4-6");
+        dict.Add("SpawnPit4-7", "CameraPos4-7");
+
     }
     private void Stage5()
     {

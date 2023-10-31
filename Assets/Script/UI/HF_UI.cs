@@ -30,26 +30,21 @@ public class HF_UI : MonoBehaviour
     [SerializeField]
     private Text textFatigue;
 
-    void Update()
+    private void Start()
     {
-        if (sliderHunger != null)
-        {
-            sliderHunger.value = Utils.Percent(PlayerStatus.instance.Hunger, PlayerStatus.instance.HungerMax);
-        }
-        if (textHunger != null)
-        {
-            textHunger.text = PlayerStatus.instance.Hunger + "/" + PlayerStatus.instance.HungerMax;
-        }
+        StatusManager.instance.onChangeStatusUI += ChangeStatusUI;
+    }
 
-        if(sliderFatigue != null)
-        {
-            sliderFatigue.value = Utils.Percent(PlayerStatus.instance.Fatigue, PlayerStatus.instance.FatigueMax);
-        }
+    private void ChangeStatusUI()
+    {
+        sliderHunger.value = Utils.Percent(PlayerStatus.instance.Hunger, PlayerStatus.instance.HungerMax);
+        textHunger.text = PlayerStatus.instance.Hunger + "/" + PlayerStatus.instance.HungerMax;
+        sliderFatigue.value = Utils.Percent(PlayerStatus.instance.Fatigue, PlayerStatus.instance.FatigueMax);
+        textFatigue.text = PlayerStatus.instance.Fatigue + "/" + PlayerStatus.instance.FatigueMax;
+    }
 
-        if(textFatigue != null)
-        {
-            textFatigue.text = PlayerStatus.instance.Fatigue + "/" + PlayerStatus.instance.FatigueMax;
-        }
-
+    private void OnDisable()
+    {
+        StatusManager.instance.onChangeStatusUI -= ChangeStatusUI;
     }
 }

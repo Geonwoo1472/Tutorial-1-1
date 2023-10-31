@@ -46,6 +46,8 @@ public class PlayerStatus : MonoBehaviour
     [HideInInspector]
     public bool testMode;
 
+
+
     /*Player의 구조체 프로퍼티 */
     public float Hunger
     {
