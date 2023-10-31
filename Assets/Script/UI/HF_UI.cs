@@ -45,6 +45,6 @@ public class HF_UI : MonoBehaviour
 
     private void OnDisable()
     {
-        StatusManager.instance.onChangeStatusUI -= ChangeStatusUI;
+        //StatusManager.instance.onChangeStatusUI -= ChangeStatusUI;
     }
 }
