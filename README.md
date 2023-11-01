@@ -20,3 +20,23 @@
 |![Untitled](https://github.com/Geonwoo1472/Tutorial-1-1/assets/110521729/932602c5-800b-4027-bf00-4f7078261d01)|![Untitled (1)](https://github.com/Geonwoo1472/Tutorial-1-1/assets/110521729/c4e143c2-a5e1-4d6e-9565-c3fc70b2cf2d)|
 |:---:|:---:|
 |시작 화면|불러오기 화면|
+
+|![Untitled (2)](https://github.com/Geonwoo1472/Tutorial-1-1/assets/110521729/dd7cf1cc-af4d-43fe-ac80-3b8be740b1f0)|![Untitled (3)](https://github.com/Geonwoo1472/Tutorial-1-1/assets/110521729/7a2f67db-7036-4cb0-982a-3543c3279c44)|
+|:---:|:---:|
+|조작키 변경 화면|음향 조절 화면|
+
+|![Untitled (4)](https://github.com/Geonwoo1472/Tutorial-1-1/assets/110521729/240df410-2fd3-46bc-ae58-946f0f286a05)|![Untitled (5)](https://github.com/Geonwoo1472/Tutorial-1-1/assets/110521729/cc028f5c-b445-4b22-b63b-8d4442a9f303)|![Untitled (6)](https://github.com/Geonwoo1472/Tutorial-1-1/assets/110521729/235cef20-715b-4657-ba15-6a37c66f73e6)|
+|:---:|:---:|:---:|
+|인트로 화면|굿 엔딩 화면|베드 엔딩 화면|
+
+|![Untitled (7)](https://github.com/Geonwoo1472/Tutorial-1-1/assets/110521729/4522aa5e-85af-47c1-89f6-d8f0a36d6db3)|![Untitled (8)](https://github.com/Geonwoo1472/Tutorial-1-1/assets/110521729/5882d1e5-33e6-4466-aa29-5b8c7c0af12e)|
+|:---:|:---:|
+|게임 화면|인벤토리 화면|
+
+|||
+|:---:|:---:|
+|정지 화면|게임오버 화면|
+
+|||
+|:---:|:---:|
+|정지 화면|게임오버 화면|
