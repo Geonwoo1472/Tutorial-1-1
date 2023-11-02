@@ -13878,9 +13878,9 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131831334}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5493499766015709131, guid: 85536f805dff2f24e8c1b96eb2483be0, type: 2}
   m_audioClip: {fileID: 8300000, guid: 1ab7a316ff4a6dd4d9e78a186d703a41, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -26528,11 +26528,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2848520586195425377, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 83.3
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 2848520586195425377, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 31.7
+      value: -8.4
       objectReference: {fileID: 0}
     - target: {fileID: 2848520586195425377, guid: 03dd485e32ac74342881efe86f1741d7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -49862,7 +49862,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.22130585}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -49873,7 +49873,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 0.5573883}
   m_EdgeRadius: 0
 --- !u!212 &1015992045
 SpriteRenderer:
@@ -83693,7 +83693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cf0e46791edc474693d5437ef501567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 1000
+  ID: 1001
   isNpc: 0
   autoTalkUse: 0
 --- !u!1001 &1366542538

@@ -87,9 +87,9 @@ public class TalkManager : MonoBehaviour
 
     private void CommonDialog()
     {
-        talkData.Add(1000, new string[] { "다음 장소로 이동 할 수 있는 열쇠를 소지하지 않아서 지나갈 수 없습니다." ,
-            "“열쇠라고? 내가 지나온 길에 열쇠 같은건 없었는데?",
-            "“이런.. 설마 열쇠를 찾으러 되돌아가야 하나?"});
+        talkData.Add(1000, new string[] { "고양이가 길을 막아 꿈쩍하지 않습니다." ,
+            "“으음... 무슨 방법이 없을까?”",});
+        talkData.Add(1001, new string[] { "“아니야 피리를 찾아야 할 것 같아.”" });
         talkData.Add(2000, new string[] { "1.5 스테이지 저장하시겠습니까?" });
         talkData.Add(2001, new string[] { "2.5 스테이지 저장하시겠습니까?" });
         talkData.Add(2002, new string[] { "3.5 스테이지 저장하시겠습니까?" });
@@ -124,15 +124,15 @@ public class TalkManager : MonoBehaviour
             });
 
         talkData.Add(104, new string[] { "“이건 뭐지?”" ,
-            "“열쇠..? 이런 곳에 열쇠가 왜 있는 거야?”",
+            "“피리..?”",
             "“그래도 혹시 모르니까 일단 챙겨두자.”",
-            "열쇠를 획득하였습니다."});
+            "피리를 획득하였습니다."});
         
-        talkData.Add(105, new string[] { "가지고 있던 열쇠를 사용하여 다음 장소로 이동할 수 있습니다." ,
-            "“아까 구한 열쇠를 여기서 사용하는 건가 보군.”",
-            "“역시 챙겨 놓길 잘했어.”",
-            "입구에 열쇠를 가져다 대자 문이 열렸다.",
-            "“이 다음엔 어떤 함정이 있을지 모르니 마음 단단히 먹고 움직여야겠어.”"});        
+        talkData.Add(105, new string[] {
+            "“아까 구한 피리가 필요할 것 같아”",
+            "“챙겨 놓길 잘했어.”",
+            "고양이는 피리 소리를 싫어하는 것 같습니다.",
+            "“어라?”"});        
     }
     private void FirstSaveDialog()
     {
@@ -180,17 +180,16 @@ public class TalkManager : MonoBehaviour
 
         talkData.Add(306, new string[] { "“이런, 늪지에 발이 빠져버렸어.”" });
 
-        talkData.Add(307, new string[] { "가지고 있던 열쇠를 사용했다." ,
-            "문이 열렸다.",
-            "“그럼 들어가 볼까?”"});
+        talkData.Add(307, new string[] {
+            "“고양이들도 순진하군”"});
 
-        talkData.Add(308, new string[] {"열리지 않는다.",
-            "“문을 열려면 열쇠가 필요해.”"});
+        talkData.Add(308, new string[] {
+            "“고양이로군 피리가 어디인가 있으려나?”"});
 
         talkData.Add(309, new string[] { "열매를 획득했다.",
         "열매를 사용하면 배고픔이 랜덤으로 회복 혹은 감소합니다."});
 
-        talkData.Add(310, new string[] { "열쇠를 획득했다." });
+        talkData.Add(310, new string[] { "피리를 획득했다." });
 
 
     }
@@ -232,7 +231,7 @@ public class TalkManager : MonoBehaviour
             "“젠장, 갑자기 긴장했더니 온 몸이 다 아프군.”",
             "“그나저나 길이 막혀버렸는데 이제 어쩌면 좋지.”",
             "붕괴된 곳은 다시 지나갈 수 없습니다."});
-        talkData.Add(507, new string[] {"가지고 있던 열쇠를 사용했다."});
+        talkData.Add(507, new string[] { "“자 나가볼까..”" });
         
     }
     private void ThridSaveDialog()
