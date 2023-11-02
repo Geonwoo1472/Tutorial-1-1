@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CatAnimController : MonoBehaviour
 {
+    public ChangeStage changeStage;
+
     private Animator anim;
     private Rigidbody2D catRigidbody;
     private SpriteRenderer image;
@@ -15,15 +17,15 @@ public class CatAnimController : MonoBehaviour
         image = GetComponent<SpriteRenderer>();
     }
 
-    void Start()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Invoke("OnMoveTrigger", 2f);   
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-           
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (changeStage.CheckKeyYN())
+            {
+                OnMoveTrigger();
+            }
+        }
     }
 
     private void OnMoveTrigger()

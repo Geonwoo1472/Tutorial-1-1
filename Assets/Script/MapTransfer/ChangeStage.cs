@@ -33,6 +33,35 @@ public class ChangeStage : MonoBehaviour
         gameManager = GameManager.instance;
     }
 
+
+    private GameObject invenSlot;
+    private DraggableUI draggableUI;
+    private Item item;
+
+    public bool CheckKeyYN()
+    {
+        for (int i = 0; i < inven.SlotCnt; ++i)
+        {
+            invenSlot = itemIvenpanel.GetChild(i).gameObject;
+            if (invenSlot.transform.childCount > 0)
+            {
+                invenSlot = invenSlot.transform.GetChild(0).gameObject;
+                draggableUI = invenSlot.GetComponent<DraggableUI>();
+                item = draggableUI.item;
+
+                if (item.itemType == ItemType.key)
+                {
+                    KeyItem keyItem = (KeyItem)item;
+                    if (keyItem.keyValue == exitKey)
+                    {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
     /*
      부딪힌 객체가 플레이어의 경우
     플레이어 인벤토리 내에 열쇠아이템이 있는경우에
@@ -42,30 +71,15 @@ public class ChangeStage : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            for (int i = 0; i < inven.SlotCnt; ++i)
+            if(CheckKeyYN())
             {
-                GameObject invenSlot = itemIvenpanel.GetChild(i).gameObject;
-                if (invenSlot.transform.childCount > 0)
-                {
-                    invenSlot = invenSlot.transform.GetChild(0).gameObject;
-                    DraggableUI draggableUI = invenSlot.GetComponent<DraggableUI>();
-                    Item item = draggableUI.item;
+                inven.RemoveItem();
+                item.Use();
+                Destroy(invenSlot);
 
-                    if (item.itemType == ItemType.key)
-                    {
-                        KeyItem keyItem = (KeyItem)item;
-                        if (keyItem.keyValue == exitKey)
-                        {
-                            inven.RemoveItem();
-                            item.Use();
-                            Destroy(invenSlot);
-
-                            gameManager.currentMapName = transferMapname;
-                            CommunalSound.instance.SoundPlaying(SoundType.sceneSound);
-                            SceneManager.LoadScene(SceneConstIndex.CHAPTERSAVE);
-                        }
-                    }
-                }
+                gameManager.currentMapName = transferMapname;
+                CommunalSound.instance.SoundPlaying(SoundType.sceneSound);
+                SceneManager.LoadScene(SceneConstIndex.CHAPTERSAVE);
             }
         }
     }

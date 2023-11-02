@@ -14,6 +14,10 @@ using UnityEngine;
 /// #Method#
 /// X
 /// 
+/// #bugReport#
+/// Ray는 4방면으로 이동하는데 스캔하지 못하는 경우가 발생함.
+/// 몸이 닿아서 실행됐는데 Scan된 오브젝트가 없으므로 Action을 이어서 실행하지 못함.
+/// 
 /// </summary>
 public class RayCastTalk : MonoBehaviour
 {
@@ -52,11 +56,11 @@ public class RayCastTalk : MonoBehaviour
     { 
         if (Input.GetKeyDown(KeySetting.keys[KeyAction.INTERACTION]))
         {
+            Debug.Log("RayCastTalk.cs , Interation button Down");
             if (scanObject != null)
             {
                 if (isButtonDown)
                 {
-                    Debug.Log("RayCastTalk.cs , Interation button Down");
                     dalogManager.Action(scanObject);
                 }
             }
