@@ -24,17 +24,6 @@
 
 - 디자이너<br> 박기덕 <br>
 
-총괄 
-
-프로그래밍
-
-사운드, 스토리
-
-픽셀 아트
-
-기획, 맵 디자인
-
-
 ## 게임 설명
 |![Untitled](https://github.com/Geonwoo1472/Tutorial-1-1/assets/110521729/932602c5-800b-4027-bf00-4f7078261d01)|![Untitled (1)](https://github.com/Geonwoo1472/Tutorial-1-1/assets/110521729/c4e143c2-a5e1-4d6e-9565-c3fc70b2cf2d)|
 |:---:|:---:|
