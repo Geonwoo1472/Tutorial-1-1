@@ -14,7 +14,26 @@
 - 프로젝트 이름: JOHN ISLAND 🏝️
 - 프로젝트 지속기간: 2023.05-2023.10
 - 개발 엔진 및 언어: Unity , C#
-- 멤버: 팀 명철호(남건우, 윤현승, 조하연, 박기덕)
+
+## 역할
+- 총괄<br>명철호<br>
+
+- 기획 및 맵 디자인<br>윤현승, 남건우<br>
+
+- 사운드 및 스토리<br>조하연<br>
+
+- 디자이너<br> 박기덕 <br>
+
+총괄 
+
+프로그래밍
+
+사운드, 스토리
+
+픽셀 아트
+
+기획, 맵 디자인
+
 
 ## 게임 설명
 |![Untitled](https://github.com/Geonwoo1472/Tutorial-1-1/assets/110521729/932602c5-800b-4027-bf00-4f7078261d01)|![Untitled (1)](https://github.com/Geonwoo1472/Tutorial-1-1/assets/110521729/c4e143c2-a5e1-4d6e-9565-c3fc70b2cf2d)|
