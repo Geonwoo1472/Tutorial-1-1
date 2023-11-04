@@ -119,20 +119,20 @@ public class TalkManager : MonoBehaviour
             "“저기 있는 건 뭐지? 뭔가 먹을 수 있는 거라면 좋겠는데..”"});
 
         talkData.Add(103, new string[] { "음식을 획득하였습니다." ,
-            "음식을 먹으면 배고픔을 회복할 수 있습니다." ,
+            "음식을 먹으면 피로도를 회복할 수 있습니다." ,
             "I키를 눌러 인벤토리를 열고 아이템을 사용해보세요."
             });
 
         talkData.Add(104, new string[] { "“이건 뭐지?”" ,
             "“피리..?”",
-            "“그래도 혹시 모르니까 일단 챙겨두자.”",
+            "“혹시 모르니까 일단 챙겨두자.”",
             "피리를 획득하였습니다."});
         
         talkData.Add(105, new string[] {
-            "“아까 구한 피리가 필요할 것 같아”",
-            "“챙겨 놓길 잘했어.”",
             "고양이는 피리 소리를 싫어하는 것 같습니다.",
-            "“어라?”"});        
+            "“방금 구한 피리를 여기에 쓰는건가?”",
+            "피리를 불자 고양이가 막고있던 길을 비켜주었다.",
+            "“역시 챙겨 놓길 잘했어.”"});        
     }
     private void FirstSaveDialog()
     {
@@ -148,7 +148,7 @@ public class TalkManager : MonoBehaviour
             "피로도가 일정 수치 회복됐습니다."});
         talkData.Add(202, new string[] {"“여기 웬 도끼가 떨어져 있잖아? 이거 잘하면 요긴하게 쓰이겠는 걸?”",
             "SPACE BAR를 통해 도끼를 사용할 수 있습니다."});
-        talkData.Add(203, new string[] {"p 방금 주운 도끼를 여기다가 써보면 되겠군.",
+        talkData.Add(203, new string[] {"“방금 주운 도끼를 여기다가 써보면 되겠군.”",
             "“어디 한 번 베어 볼까?”",
             "“이런, 너무 단단해서 안 베어지잖아?”"});
         talkData.Add(204, new string[] {"나무를 베어 막혀있던 길이 열렸습니다.",
@@ -184,7 +184,7 @@ public class TalkManager : MonoBehaviour
             "“고양이들도 순진하군”"});
 
         talkData.Add(308, new string[] {
-            "“고양이로군 피리가 어디인가 있으려나?”"});
+            "“고양이로군 피리가 어딘가 있으려나?”"});
 
         talkData.Add(309, new string[] { "열매를 획득했다.",
         "열매를 사용하면 배고픔이 랜덤으로 회복 혹은 감소합니다."});
