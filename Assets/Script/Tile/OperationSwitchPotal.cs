@@ -21,9 +21,9 @@ public class OperationSwitchPotal : MonoBehaviour
     [Header("false라면 스위치 켜질 때 ON, true라면 스위치 켜질 때 OFF")]
     public bool isActive;
 
-    private int activeSwitchCount;
-    private int switchCount;
-    private bool powerStatus;
+    private int switchCount;                    // 연결된 스위치 개수
+    private int activeSwitchCount;              // 활성된 스위치 개수
+    private bool powerStatus;                   // 스위치의 On/Off 여부
 
     private void Awake()
     {
@@ -50,8 +50,6 @@ public class OperationSwitchPotal : MonoBehaviour
             ActiveChange();
             powerStatus = true;
         }
-
-
     }
 
     private void SwitchOff()
@@ -70,15 +68,12 @@ public class OperationSwitchPotal : MonoBehaviour
         gameObject.SetActive(isActive);
     }
 
-    /*
-    private void OnActive()
+    private void OnDestroy()
     {
-        gameObject.SetActive(true);
+        for (int i = 0; i < switchArray.Length; i++)
+        {
+            switchArray[i].operationSwitchOn -= SwitchOn;
+            switchArray[i].operationSwitchOff -= SwitchOff;
+        }
     }
-
-    private void OffActive()
-    {
-        gameObject.SetActive(false);
-    }
-    */
 }

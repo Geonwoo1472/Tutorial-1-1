@@ -52,17 +52,17 @@ public class FadeEffect : MonoBehaviour
     }
 
 
-    public void OnFade(FadeState state)
+    public void OnFade(FadeState state, float time = 1)
     {
         fadeState = state;
 
         switch (fadeState)
         {
             case FadeState.FadeIn:
-                StartCoroutine(Fade(1, 0));
+                StartCoroutine(Fade(time, 0));
                 break;
             case FadeState.FadeOut:
-                StartCoroutine(Fade(0, 1));
+                StartCoroutine(Fade(0, time));
                 break;
             case FadeState.FadeInOut:
             case FadeState.FadeLoopInOut:

@@ -264,7 +264,7 @@ public class TalkManager : MonoBehaviour
             "“...뭐 하나 쉬운 일이 없군.”",
             "“근데 뭘 숨기려고 만든 방이지?”"});
         talkData.Add(706, new string[] { "지도를 획득했다. ", "지도는 M버튼을 눌러 활성화 할 수 있습니다. " });
-
+        talkData.Add(707, new string[] { ".. 야옹~" });
     }
     
     private void FourthSaveDialog()
