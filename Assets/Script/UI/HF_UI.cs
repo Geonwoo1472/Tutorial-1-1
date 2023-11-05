@@ -35,7 +35,7 @@ public class HF_UI : MonoBehaviour
         StatusManager.instance.onChangeStatusUI += ChangeStatusUI;
     }
 
-    private void ChangeStatusUI()
+    public void ChangeStatusUI()
     {
         sliderHunger.value = Utils.Percent(PlayerStatus.instance.Hunger, PlayerStatus.instance.HungerMax);
         textHunger.text = PlayerStatus.instance.Hunger + "/" + PlayerStatus.instance.HungerMax;

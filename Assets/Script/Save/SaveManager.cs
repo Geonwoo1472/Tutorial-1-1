@@ -210,8 +210,8 @@ public class SaveManager : MonoBehaviour
         DataFile jTest1 = new DataFile(imageNumber,stageLineText, storyLineText, playerTransform.position.x, playerTransform.position.y, itemNumberList);
         string jsonData = JsonConvert.SerializeObject(jTest1);
         LoadPopupUpdate(slotNumber, jTest1.imageNumber,jTest1.timeLine, jTest1.stageLine, jTest1.storyLine);
-
-        FileStream stream = new FileStream(Application.dataPath + "/SaveFile/" + slotNumber + "SlotFile.json", FileMode.Create);
+        
+        FileStream stream = new FileStream(Application.persistentDataPath + "/" + slotNumber + "SlotFile.json", FileMode.Create);
         byte[] data = Encoding.UTF8.GetBytes(jsonData);
         stream.Write(data, 0, data.Length);
         stream.Close();
@@ -223,7 +223,7 @@ public class SaveManager : MonoBehaviour
 
         try
         {
-            FileStream stream = new FileStream(Application.dataPath + "/SaveFile/" + slotNumber + "SlotFile.json", FileMode.Open);
+            FileStream stream = new FileStream(Application.persistentDataPath + "/" + slotNumber + "SlotFile.json", FileMode.Open);
             byte[] data = new byte[stream.Length];
             stream.Read(data, 0, data.Length);
             stream.Close();
@@ -271,7 +271,7 @@ public class SaveManager : MonoBehaviour
     {
         try
         {
-            FileStream stream = new FileStream(Application.dataPath + "/SaveFile/" + slotNumber + "SlotFile.json", FileMode.Open);
+            FileStream stream = new FileStream(Application.persistentDataPath + "/" + slotNumber + "SlotFile.json", FileMode.Open);
             byte[] data = new byte[stream.Length];
             stream.Read(data, 0, data.Length);
             stream.Close();
@@ -300,11 +300,22 @@ public class SaveManager : MonoBehaviour
         string jsonData = JsonConvert.SerializeObject(defaultData);
         LoadPopupUpdate(slotNumber, defaultData.imageNumber, defaultData.timeLine, defaultData.stageLine, defaultData.storyLine);
 
-        FileStream stream = new FileStream(Application.dataPath + "/SaveFile/" + slotNumber + "SlotFile.json", FileMode.Create);
+        FileStream stream = new FileStream(Application.persistentDataPath + "/" + slotNumber + "SlotFile.json", FileMode.Create);
+
         byte[] data = Encoding.UTF8.GetBytes(jsonData);
         stream.Write(data, 0, data.Length);
         stream.Close();
     }
+
+    private void WriteText(string filePath, string message)
+    {
+        DirectoryInfo dirInfo = new DirectoryInfo(Path.GetDirectoryName(filePath));
+        if(!dirInfo.Exists)
+        {
+
+        }
+    }
+
 
     private void DataSetting(float _x, float _y, List<int> _itemList)
     {

@@ -21,5 +21,6 @@ public class NewGame : MonoBehaviour
     {
         SceneManager.LoadScene(SceneConstIndex.INTRO);
         GameManager.instance.IsGameOver = false;
+        StatusManager.instance.RevertValueStatus();
     }
 }
