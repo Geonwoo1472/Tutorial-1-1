@@ -167,26 +167,26 @@ public class PlayerStatus : MonoBehaviour
 
     public bool OnHealHunger(float heal)
     {
-        Hunger += heal;
-
-        if(Hunger > HungerMax)
+        if (Hunger+heal > HungerMax)
         {
             Debug.Log("배고픔을 초과하여 heal 하였음");
-            Hunger = HungerMax;
+            heal = (Hunger + heal) - HungerMax;
         }
+        Hunger += heal;
+        StatusManager.instance.HungerDataReflection(heal, OPERATIONTYPE.PLUS);
 
         return true;
     }
 
     public bool OnHealFatigue(float heal)
     {
-        Fatigue += heal;
-
-        if (Fatigue > FatigueMax)
+        if (Fatigue + heal > FatigueMax)
         {
             Debug.Log("피로도를 초과하여 heal 하였음");
-            Fatigue = FatigueMax;
+            heal = (Fatigue + heal) - FatigueMax;
         }
+        Fatigue += heal;
+        StatusManager.instance.FatigueDataReflection(heal, OPERATIONTYPE.PLUS);
 
         return true;
     }

@@ -28,6 +28,11 @@ public class GameManager : UIActive
     public string playerStartingPt;                     // 플레이어 재시작 위치입니다. MapPotal.cs에서 사용하고 있습니다.
     [Header("시작 맵 작성해야 피로도 배고픔 반영")]
     public string currentMapName;                       // 현재 맵의 이름
+    public string CurrentMapName
+    {
+        get { return currentMapName; }
+        set { currentMapName = value; }
+    }
     public int sceneIndex;                              // 현재 Scene의 Index번호 
     public InvenActive invenPanel;                      // InventoryPanel 오브젝트
     public GameOverUIActive OverUI;                     // GameOverUI 오브젝트입니다.

@@ -237,7 +237,11 @@ public class SaveManager : MonoBehaviour
             }
 
             SceneManager.LoadScene(SceneConstIndex.CHAPTERSAVE);
+            
             DataSetting(dataFile.playerPos.x, dataFile.playerPos.y, dataFile.itemNumberList);
+            
+
+
             ESCManager.instance.EmptyStack();
             fadeEffect.OnFade(FadeState.FadeIn);
             GameManager.instance.IsGameOver = false;
@@ -322,7 +326,10 @@ public class SaveManager : MonoBehaviour
         playerTransform.position = new Vector2(_x, _y);
         ItemClear();
         ItemSetting(_itemList);
-
+        GameManager.instance.CurrentMapName = "CameraPos1.5";
+        StatusManager.instance.RevertValueStatus();
+        StatusManager.instance.FatigueSet();
+        StatusManager.instance.HungerSet();
     }
     private void ItemClear()
     {

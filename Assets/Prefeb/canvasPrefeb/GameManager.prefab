@@ -132,6 +132,7 @@ MonoBehaviour:
   - 0
   - 0
   - 50
+  - 999
   FatigueData:
   - 15
   - 15
@@ -184,18 +185,21 @@ MonoBehaviour:
   - 0
   - 0
   - 50
+  - 999
   HungerMaxData:
   - 5
   - 7
   - 8
   - 15
   - 10
+  - 999
   HungerData:
   - 5
   - 7
   - 8
   - 15
   - 10
+  - 999
 --- !u!114 &2970041688810947752
 MonoBehaviour:
   m_ObjectHideFlags: 0

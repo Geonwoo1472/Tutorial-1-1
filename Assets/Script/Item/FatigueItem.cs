@@ -24,6 +24,7 @@ public class FatigueItem : Item
     public override bool Use()
     {
         PlayerStatus.instance.OnHealFatigue(healValue);
+
         Debug.Log("FatigueHeal !!" + healValue);
         if(CommunalSound.instance != null)
         {

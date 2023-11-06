@@ -209,6 +209,11 @@ public class StatusManager : MonoBehaviour
 
         FatigueDict.Add("CameraPos5-L", 50); // 5
         FatigueDict.Add("CameraPos5-S", 50); // 5
+
+        FatigueDict.Add("CameraPos1.5", 51); // Save1
+        FatigueDict.Add("CameraPos2.5", 51); // Save2
+        FatigueDict.Add("CameraPos3.5", 51); // Save3
+        FatigueDict.Add("CameraPos4.5", 51); // Save4
     }
     private void HungerDictAdd()
     {
@@ -254,6 +259,11 @@ public class StatusManager : MonoBehaviour
 
         HungerDict.Add("CameraPos5-S", 4); // 5
         HungerDict.Add("CameraPos5-L", 4); // 5
+
+        HungerDict.Add("CameraPos1.5", 5); // Save1
+        HungerDict.Add("CameraPos2.5", 5); // Save2
+        HungerDict.Add("CameraPos3.5", 5); // Save3
+        HungerDict.Add("CameraPos4.5", 5); // Save4
     }
 
     private void ChangePlayerStatus()
