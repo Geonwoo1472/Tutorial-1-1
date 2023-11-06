@@ -10,7 +10,7 @@
   - [게임 설명](#게임-설명)
   - [게임 플레이 방식](#게임-플레이-방식)
   - [Video](#Video)
-  - [App store](#App-store)
+  - [.exe File](#.exe)
 
 ## 개요
 - 프로젝트 이름: JOHN ISLAND 🏝️
@@ -125,4 +125,5 @@
 
 ## Video 
 
-## App store
+## .exe
+
