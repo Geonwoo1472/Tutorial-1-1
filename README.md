@@ -10,7 +10,7 @@
   - [게임 설명](#게임-설명)
   - [게임 플레이 방식](#게임-플레이-방식)
   - [Video](#Video)
-  - [.exe File](#.exe)
+  - [.exe File](#exe)
 
 ## 개요
 - 프로젝트 이름: JOHN ISLAND 🏝️
@@ -125,6 +125,6 @@
 
 ## Video 
 
-## .exe
+## exe
 [Build File](https://drive.google.com/file/d/11a1f04m6v4tCn4Q79Nzk1IjSCPOM-JOi/view?usp=drive_link)
 
