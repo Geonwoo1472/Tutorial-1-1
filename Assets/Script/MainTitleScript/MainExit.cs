@@ -19,10 +19,11 @@ public class MainExit : MonoBehaviour
 {
     public void ExitGame()
     {
-        Application.Quit();
 #if UNITY_EDITOR
         //System.Diagnostics.Process.GetCurrentProcess().Kill(); // 유니티도 종료됨.
         UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
 #endif
     }
 }

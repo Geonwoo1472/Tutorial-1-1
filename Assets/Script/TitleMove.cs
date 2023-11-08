@@ -20,5 +20,8 @@ public class TitleMove : MonoBehaviour
     public void TileSceneMove()
     {
         SceneManager.LoadScene(SceneConstIndex.MAINTITLE);
+        ESCManager.instance.EmptyStack();
+        Inventory.instance.EmptyInventory();
+        StatusManager.instance.RevertValueStatus();
     }
 }
