@@ -124,6 +124,7 @@
 |![Untitled (7)](https://github.com/Geonwoo1472/Tutorial-1-1/assets/110521729/4522aa5e-85af-47c1-89f6-d8f0a36d6db3)|
 
 ## Video 
+https://youtu.be/SUOA29lky4U
 
 ## exe
 [Build File.zip](https://drive.google.com/file/d/1-BTRWVJ58dOupjWZ-gnNf_M7nQXBG8hV/view?usp=drive_link)
